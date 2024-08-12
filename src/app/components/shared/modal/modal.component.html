@@ -1,0 +1,36 @@
+<div class="modal-backdrop" (click)="closeModal()"></div>
+<div
+  id="modal-container"
+  class="modal"
+  [ngStyle]="{ width: modalWidth, height: modalHeight }"
+  (mousedown)="startDrag($event)"
+  (mouseup)="stopDrag()"
+  (mousemove)="dragModal($event)"
+>
+  <div class="modal-header">
+    <h2>{{ title }}</h2>
+    <button class="close-btn" (click)="closeModal()">×</button>
+  </div>
+  <div class="modal-content">
+    <ng-template #content></ng-template>
+  </div>
+  <div class="modal-footer">
+    <div class="extra-buttons">
+      <button
+        *ngFor="let btn of extraButtons"
+        [ngClass]="btn.cssClass"
+        (click)="btn.action()"
+      >
+        {{ btn.text }}
+      </button>
+    </div>
+    <div class="action-buttons">
+      <button [ngClass]="cancelButtonCss" (click)="onCancelClick()">
+        {{ cancelButtonText }}
+      </button>
+      <button [ngClass]="okButtonCss" (click)="onOkClick()">
+        {{ okButtonText }}
+      </button>
+    </div>
+  </div>
+</div>

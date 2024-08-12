@@ -1,0 +1,18 @@
+<app-modal
+  [title]="'Confirmar Ação'"
+  [okButtonText]="'Confirmar'"
+  [cancelButtonText]="'Cancelar'"
+  [extraButtons]="[{text: 'Opção Extra', cssClass: 'btn-extra', action: extraAction}]"
+  [okButtonCss]="'btn btn-success'"
+  [cancelButtonCss]="'btn btn-danger'"
+  [modalWidth]="'400px'"
+  [modalHeight]="'300px'"
+  [contentComponent]="contentTemplate"
+  (ok)="onConfirm()"
+  (cancel)="onCancel()"
+>
+</app-modal>
+
+<ng-template #contentTemplate>
+  <p>Você tem certeza que deseja realizar esta ação?</p>
+</ng-template>
