@@ -27,7 +27,20 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "optimization": true,
+            "sourceMap": false,
+            "outputHashing": "all",
+            "namedChunks": false,
+            "aot": true,
+            "extractLicenses": true,
+            "budgets": [
+              {
+                "type": "initial",
+                "maximumWarning": "500kb",
+                "maximumError": "1mb"
+              }
+            ]
           },
           "configurations": {
             "production": {
