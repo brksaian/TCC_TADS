@@ -1,8 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { FooterComponent } from './components/shared/footer/footer.component';
-import { HeaderComponent } from './components/shared/header/header.component';
+import { FooterComponent, HeaderComponent } from './components/shared';
 
 @Component({
   selector: 'app-root',
@@ -12,5 +11,5 @@ import { HeaderComponent } from './components/shared/header/header.component';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'Nota-Social';
+  title = 'Nota Social';
 }
