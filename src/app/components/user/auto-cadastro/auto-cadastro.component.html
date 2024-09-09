@@ -1,1 +1,91 @@
-<p>auto-cadastro works!</p>
+<div class="flex flex-col lg:flex-row h-screen">
+  <!-- Esquerda: Informações do aplicativo -->
+  <div
+    class="flex flex-col items-center justify-center w-full lg:w-1/2 bg-green-100 p-6"
+  >
+    <!-- <div class="text-4xl font-bold text-green-600">NS</div> -->
+    <div class="text-center mt-4">
+      <h1 class="text-5xl font-semibold text-green-600">Nota Social</h1>
+      <p class="mt-2 text-lg text-gray-600">Compartilhe, compare, economize</p>
+    </div>
+    <div class="mt-10">
+      <img
+        src="assets/shopping-cart-icon.png"
+        alt="Shopping Cart"
+        class="w-24 h-24 md:w-36 md:h-36"
+      />
+    </div>
+  </div>
+
+  <!-- Direita: Formulário de Registro -->
+  <div
+    class="flex flex-col items-center justify-center w-full lg:w-1/2 bg-green-500 p-6"
+  >
+    <h2 class="text-3xl md:text-4xl font-semibold text-white">Bem vindo</h2>
+    <p class="mt-2 text-white">Crie uma conta</p>
+
+    <form class="w-full md:w-3/4 max-w-lg mt-6">
+      <!-- Seleção de Perfil -->
+      <div class="flex space-x-2 sm:space-x-4 mb-4">
+        <button
+          type="button"
+          (click)="selectProfile('usuario')"
+          [class.bg-white]="selectedProfile === 'usuario'"
+          [class.bg-green-300]="selectedProfile !== 'usuario'"
+          class="flex-1 p-2 text-green-600 rounded-lg"
+        >
+          Usuário
+        </button>
+        <button
+          type="button"
+          (click)="selectProfile('estabelecimento')"
+          [class.bg-white]="selectedProfile === 'estabelecimento'"
+          [class.bg-green-300]="selectedProfile !== 'estabelecimento'"
+          class="flex-1 p-2 text-green-600 rounded-lg"
+        >
+          Estabelecimento
+        </button>
+      </div>
+
+      <!-- Campos comuns -->
+      <input
+        type="text"
+        placeholder="NOME"
+        class="w-full p-3 mb-4 rounded-lg bg-green-100 text-green-900"
+      />
+      <input
+        *ngIf="selectedProfile === 'estabelecimento'"
+        type="text"
+        placeholder="CNPJ"
+        class="w-full p-3 mb-4 rounded-lg bg-green-100 text-green-900"
+      />
+      <input
+        type="email"
+        placeholder="EMAIL"
+        class="w-full p-3 mb-4 rounded-lg bg-green-100 text-green-900"
+      />
+      <input
+        type="password"
+        placeholder="SENHA"
+        class="w-full p-3 mb-4 rounded-lg bg-green-100 text-green-900"
+      />
+      <input
+        type="password"
+        placeholder="CONFIRMAR SENHA"
+        class="w-full p-3 mb-6 rounded-lg bg-green-100 text-green-900"
+      />
+
+      <!-- Botão de registro -->
+      <button
+        type="submit"
+        class="w-full p-3 bg-white text-green-600 font-bold rounded-lg"
+      >
+        Registrar
+      </button>
+    </form>
+
+    <p class="mt-4 text-white">
+      Já possui uma conta? <a href="#" class="underline">Entrar</a>
+    </p>
+  </div>
+</div>
