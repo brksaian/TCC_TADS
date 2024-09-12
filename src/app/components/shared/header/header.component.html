@@ -6,17 +6,21 @@
     <!-- Navegação -->
     <nav>
       <ul class="flex space-x-6">
-        <li><a href="#" class="hover:underline">Início</a></li>
-        <li><a href="#" class="hover:underline">Sobre</a></li>
-        <li><a href="#" class="hover:underline">Funcionalidades</a></li>
-        <li><a href="#" class="hover:underline">Contato</a></li>
+        <li><a routerLink="/inicio" class="hover:underline">Início</a></li>
+        <li><a routerLink="/sobre" class="hover:underline">Sobre</a></li>
+        <li>
+          <a routerLink="/funcionalidades" class="hover:underline"
+            >Funcionalidades</a
+          >
+        </li>
+        <li><a routerLink="/contato" class="hover:underline">Contato</a></li>
       </ul>
     </nav>
 
     <!-- Botão de Login -->
     <div>
       <a
-        href="#"
+        routerLink="/login"
         class="bg-white text-green-600 px-4 py-2 rounded-lg font-semibold hover:bg-green-100"
         >Login</a
       >
