@@ -90,3 +90,11 @@
     </p>
   </div>
 </div>
+
+<!-- Modal -->
+<app-modal-aviso
+  *ngIf="mostrarModal"
+  [tipo]="tipoModal"
+  [titulo]="tituloModal"
+  [mensagem]="mensagemModal"
+></app-modal-aviso>
