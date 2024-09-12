@@ -1,9 +1,9 @@
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { UserService } from '../../../services';
-import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
 import { ModalAvisoComponent } from '../../shared/modal-aviso/modal-aviso.component';
 
 @Component({
@@ -11,22 +11,16 @@ import { ModalAvisoComponent } from '../../shared/modal-aviso/modal-aviso.compon
   standalone: true,
   imports: [CommonModule, RouterModule, HttpClientModule, FormsModule, ModalAvisoComponent],
   templateUrl: './auto-cadastro.component.html',
-  styleUrl: './auto-cadastro.component.css'
+  styleUrls: ['./auto-cadastro.component.css']
 })
 export class AutoCadastroComponent {
-  // Variável para controlar o perfil selecionado
-  selectedProfile: string = 'usuario'; // Por padrão, o perfil será 'usuario'
-
-  // Função para alterar o perfil
-  selectProfile(profile: string) {
-    this.selectedProfile = profile;
-  }
-
+  selectedProfile: string = 'usuario'; // Perfil padrão
   nome: string = '';
   email: string = '';
   senha: string = '';
+  confirmarSenha: string = '';
+  cnpj: string = ''; // Campo para o CNPJ
 
-  // Variáveis para o modal
   mostrarModal: boolean = false;
   tipoModal: 'sucesso' | 'erro' | 'atencao' = 'sucesso';
   tituloModal: string = '';
@@ -34,13 +28,23 @@ export class AutoCadastroComponent {
 
   constructor(private userService: UserService, private router: Router) {}
 
+  // Método para cadastro
   onAutoCadastro() {
-    this.userService.autoCadastro(this.nome, this.email, this.senha).subscribe(
+    if (this.senha !== this.confirmarSenha) {
+      this.exibirModal('erro', 'Erro de validação', 'As senhas não coincidem.');
+      return;
+    }
+
+    // Verifica o perfil e inclui o CNPJ se necessário
+    const perfil = this.selectedProfile;
+    const cnpj = perfil === 'estabelecimento' ? this.cnpj : undefined;
+
+    this.userService.autoCadastro(this.nome, this.email, this.senha, perfil, cnpj).subscribe(
       (response) => {
         this.exibirModal('sucesso', 'Cadastro bem-sucedido', 'Sua conta foi criada com sucesso.');
         setTimeout(() => {
-          this.router.navigate(['/login']); // Redireciona para a página de login após 10 segundos
-        }, 10000); // Tempo para redirecionar após o fechamento da modal
+          this.router.navigate(['/login']);
+        }, 10000);
       },
       (error) => {
         this.exibirModal('erro', 'Erro no cadastro', 'Ocorreu um erro ao criar a conta. Tente novamente.');
@@ -54,5 +58,10 @@ export class AutoCadastroComponent {
     this.tituloModal = titulo;
     this.mensagemModal = mensagem;
     this.mostrarModal = true;
+  }
+
+  // Função para alterar o perfil
+  selectProfile(profile: string) {
+    this.selectedProfile = profile;
   }
 }
