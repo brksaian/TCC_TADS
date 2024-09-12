@@ -31,8 +31,8 @@ export class LoginComponent {
       (response) => {
         this.exibirModal('sucesso', 'Login bem-sucedido', 'Você foi autenticado com sucesso.');
         setTimeout(() => {
-          this.router.navigate(['/login']);
-        }, 10000);
+          this.router.navigate(['/home']);  // Redireciona para /home após login bem-sucedido
+        }, 5000);  // Redireciona após 5 segundos
       },
       (error) => {
         this.exibirModal('erro', 'Erro ao Logar', 'Ocorreu um erro ao realizar login na conta. Tente novamente.');
