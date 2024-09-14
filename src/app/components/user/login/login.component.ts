@@ -35,7 +35,11 @@ export class LoginComponent {
         }, 5000);  // Redireciona após 5 segundos
       },
       (error) => {
-        this.exibirModal('erro', 'Erro ao Logar', 'Ocorreu um erro ao realizar login na conta. Tente novamente.');
+        if (error.status === 401) {
+          this.exibirModal('erro', 'Acesso Negado', 'Credenciais inválidas. Verifique seu email e senha.');
+        } else {
+          this.exibirModal('erro', 'Erro ao Logar', 'Ocorreu um erro inesperado. Tente novamente mais tarde.');
+        }
       }
     );
   }
