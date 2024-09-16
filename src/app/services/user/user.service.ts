@@ -24,17 +24,21 @@ export class UserService {
   }
 
   // Método para autocadastro
-  autoCadastro(nome: string, email: string, senha: string, perfil: string, cnpj?: string): Observable<any> {
+  autoCadastro(nome: string, email: string, senha: string, perfil: string, cnpj?: string, cpf?: string): Observable<any> {
     const url = `${this.apiUrl}/autocadastro`;
+
+    // Cria o corpo da requisição com base no perfil selecionado
     const body = perfil === 'estabelecimento'
       ? { nome, email, senha, perfil, cnpj } // Inclui o CNPJ se o perfil for estabelecimento
-      : { nome, email, senha, perfil }; // Não inclui o CNPJ se o perfil for usuário
+      : { nome, email, senha, perfil, cpf }; // Inclui o CPF se o perfil for usuário
+
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
     return this.http.post(url, body, { headers }).pipe(
       catchError(this.handleError) // Tratamento de erro
     );
-  }
+}
+
 
   // Método para tratamento de erros
   // Método para tratamento de erros

@@ -1,7 +1,8 @@
 import { Directive, ElementRef, HostListener } from '@angular/core';
 
 @Directive({
-  selector: '[appCnpj]'
+  selector: '[appCnpj]',
+  standalone: true,
 })
 export class CnpjDirective {
 

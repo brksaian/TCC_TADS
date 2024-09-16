@@ -1,7 +1,8 @@
 import { Directive, ElementRef, HostListener } from '@angular/core';
 
 @Directive({
-  selector: '[appCpf]'
+  selector: '[appCpf]',
+  standalone: true,
 })
 export class CpfDirective {
 

@@ -4,22 +4,24 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { UserService } from '../../../services';
+import { CnpjDirective, CpfDirective } from '../../../shared/directives';
 import { ModalAvisoComponent } from '../../shared/modal-aviso/modal-aviso.component';
 
 @Component({
   selector: 'app-auto-cadastro',
   standalone: true,
-  imports: [CommonModule, RouterModule, HttpClientModule, FormsModule, ModalAvisoComponent],
+  imports: [CommonModule, RouterModule, HttpClientModule, FormsModule, ModalAvisoComponent, CnpjDirective, CpfDirective],
   templateUrl: './auto-cadastro.component.html',
   styleUrls: ['./auto-cadastro.component.css']
 })
 export class AutoCadastroComponent {
-  selectedProfile: string = 'usuario'; // Perfil padrão
+  selectedProfile: string = 'usuario';
   nome: string = '';
   email: string = '';
   senha: string = '';
   confirmarSenha: string = '';
-  cnpj: string = ''; // Campo para o CNPJ
+  cnpj: string = '';
+  cpf: string = '';
 
   mostrarModal: boolean = false;
   tipoModal: 'sucesso' | 'erro' | 'atencao' = 'sucesso';
@@ -35,11 +37,12 @@ export class AutoCadastroComponent {
       return;
     }
 
-    // Verifica o perfil e inclui o CNPJ se necessário
+    // Verifica o perfil e inclui o CPF ou CNPJ se necessário
     const perfil = this.selectedProfile;
     const cnpj = perfil === 'estabelecimento' ? this.cnpj : undefined;
+    const cpf = perfil === 'usuario' ? this.cpf : undefined;
 
-    this.userService.autoCadastro(this.nome, this.email, this.senha, perfil, cnpj).subscribe(
+    this.userService.autoCadastro(this.nome, this.email, this.senha, perfil, cnpj, cpf).subscribe(
       (response) => {
         this.exibirModal('sucesso', 'Cadastro bem-sucedido', 'Sua conta foi criada com sucesso.');
         setTimeout(() => {

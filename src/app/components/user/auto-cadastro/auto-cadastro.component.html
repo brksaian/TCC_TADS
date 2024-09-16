@@ -1,11 +1,12 @@
 <div class="flex flex-col lg:flex-row h-full relative">
   <!-- Botão no canto superior direito -->
-  <div class="absolute top-0 right-0 m-4">
-    <a
-      routerLink="/"
-      class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 font-bold"
-    >
-      NS
+  <div class="absolute top-0 left-0 m-4">
+    <a routerLink="/">
+      <img
+        src="assets/Nota_Social_fundo_transparente.png"
+        alt="Home"
+        class="w-16 h-16"
+      />
     </a>
   </div>
 
@@ -13,16 +14,15 @@
   <div
     class="flex flex-col items-center justify-center w-full lg:w-1/2 bg-green-100 p-6"
   >
-    <div class="text-center mt-4">
-      <h1 class="text-5xl font-semibold text-green-600">Nota Social</h1>
-      <p class="mt-2 text-lg text-gray-600">Compartilhe, compare, economize</p>
-    </div>
     <div class="mt-10">
       <img
-        src="assets/shopping-cart-icon.png"
-        alt="Shopping Cart"
-        class="w-24 h-24 md:w-36 md:h-36"
+        src="assets/Nota_Social_sem_fundo.png"
+        alt="Logo Nota Social"
+        class="w-96 h-auto md:w-60"
       />
+    </div>
+    <div class="text-center">
+      <p class="text-lg text-gray-600">Compartilhe, compare, economize</p>
     </div>
   </div>
 
@@ -70,6 +70,17 @@
         placeholder="CNPJ"
         [(ngModel)]="cnpj"
         name="cnpj"
+        appCnpj
+        class="w-full p-3 mb-4 rounded-lg bg-green-100 text-green-900"
+      />
+
+      <input
+        *ngIf="selectedProfile === 'usuario'"
+        type="text"
+        placeholder="CPF"
+        [(ngModel)]="cpf"
+        name="cpf"
+        appCpf
         class="w-full p-3 mb-4 rounded-lg bg-green-100 text-green-900"
       />
       <input
