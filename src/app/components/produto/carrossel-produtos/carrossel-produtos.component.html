@@ -1,5 +1,5 @@
-<div class="container mx-auto">
-  <owl-carousel-o [options]="customOptions" class="mt-8">
+<div class="flex-grow flex relative overflow-hidden">
+  <owl-carousel-o [options]="customOptions" class="mt-8 w-full h-full">
     <ng-container *ngFor="let produto of produtos">
       <ng-template carouselSlide>
         <app-card-produto [produto]="produto"></app-card-produto>

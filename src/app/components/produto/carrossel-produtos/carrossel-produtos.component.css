@@ -1,0 +1,7 @@
+.owl-carousel-o {
+  @apply flex items-center justify-center;
+}
+
+.app-card-produto {
+  @apply h-full w-full;
+}

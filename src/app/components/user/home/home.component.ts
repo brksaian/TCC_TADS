@@ -15,17 +15,62 @@ export class HomeComponent {
     {
       nome: 'Arroz TP1 Buriti',
       precoMedio: 6.69,
-      imagem: 'assets/images/arroz-buriti.png'
+      imagem: 'assets/Nota Social.jpg'//'assets/images/arroz-buriti.png'
     },
     {
       nome: 'Feijão Preto',
       precoMedio: 4.99,
-      imagem: 'assets/images/feijao-preto.png'
+      imagem: 'assets/Nota Social.jpg' //'assets/images/feijao-preto.png'
     },
     {
       nome: 'Azeite de Oliva Extra Virgem',
       precoMedio: 19.99,
-      imagem: 'assets/images/azeite-oliva.png'
+      imagem: 'assets/Nota Social.jpg' //'assets/images/azeite-oliva.png'
+    },
+    {
+      nome: 'Arroz TP1 Buriti',
+      precoMedio: 6.69,
+      imagem: 'assets/Nota Social.jpg'//'assets/images/arroz-buriti.png'
+    },
+    {
+      nome: 'Feijão Preto',
+      precoMedio: 4.99,
+      imagem: 'assets/Nota Social.jpg' //'assets/images/feijao-preto.png'
+    },
+    {
+      nome: 'Azeite de Oliva Extra Virgem',
+      precoMedio: 19.99,
+      imagem: 'assets/Nota Social.jpg' //'assets/images/azeite-oliva.png'
+    },
+    {
+      nome: 'Arroz TP1 Buriti',
+      precoMedio: 6.69,
+      imagem: 'assets/Nota Social.jpg'//'assets/images/arroz-buriti.png'
+    },
+    {
+      nome: 'Feijão Preto',
+      precoMedio: 4.99,
+      imagem: 'assets/Nota Social.jpg' //'assets/images/feijao-preto.png'
+    },
+    {
+      nome: 'Azeite de Oliva Extra Virgem',
+      precoMedio: 19.99,
+      imagem: 'assets/Nota Social.jpg' //'assets/images/azeite-oliva.png'
+    },
+    {
+      nome: 'Arroz TP1 Buriti',
+      precoMedio: 6.69,
+      imagem: 'assets/Nota Social.jpg'//'assets/images/arroz-buriti.png'
+    },
+    {
+      nome: 'Feijão Preto',
+      precoMedio: 4.99,
+      imagem: 'assets/Nota Social.jpg' //'assets/images/feijao-preto.png'
+    },
+    {
+      nome: 'Azeite de Oliva Extra Virgem',
+      precoMedio: 19.99,
+      imagem: 'assets/Nota Social.jpg' //'assets/images/azeite-oliva.png'
     },
   ];
 }
