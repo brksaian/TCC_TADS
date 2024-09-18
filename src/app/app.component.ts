@@ -8,7 +8,7 @@ import { FooterComponent, HeaderComponent } from './components/shared';
   standalone: true,
   imports: [CommonModule, RouterOutlet, HeaderComponent, FooterComponent],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'] // Corrigido para styleUrls
+  styleUrls: ['./app.component.css'] // Certifique-se de que styleUrls esteja correto
 })
 export class AppComponent {
   title = 'Nota Social';
