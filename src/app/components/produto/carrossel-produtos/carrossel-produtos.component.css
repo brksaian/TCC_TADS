@@ -1,7 +1,9 @@
-.owl-carousel-o {
-  @apply flex items-center justify-center;
+.swiper-container {
+  max-width: 100%;
+  overflow: hidden;
 }
-
-.app-card-produto {
-  @apply h-full w-full;
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

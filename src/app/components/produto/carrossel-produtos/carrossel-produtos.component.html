@@ -1,9 +1,18 @@
-<div class="flex-grow flex relative overflow-hidden">
-  <owl-carousel-o [options]="customOptions" class="mt-8 w-full h-full">
-    <ng-container *ngFor="let produto of produtos">
-      <ng-template carouselSlide>
-        <app-card-produto [produto]="produto"></app-card-produto>
-      </ng-template>
-    </ng-container>
-  </owl-carousel-o>
+<div class="swiper-container relative max-w-7xl mx-auto p-10">
+  <div class="swiper-wrapper">
+    <div
+      *ngFor="let produto of produtos"
+      class="swiper-slide w-full md:w-1/2 lg:w-1/3 xl:w-1/6 p-4"
+    >
+      <app-card-produto [produto]="produto"></app-card-produto>
+    </div>
+  </div>
+
+  <!-- Botões de navegação -->
+  <div
+    class="swiper-button-prev absolute left-0 top-1/2 transform -translate-y-1/2 z-10 p-3 rounded-full cursor-pointer"
+  ></div>
+  <div
+    class="swiper-button-next absolute right-0 top-1/2 transform -translate-y-1/2 z-10 p-3 rounded-full cursor-pointer"
+  ></div>
 </div>
