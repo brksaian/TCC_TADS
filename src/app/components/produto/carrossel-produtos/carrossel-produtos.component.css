@@ -1,7 +1,9 @@
-.owl-carousel-o {
-  @apply flex items-center justify-center;
+.overflow-hidden {
+  overflow-x: hidden;
 }
 
-.app-card-produto {
-  @apply h-full w-full;
+
+.botao-navegacao {
+  z-index: 9999;
 }
+

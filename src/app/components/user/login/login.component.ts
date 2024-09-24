@@ -5,11 +5,12 @@ import { FormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { UserService } from '../../../services';
 import { ModalAvisoComponent } from '../../shared/modal-aviso/modal-aviso.component';
+import { ForgotPasswordModalComponent } from "../forgot-password-modal/forgot-password-modal.component";
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, HttpClientModule, FormsModule, ModalAvisoComponent, RouterModule],
+  imports: [CommonModule, HttpClientModule, FormsModule, ModalAvisoComponent, RouterModule, ForgotPasswordModalComponent],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })

@@ -21,7 +21,6 @@ export class AutoCadastroComponent {
   senha: string = '';
   confirmarSenha: string = '';
   cnpj: string = '';
-  cpf: string = '';
 
   mostrarModal: boolean = false;
   tipoModal: 'sucesso' | 'erro' | 'atencao' = 'sucesso';
@@ -40,9 +39,8 @@ export class AutoCadastroComponent {
     // Verifica o perfil e inclui o CPF ou CNPJ se necessário
     const perfil = this.selectedProfile;
     const cnpj = perfil === 'estabelecimento' ? this.cnpj : undefined;
-    const cpf = perfil === 'usuario' ? this.cpf : undefined;
 
-    this.userService.autoCadastro(this.nome, this.email, this.senha, perfil, cnpj, cpf).subscribe(
+    this.userService.autoCadastro(this.nome, this.email, this.senha, perfil, cnpj).subscribe(
       (response) => {
         this.exibirModal('sucesso', 'Cadastro bem-sucedido', 'Sua conta foi criada com sucesso.');
         setTimeout(() => {
