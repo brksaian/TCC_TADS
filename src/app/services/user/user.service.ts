@@ -38,6 +38,16 @@ export class UserService {
       catchError(this.handleError) // Tratamento de erro
     );
 }
+// Método para recuperação de senha
+forgotPassword(email: string): Observable<any> {
+  const url = `${this.apiUrl}/forgot-password`;
+  const body = { email };
+  const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+
+  return this.http.post(url, body, { headers }).pipe(
+    catchError(this.handleError) // Tratamento de erro
+  );
+}
 
 
   // Método para tratamento de erros
@@ -56,5 +66,6 @@ private handleError(error: any) {
   console.error(errorMessage); // Log do erro para depuração
   return throwError(() => new Error(errorMessage));
 }
+
 
 }

@@ -71,6 +71,19 @@
           >Registrar</a
         >
       </p>
+
+      <!-- Link para abrir a modal -->
+      <p class="text-center text-white">
+        <button (click)="mostrarModal = true" class="text-white underline">
+          Esqueci minha senha
+        </button>
+
+        <!-- Modal de Esqueci minha senha -->
+        <app-forgot-password-modal
+          *ngIf="mostrarModal"
+          (close)="mostrarModal = false"
+        ></app-forgot-password-modal>
+      </p>
     </form>
   </div>
 </div>
