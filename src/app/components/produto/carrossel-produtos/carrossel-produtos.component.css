@@ -1,9 +1,9 @@
-.swiper-container {
-  max-width: 100%;
-  overflow: hidden;
+.overflow-hidden {
+  overflow-x: hidden;
 }
-.swiper-slide {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+
+.botao-navegacao {
+  z-index: 9999;
 }
+

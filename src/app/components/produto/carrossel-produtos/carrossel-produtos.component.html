@@ -1,18 +1,37 @@
-<div class="swiper-container relative max-w-7xl mx-auto p-10">
-  <div class="swiper-wrapper">
+<div class="relative w-full">
+  <!-- Botão para deslizar à esquerda -->
+  <button
+    class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-200 hover:bg-gray-300 rounded-full p-2 botao-navegacao"
+    (click)="slide(-1)"
+  >
+    &#8249;
+  </button>
+
+  <!-- Lista de produtos no carrossel -->
+  <div class="overflow-hidden px-8">
     <div
-      *ngFor="let produto of produtos"
-      class="swiper-slide w-full md:w-1/2 lg:w-1/3 xl:w-1/6 p-4"
+      class="flex transition-transform duration-500 ease-in-out"
+      [ngStyle]="{
+        transform:
+          'translateX(' + -currentIndex() * (100 / itemsPerPage()) + '%)',
+        width: '100%'
+      }"
     >
-      <app-card-produto [produto]="produto"></app-card-produto>
+      <div
+        *ngFor="let produto of produtos"
+        class="flex-shrink-0 w-full p-4"
+        [style.width]="100 / itemsPerPage() + '%'"
+      >
+        <app-card-produto [produto]="produto"></app-card-produto>
+      </div>
     </div>
   </div>
 
-  <!-- Botões de navegação -->
-  <div
-    class="swiper-button-prev absolute left-0 top-1/2 transform -translate-y-1/2 z-10 p-3 rounded-full cursor-pointer"
-  ></div>
-  <div
-    class="swiper-button-next absolute right-0 top-1/2 transform -translate-y-1/2 z-10 p-3 rounded-full cursor-pointer"
-  ></div>
+  <!-- Botão para deslizar à direita -->
+  <button
+    class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-200 hover:bg-gray-300 rounded-full p-2 botao-navegacao"
+    (click)="slide(1)"
+  >
+    &#8250;
+  </button>
 </div>
