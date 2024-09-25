@@ -1,1 +1,76 @@
-<p>buscar-produto works!</p>
+<div class="container mx-auto p-6">
+  <!-- Filtros e barra de busca -->
+  <div class="flex justify-between items-center mb-4">
+    <!-- Categorias -->
+    <div>
+      <p class="font-semibold mb-2">CATEGORIA</p>
+      <ul class="space-y-2">
+        <li
+          *ngFor="let categoria of categorias"
+          class="flex justify-between items-center cursor-pointer"
+          (click)="onCategoryChange(categoria)"
+        >
+          <label class="flex items-center space-x-2 cursor-pointer">
+            <!-- Estilos para o input radio -->
+            <input
+              type="radio"
+              name="category"
+              [value]="categoria.name"
+              [(ngModel)]="selectedCategory"
+              class="form-radio h-4 w-4 text-green-600 focus:ring-green-600 border-gray-300"
+            />
+            <span class="text-gray-700">{{ categoria.name }}</span>
+          </label>
+          <!-- Exibir a quantidade de produtos para cada categoria -->
+          <span class="text-gray-500">({{ categoria.count }})</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Barra de busca -->
+    <div class="flex items-center space-x-4">
+      <input
+        type="text"
+        [(ngModel)]="searchQuery"
+        placeholder="Buscar Produto"
+        class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none"
+      />
+      <button
+        (click)="onSearch()"
+        class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700"
+      >
+        Buscar
+      </button>
+    </div>
+
+    <!-- Ordenação -->
+    <div>
+      <p class="font-semibold mb-2">Ordenar por</p>
+      <select
+        [(ngModel)]="sortOption"
+        (change)="onSortChange(sortOption)"
+        class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none"
+      >
+        <option value="A-Z">A-Z</option>
+        <option value="Z-A">Z-A</option>
+        <option value="price-asc">Menor Preço</option>
+        <option value="price-desc">Maior Preço</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Produtos -->
+  <div
+    *ngIf="!isLoading; else loadingTemplate"
+    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+  >
+    <div *ngFor="let produto of produtos" class="border rounded-lg p-4">
+      <app-card-produto [produto]="produto"></app-card-produto>
+    </div>
+  </div>
+
+  <!-- Carregando -->
+  <ng-template #loadingTemplate>
+    <p class="text-center text-gray-500">Carregando produtos...</p>
+  </ng-template>
+</div>
