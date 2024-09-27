@@ -1,5 +1,12 @@
 <app-header-home></app-header-home>
 <section class="flex justify-center align-middle">
+  <app-carrossel-categorias
+    [categorias]="categorias"
+    class="carrosselCategoria"
+  ></app-carrossel-categorias>
+</section>
+
+<section class="flex justify-center align-middle">
   <app-carrossel-produtos
     [produtos]="produtos"
     class="carrosselProduto"
