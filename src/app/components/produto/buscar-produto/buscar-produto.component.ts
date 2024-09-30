@@ -5,16 +5,17 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ProdutoService } from '../../../services';
 import { CardProdutoComponent } from '../card-produto';
+import { Produto } from '../../../shared/interface';
 
 @Component({
   selector: 'app-buscar-produto',
   standalone: true,
   imports: [CommonModule, FormsModule, HttpClientModule, RouterModule, CardProdutoComponent],
   templateUrl: './buscar-produto.component.html',
-  styleUrl: './buscar-produto.component.css'
+  styleUrls: ['./buscar-produto.component.css']
 })
 export class BuscarProdutoComponent implements OnInit {
-  produtos: any[] = [];
+  produtos: Produto[] = [];
   categorias = [
     { name: 'Feira', count: 50 },
     { name: 'Bebidas', count: 40 },
@@ -37,14 +38,14 @@ export class BuscarProdutoComponent implements OnInit {
   fetchProducts(): void {
     this.isLoading = true;
     const queryParams = {
-      category: this.selectedCategory || '',
-      search: this.searchQuery || '',
-      sort: this.sortOption || 'A-Z',
+      category: this.selectedCategory,
+      search: this.searchQuery,
+      sort: this.sortOption,
     };
 
-    this.productService.getProducts(queryParams).subscribe(
+    this.productService.getProdutosFiltrados(queryParams).subscribe(
       (data) => {
-        this.produtos = data.products;
+        this.produtos = data;
         this.isLoading = false;
       },
       (error) => {

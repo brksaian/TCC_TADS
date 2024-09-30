@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { PrecoProduto, Produto } from '../../shared/interface';
 
 @Injectable({
@@ -52,28 +52,59 @@ export class ProdutoService {
   // Métodos de Preço de Produto
   // ============================
 
-  // Buscar todos os preços de produtos
   getPrecoProdutos(): Observable<PrecoProduto[]> {
     return this.http.get<PrecoProduto[]>(this.precoApiUrl);
   }
 
-  // Buscar um preço de produto por ID
   getPrecoProdutoById(id: number): Observable<PrecoProduto> {
     return this.http.get<PrecoProduto>(`${this.precoApiUrl}/${id}`);
   }
 
-  // Criar um novo preço para um produto
   createPrecoProduto(precoProduto: PrecoProduto): Observable<PrecoProduto> {
     return this.http.post<PrecoProduto>(this.precoApiUrl, precoProduto);
   }
 
-  // Atualizar um preço de produto existente
   updatePrecoProduto(id: number, precoProduto: PrecoProduto): Observable<PrecoProduto> {
     return this.http.put<PrecoProduto>(`${this.precoApiUrl}/${id}`, precoProduto);
   }
 
-  // Deletar um preço de produto
   deletePrecoProduto(id: number): Observable<void> {
     return this.http.delete<void>(`${this.precoApiUrl}/${id}`);
+  }
+
+  getPrecoMedioProduto(produtoId: number): Observable<number> {
+    const url = `${this.precoApiUrl}?produto_id=${produtoId}`;
+
+    return this.http.get<PrecoProduto[]>(url).pipe(
+      map((precos: PrecoProduto[]) => {
+        if (precos.length === 0) {
+          return 0;
+        }
+        const total = precos.reduce((acc, preco) => acc + preco.preco, 0);
+        return total / precos.length;
+      })
+    );
+  }
+
+  getProdutosFiltrados(queryParams: any): Observable<Produto[]> {
+    const { category, search, sort } = queryParams;
+
+    let query = `${this.apiUrl}?`;
+
+    if (category) {
+      query += `categoria_like=${category}&`;
+    }
+
+    if (search) {
+      query += `nome_like=${search}&`;
+    }
+
+    if (sort === 'A-Z') {
+      query += `_sort=nome&_order=asc`;
+    } else if (sort === 'Z-A') {
+      query += `_sort=nome&_order=desc`;
+    }
+
+    return this.http.get<Produto[]>(query);
   }
 }

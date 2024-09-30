@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ProdutoService } from '../../../services';
 import { Produto } from '../../../shared/interface';
 
 @Component({
@@ -7,18 +8,31 @@ import { Produto } from '../../../shared/interface';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './card-produto.component.html',
-  styleUrl: './card-produto.component.css'
+  styleUrls: ['./card-produto.component.css']
 })
-export class CardProdutoComponent {
-    @Input() produto!: Produto;
+export class CardProdutoComponent implements OnInit {
+  @Input() produto!: Produto;
+  precoMedio: number | null = null;
 
-    adicionarAoCarrinho(produto: Produto) {
-      // lógica para adicionar ao carrinho
-      console.log('Produto adicionado ao carrinho:', produto);
-    }
+  constructor(private produtoService: ProdutoService) {}
 
-    adicionarAosFavoritos(produto: Produto) {
-      // lógica para adicionar aos favoritos
-      console.log('Produto adicionado aos favoritos:', produto);
-    }
+  ngOnInit(): void {
+    this.produtoService.getPrecoMedioProduto(this.produto.id).subscribe(
+      (precoMedio) => {
+        this.precoMedio = precoMedio;
+      },
+      (error) => {
+        console.error('Erro ao buscar preço médio:', error);
+        this.precoMedio = null;
+      }
+    );
   }
+
+  adicionarAoCarrinho(produto: Produto) {
+    console.log('Produto adicionado ao carrinho:', produto);
+  }
+
+  adicionarAosFavoritos(produto: Produto) {
+    console.log('Produto adicionado aos favoritos:', produto);
+  }
+}
