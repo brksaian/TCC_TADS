@@ -3,358 +3,322 @@
     {
       "id": 1,
       "nome": "Arroz Integral Tio João 500g",
-      "precoMedio": 7.49,
-      "imagem": "assets/images/products/arroz_tio_joao_500g.webp",
-      "categorias": [1, 7]
+      "descricao": "Arroz integral de alta qualidade, embalado a vácuo.",
+      "image": "https://www.paodeacucar.com/img/uploads/1/492/554492.png",
+      "categoria": 1,
+      "created_at": "2024-09-25T10:00:00Z",
+      "updated_at": "2024-09-25T12:00:00Z"
     },
     {
       "id": 2,
       "nome": "Feijão Carioca Camil",
-      "precoMedio": 5.29,
-      "imagem": "https://www.paodeacucar.com/img/uploads/1/492/554492.png",
-      "categorias": [1, 7]
+      "descricao": "Feijão carioca selecionado, pronto para cozinhar.",
+      "image": "https://www.paodeacucar.com/img/uploads/1/13/630013.png",
+      "categoria": 1,
+      "created_at": "2024-09-20T09:30:00Z",
+      "updated_at": "2024-09-22T11:15:00Z"
     },
     {
       "id": 3,
       "nome": "Azeite de Oliva Gallo Extra Virgem",
-      "precoMedio": 24.99,
-      "imagem": "https://www.paodeacucar.com/img/uploads/1/13/630013.png",
-      "categorias": [1, 2]
+      "descricao": "Azeite de oliva extra virgem com sabor suave e frutado.",
+      "image": "https://www.paodeacucar.com/img/uploads/1/628/518628.png",
+      "categoria": 2,
+      "created_at": "2024-09-15T08:20:00Z",
+      "updated_at": "2024-09-16T10:45:00Z"
     },
     {
       "id": 4,
       "nome": "Macarrão Penne Barilla",
-      "precoMedio": 7.89,
-      "imagem": "https://www.paodeacucar.com/img/uploads/1/628/518628.png",
-      "categorias": [1, 4]
+      "descricao": "Macarrão penne de trigo duro, perfeito para receitas italianas.",
+      "image": "https://www.paodeacucar.com/img/uploads/1/473/605473.png",
+      "categoria": 3,
+      "created_at": "2024-09-10T07:30:00Z",
+      "updated_at": "2024-09-12T09:00:00Z"
     },
     {
       "id": 5,
       "nome": "Farinha de Trigo Dona Benta",
-      "precoMedio": 3.99,
-      "imagem": "https://www.paodeacucar.com/img/uploads/1/473/605473.png",
-      "categorias": [1, 4]
+      "descricao": "Farinha de trigo especial para pães e bolos.",
+      "image": "https://www.paodeacucar.com/img/uploads/1/473/605473.png",
+      "categoria": 3,
+      "created_at": "2024-09-05T10:00:00Z",
+      "updated_at": "2024-09-06T12:00:00Z"
     },
     {
       "id": 6,
       "nome": "Leite Longa Vida Parmalat",
-      "precoMedio": 4.59,
-      "imagem": "https://www.paodeacucar.com/img/uploads/1/617/554617.png",
-      "categorias": [2, 1]
+      "descricao": "Leite UHT de alta qualidade.",
+      "image": "https://www.paodeacucar.com/img/uploads/1/617/554617.png",
+      "categoria": 1,
+      "created_at": "2024-08-25T11:20:00Z",
+      "updated_at": "2024-08-27T13:15:00Z"
     },
     {
       "id": 7,
       "nome": "Manteiga Aviação com Sal",
-      "precoMedio": 15.99,
-      "imagem": "https://www.paodeacucar.com/img/uploads/1/30/607030.png",
-      "categorias": [1, 4]
+      "descricao": "Manteiga tradicional com sal.",
+      "image": "https://www.paodeacucar.com/img/uploads/1/30/607030.png",
+      "categoria": 4,
+      "created_at": "2024-09-01T08:30:00Z",
+      "updated_at": "2024-09-03T10:00:00Z"
     },
     {
       "id": 8,
       "nome": "Café Pilão Torrado e Moído",
-      "precoMedio": 9.99,
-      "imagem": "https://www.paodeacucar.com/img/uploads/1/205/607205.png",
-      "categorias": [2, 1]
+      "descricao": "Café de qualidade superior, torrado e moído.",
+      "image": "https://www.paodeacucar.com/img/uploads/1/205/607205.png",
+      "categoria": 1,
+      "created_at": "2024-08-15T07:00:00Z",
+      "updated_at": "2024-08-17T09:30:00Z"
     },
     {
       "id": 9,
       "nome": "Açúcar Refinado União",
-      "precoMedio": 2.99,
-      "imagem": "https://www.paodeacucar.com/img/uploads/1/578/630578.png",
-      "categorias": [1]
+      "descricao": "Açúcar refinado de alta qualidade.",
+      "image": "https://www.paodeacucar.com/img/uploads/1/578/630578.png",
+      "categoria": 1,
+      "created_at": "2024-09-03T09:15:00Z",
+      "updated_at": "2024-09-05T11:00:00Z"
     },
     {
       "id": 10,
       "nome": "Detergente Líquido Ypê",
-      "precoMedio": 1.99,
-      "imagem": "https://www.paodeacucar.com/img/uploads/1/135/630135.png",
-      "categorias": [3]
+      "descricao": "Detergente eficaz para remoção de gordura.",
+      "image": "https://www.paodeacucar.com/img/uploads/1/135/630135.png",
+      "categoria": 6,
+      "created_at": "2024-09-07T10:30:00Z",
+      "updated_at": "2024-09-09T12:20:00Z"
     },
     {
       "id": 11,
       "nome": "Sabão em Pó Omo Lavagem Perfeita",
-      "precoMedio": 10.99,
-      "imagem": "https://www.paodeacucar.com/img/uploads/1/138/607138.png",
-      "categorias": [3]
+      "descricao": "Sabão em pó de alta eficiência.",
+      "image": "https://www.paodeacucar.com/img/uploads/1/138/607138.png",
+      "categoria": 6,
+      "created_at": "2024-08-20T11:40:00Z",
+      "updated_at": "2024-08-22T13:10:00Z"
     },
     {
       "id": 12,
       "nome": "Papel Higiênico Neve 30 Metros",
-      "precoMedio": 12.99,
-      "imagem": "https://www.paodeacucar.com/img/uploads/1/215/607215.png",
-      "categorias": [5]
+      "descricao": "Papel higiênico de alta qualidade e maciez.",
+      "image": "https://www.paodeacucar.com/img/uploads/1/215/607215.png",
+      "categoria": 5,
+      "created_at": "2024-09-14T09:25:00Z",
+      "updated_at": "2024-09-15T11:45:00Z"
     },
     {
       "id": 13,
       "nome": "Desodorante Rexona Aerosol",
-      "precoMedio": 15.99,
-      "imagem": "https://www.paodeacucar.com/img/uploads/1/30/607030.png",
-      "categorias": [5, 6]
+      "descricao": "Desodorante de longa duração para o dia todo.",
+      "image": "https://www.paodeacucar.com/img/uploads/1/30/607030.png",
+      "categoria": 9,
+      "created_at": "2024-09-08T07:45:00Z",
+      "updated_at": "2024-09-10T09:30:00Z"
     },
     {
       "id": 14,
       "nome": "Escova de Dentes Oral-B",
-      "precoMedio": 9.99,
-      "imagem": "https://www.paodeacucar.com/img/uploads/1/205/607205.png",
-      "categorias": [5]
+      "descricao": "Escova de dentes com cerdas macias.",
+      "image": "https://www.paodeacucar.com/img/uploads/1/205/607205.png",
+      "categoria": 5,
+      "created_at": "2024-09-02T08:00:00Z",
+      "updated_at": "2024-09-04T09:45:00Z"
     },
     {
       "id": 15,
       "nome": "Shampoo Clear Men Anticaspa",
-      "precoMedio": 21.99,
-      "imagem": "https://www.paodeacucar.com/img/uploads/1/473/605473.png",
-      "categorias": [5, 6]
+      "descricao": "Shampoo anticaspa para homens.",
+      "image": "https://www.paodeacucar.com/img/uploads/1/473/605473.png",
+      "categoria": 9,
+      "created_at": "2024-08-10T10:15:00Z",
+      "updated_at": "2024-08-12T11:20:00Z"
     },
     {
       "id": 16,
       "nome": "Condicionador Pantene",
-      "precoMedio": 24.99,
-      "imagem": "https://www.paodeacucar.com/img/uploads/1/30/607030.png",
-      "categorias": [5, 6]
+      "descricao": "Condicionador para cabelos secos e danificados.",
+      "image": "https://www.paodeacucar.com/img/uploads/1/30/607030.png",
+      "categoria": 9,
+      "created_at": "2024-08-11T09:05:00Z",
+      "updated_at": "2024-08-13T10:10:00Z"
     },
     {
       "id": 17,
       "nome": "Molho de Tomate Heinz",
-      "precoMedio": 4.49,
-      "imagem": "https://www.paodeacucar.com/img/uploads/1/30/607048.png",
-      "categorias": [1]
+      "descricao": "Molho de tomate natural com temperos.",
+      "image": "https://www.paodeacucar.com/img/uploads/1/30/607048.png",
+      "categoria": 1,
+      "created_at": "2024-09-10T10:30:00Z",
+      "updated_at": "2024-09-12T11:15:00Z"
     },
     {
       "id": 18,
       "nome": "Queijo Mussarela Fatiado",
-      "precoMedio": 12.49,
-      "imagem": "https://www.paodeacucar.com/img/uploads/1/30/607099.png",
-      "categorias": [1, 4]
+      "descricao": "Queijo mussarela fatiado de alta qualidade.",
+      "image": "https://www.paodeacucar.com/img/uploads/1/30/607099.png",
+      "categoria": 4,
+      "created_at": "2024-09-14T08:20:00Z",
+      "updated_at": "2024-09-16T09:45:00Z"
     },
     {
       "id": 19,
       "nome": "Pão de Forma Integral Wickbold",
-      "precoMedio": 7.99,
-      "imagem": "https://www.paodeacucar.com/img/uploads/1/30/607156.png",
-      "categorias": [4]
+      "descricao": "Pão de forma integral, fonte de fibras.",
+      "image": "https://www.paodeacucar.com/img/uploads/1/30/607156.png",
+      "categoria": 3,
+      "created_at": "2024-08-15T07:10:00Z",
+      "updated_at": "2024-08-17T08:45:00Z"
     },
     {
       "id": 20,
       "nome": "Iogurte Grego Danone",
-      "precoMedio": 3.79,
-      "imagem": "https://www.paodeacucar.com/img/uploads/1/30/607222.png",
-      "categorias": [1]
+      "descricao": "Iogurte grego cremoso e saboroso.",
+      "image": "https://www.paodeacucar.com/img/uploads/1/30/607222.png",
+      "categoria": 4,
+      "created_at": "2024-09-17T07:25:00Z",
+      "updated_at": "2024-09-19T08:50:00Z"
     },
     {
       "id": 21,
       "nome": "Água Mineral Bonafont",
-      "precoMedio": 1.29,
-      "imagem": "https://www.paodeacucar.com/img/uploads/1/30/607290.png",
-      "categorias": [2]
+      "descricao": "Água mineral pura e saudável.",
+      "image": "https://www.paodeacucar.com/img/uploads/1/30/607290.png",
+      "categoria": 2,
+      "created_at": "2024-09-20T10:40:00Z",
+      "updated_at": "2024-09-22T11:55:00Z"
     },
     {
       "id": 22,
       "nome": "Refrigerante Coca-Cola 2L",
-      "precoMedio": 7.99,
-      "imagem": "https://www.paodeacucar.com/img/uploads/1/30/607356.png",
-      "categorias": [2]
+      "descricao": "Refrigerante clássico de cola.",
+      "image": "https://www.paodeacucar.com/img/uploads/1/30/607356.png",
+      "categoria": 2,
+      "created_at": "2024-09-12T07:50:00Z",
+      "updated_at": "2024-09-14T09:15:00Z"
     },
     {
       "id": 23,
       "nome": "Batata Palha Yoki",
-      "precoMedio": 4.99,
-      "imagem": "https://www.paodeacucar.com/img/uploads/1/30/607412.png",
-      "categorias": [1]
+      "descricao": "Batata palha crocante e saborosa.",
+      "image": "https://www.paodeacucar.com/img/uploads/1/30/607412.png",
+      "categoria": 1,
+      "created_at": "2024-09-25T08:05:00Z",
+      "updated_at": "2024-09-26T10:00:00Z"
     },
     {
       "id": 24,
-      "nome": "Vinho Tinto Chileno Reservado Concha Y Toro",
-      "precoMedio": 32.99,
-      "imagem": "https://www.paodeacucar.com/img/uploads/1/30/607499.png",
-      "categorias": [2]
+      "nome": "Vinho Tinto Chileno Concha Y Toro",
+      "descricao": "Vinho tinto chileno de alta qualidade.",
+      "image": "https://www.paodeacucar.com/img/uploads/1/30/607499.png",
+      "categoria": 8,
+      "created_at": "2024-09-18T08:45:00Z",
+      "updated_at": "2024-09-20T09:50:00Z"
     },
     {
       "id": 25,
       "nome": "Cerveja Heineken Long Neck",
-      "precoMedio": 5.49,
-      "imagem": "https://www.paodeacucar.com/img/uploads/1/30/607528.png",
-      "categorias": [2]
+      "descricao": "Cerveja lager de origem holandesa.",
+      "image": "https://www.paodeacucar.com/img/uploads/1/30/607528.png",
+      "categoria": 8,
+      "created_at": "2024-08-30T10:00:00Z",
+      "updated_at": "2024-09-01T12:15:00Z"
     },
     {
       "id": 26,
-      "nome": "Macarrão Penne Barilla",
-      "precoMedio": 7.89,
-      "imagem": "https://www.paodeacucar.com/img/uploads/1/628/518628.png",
-      "categorias": [1]
+      "nome": "Macarrão Fusilli Barilla",
+      "descricao": "Macarrão fusilli de trigo duro.",
+      "image": "https://www.paodeacucar.com/img/uploads/1/205/632205.png",
+      "categoria": 3,
+      "created_at": "2024-09-22T07:35:00Z",
+      "updated_at": "2024-09-24T09:10:00Z"
     },
     {
       "id": 27,
-      "nome": "Farinha de Trigo Dona Benta",
-      "precoMedio": 3.99,
-      "imagem": "https://www.paodeacucar.com/img/uploads/1/473/605473.png",
-      "categorias": [1]
+      "nome": "Suco de Uva Integral Casa Madeira",
+      "descricao": "Suco de uva integral 100% natural.",
+      "image": "https://www.paodeacucar.com/img/uploads/1/611/633611.png",
+      "categoria": 2,
+      "created_at": "2024-08-12T07:25:00Z",
+      "updated_at": "2024-08-14T08:40:00Z"
     },
     {
       "id": 28,
-      "nome": "Leite Longa Vida Parmalat",
-      "precoMedio": 4.59,
-      "imagem": "https://www.paodeacucar.com/img/uploads/1/617/554617.png",
-      "categorias": [5]
+      "nome": "Queijo Mussarela Tirolez 400g",
+      "descricao": "Queijo mussarela fatiado de alta qualidade.",
+      "image": "https://www.paodeacucar.com/img/uploads/1/141/606141.png",
+      "categoria": 4,
+      "created_at": "2024-09-25T11:15:00Z",
+      "updated_at": "2024-09-26T12:45:00Z"
     },
     {
       "id": 29,
-      "nome": "Manteiga Aviação com Sal",
-      "precoMedio": 15.99,
-      "imagem": "https://www.paodeacucar.com/img/uploads/1/30/607030.png",
-      "categorias": [5, 7]
+      "nome": "Cerveja Budweiser Long Neck",
+      "descricao": "Cerveja lager americana com sabor equilibrado.",
+      "image": "https://www.paodeacucar.com/img/uploads/1/228/606228.png",
+      "categoria": 8,
+      "created_at": "2024-09-18T09:20:00Z",
+      "updated_at": "2024-09-20T10:30:00Z"
     },
     {
       "id": 30,
-      "nome": "Café Pilão Torrado e Moído",
-      "precoMedio": 9.99,
-      "imagem": "https://www.paodeacucar.com/img/uploads/1/205/607205.png",
-      "categorias": [1]
-    },
-    {
-      "id": 31,
-      "nome": "Açúcar Refinado União",
-      "precoMedio": 2.99,
-      "imagem": "https://www.paodeacucar.com/img/uploads/1/578/630578.png",
-      "categorias": [1]
-    },
-    {
-      "id": 32,
-      "nome": "Detergente Líquido Ypê",
-      "precoMedio": 1.99,
-      "imagem": "https://www.paodeacucar.com/img/uploads/1/135/630135.png",
-      "categorias": [3]
-    },
-    {
-      "id": 33,
-      "nome": "Sabão em Pó Omo Lavagem Perfeita",
-      "precoMedio": 10.99,
-      "imagem": "https://www.paodeacucar.com/img/uploads/1/138/607138.png",
-      "categorias": [3]
-    },
-    {
-      "id": 34,
-      "nome": "Papel Higiênico Neve 30 Metros",
-      "precoMedio": 12.99,
-      "imagem": "https://www.paodeacucar.com/img/uploads/1/215/607215.png",
-      "categorias": [4]
-    },
-    {
-      "id": 35,
-      "nome": "Suco de Laranja Del Valle 1L",
-      "precoMedio": 5.99,
-      "imagem": "https://www.paodeacucar.com/img/uploads/1/295/630295.png",
-      "categorias": [2]
-    },
-    {
-      "id": 36,
-      "nome": "Água Mineral Bonafont 500ml",
-      "precoMedio": 1.50,
-      "imagem": "https://www.paodeacucar.com/img/uploads/1/205/632205.png",
-      "categorias": [2]
-    },
-    {
-      "id": 37,
-      "nome": "Iogurte Natural Integral Itambé 170g",
-      "precoMedio": 2.69,
-      "imagem": "https://www.paodeacucar.com/img/uploads/1/63/604063.png",
-      "categorias": [5]
-    },
-    {
-      "id": 38,
-      "nome": "Pão de Forma Seven Boys Integral",
-      "precoMedio": 6.49,
-      "imagem": "https://www.paodeacucar.com/img/uploads/1/306/633306.png",
-      "categorias": [1]
-    },
-    {
-      "id": 39,
-      "nome": "Papel Toalha Scott Duramax",
-      "precoMedio": 8.99,
-      "imagem": "https://www.paodeacucar.com/img/uploads/1/401/634401.png",
-      "categorias": [3, 4]
-    },
-    {
-      "id": 40,
-      "nome": "Amaciante Downy Brisa 500ml",
-      "precoMedio": 7.99,
-      "imagem": "https://www.paodeacucar.com/img/uploads/1/228/607228.png",
-      "categorias": [3]
-    },
-    {
-      "id": 41,
-      "nome": "Desinfetante Pinho Sol 500ml",
-      "precoMedio": 6.99,
-      "imagem": "https://www.paodeacucar.com/img/uploads/1/132/607132.png",
-      "categorias": [3]
-    },
-    {
-      "id": 42,
-      "nome": "Água de Coco Sococo 200ml",
-      "precoMedio": 3.49,
-      "imagem": "https://www.paodeacucar.com/img/uploads/1/613/631613.png",
-      "categorias": [2]
-    },
-    {
-      "id": 43,
-      "nome": "Suco de Uva Integral Casa Madeira 1L",
-      "precoMedio": 12.99,
-      "imagem": "https://www.paodeacucar.com/img/uploads/1/611/633611.png",
-      "categorias": [2]
-    },
-    {
-      "id": 44,
-      "nome": "Vinho Tinto Miolo Seleção 750ml",
-      "precoMedio": 39.99,
-      "imagem": "https://www.paodeacucar.com/img/uploads/1/228/606228.png",
-      "categorias": [8]
-    },
-    {
-      "id": 45,
-      "nome": "Cerveja Heineken 350ml",
-      "precoMedio": 4.99,
-      "imagem": "https://www.paodeacucar.com/img/uploads/1/619/634619.png",
-      "categorias": [8]
-    },
-    {
-      "id": 46,
       "nome": "Vodka Absolut 750ml",
-      "precoMedio": 89.99,
-      "imagem": "https://www.paodeacucar.com/img/uploads/1/729/637729.png",
-      "categorias": [8]
-    },
-    {
-      "id": 47,
-      "nome": "Queijo Mussarela Tirolez 400g",
-      "precoMedio": 15.49,
-      "imagem": "https://www.paodeacucar.com/img/uploads/1/141/606141.png",
-      "categorias": [5, 7]
+      "descricao": "Vodka sueca destilada de alta pureza.",
+      "image": "https://www.paodeacucar.com/img/uploads/1/729/637729.png",
+      "categoria": 8,
+      "created_at": "2024-08-22T11:50:00Z",
+      "updated_at": "2024-08-24T12:35:00Z"
     }
+  ],
+
+  "preco_produto": [
+    { "id": 1, "produto_id": 1, "estabelecimento_id": 1, "preco": 7.49, "created_at": "2024-09-25T10:05:00Z" },
+    { "id": 2, "produto_id": 2, "estabelecimento_id": 2, "preco": 5.29, "created_at": "2024-09-20T09:35:00Z" },
+    { "id": 3, "produto_id": 3, "estabelecimento_id": 3, "preco": 24.99, "created_at": "2024-09-15T08:25:00Z" },
+    { "id": 4, "produto_id": 4, "estabelecimento_id": 4, "preco": 7.89, "created_at": "2024-09-10T07:35:00Z" },
+    { "id": 5, "produto_id": 5, "estabelecimento_id": 1, "preco": 3.99, "created_at": "2024-09-05T10:05:00Z" },
+    { "id": 6, "produto_id": 6, "estabelecimento_id": 2, "preco": 4.59, "created_at": "2024-08-25T11:25:00Z" },
+    { "id": 7, "produto_id": 7, "estabelecimento_id": 3, "preco": 15.99, "created_at": "2024-09-01T08:35:00Z" },
+    { "id": 8, "produto_id": 8, "estabelecimento_id": 4, "preco": 9.99, "created_at": "2024-08-15T07:05:00Z" },
+    { "id": 9, "produto_id": 9, "estabelecimento_id": 5, "preco": 2.99, "created_at": "2024-09-03T09:20:00Z" },
+    { "id": 10, "produto_id": 10, "estabelecimento_id": 6, "preco": 1.99, "created_at": "2024-09-07T10:35:00Z" }
+  ],
+
+  "estabelecimentos": [
+    { "id": 1, "nome": "Supermercado ABC", "endereco": "Rua Principal, 123, Centro, Cidade XYZ", "telefone": "(11) 1234-5678" },
+    { "id": 2, "nome": "Mercado Central", "endereco": "Avenida Central, 987, Bairro Alpha, Cidade ABC", "telefone": "(11) 9876-5432" },
+    { "id": 3, "nome": "Supermercado XYZ", "endereco": "Rua das Flores, 456, Bairro Beta, Cidade QWE", "telefone": "(11) 4321-8765" },
+    { "id": 4, "nome": "Hipermercado Oásis", "endereco": "Rua Verde, 789, Bairro Gama, Cidade RTY", "telefone": "(11) 6543-2198" },
+    { "id": 5, "nome": "Atacadista Max", "endereco": "Avenida Azul, 321, Centro, Cidade QWE", "telefone": "(11) 2468-1357" },
+    { "id": 6, "nome": "Mini Mercado Alfa", "endereco": "Travessa Rosa, 654, Bairro Delta, Cidade XYZ", "telefone": "(11) 3698-7412" },
+    { "id": 7, "nome": "Supermercado Beta", "endereco": "Rua Amarela, 852, Bairro Gama, Cidade ABC", "telefone": "(11) 9876-1234" }
+  ],
+
+  "user_produto": [
+    { "id": 1, "user_id": 1, "produto_id": 1, "favorito": true },
+    { "id": 2, "user_id": 2, "produto_id": 2, "favorito": true },
+    { "id": 3, "user_id": 3, "produto_id": 3, "favorito": false },
+    { "id": 4, "user_id": 4, "produto_id": 4, "favorito": true }
+  ],
+
+  "usuarios": [
+    { "id": 1, "nome": "João Silva", "email": "joao.silva@example.com", "senha": "senha123", "tipo": "consumidor" },
+    { "id": 2, "nome": "Maria Oliveira", "email": "maria.oliveira@example.com", "senha": "senha456", "tipo": "consumidor" },
+    { "id": 3, "nome": "Carlos Pereira", "email": "carlos.pereira@example.com", "senha": "senha789", "tipo": "consumidor" },
+    { "id": 4, "nome": "Supermercado XYZ", "email": "contato@supermercadoxyz.com.br", "senha": "super123", "tipo": "estabelecimento" }
   ],
 
   "categorias": [
     { "id": 1, "nome": "Alimentos" },
     { "id": 2, "nome": "Bebidas" },
-    { "id": 3, "nome": "Limpeza" },
-    { "id": 4, "nome": "Padaria" },
-    { "id": 5, "nome": "Higiene" },
-    { "id": 6, "nome": "Cuidados Pessoais" },
-    { "id": 7, "nome": "Feira" }
-  ],
-
-  "usuarios": [
-    {
-      "id": 1,
-      "nome": "João Silva",
-      "email": "joao.silva@example.com",
-      "senha": "senha123",
-      "tipo": "consumidor"
-    },
-    {
-      "id": 2,
-      "nome": "Supermercado XYZ",
-      "email": "contato@supermercadoxyz.com.br",
-      "senha": "super123",
-      "tipo": "estabelecimento"
-    }
+    { "id": 3, "nome": "Massas" },
+    { "id": 4, "nome": "Laticínios" },
+    { "id": 5, "nome": "Higiene Pessoal" },
+    { "id": 6, "nome": "Limpeza" },
+    { "id": 7, "nome": "Congelados" },
+    { "id": 8, "nome": "Bebidas Alcoólicas" },
+    { "id": 9, "nome": "Cuidados Pessoais" },
+    { "id": 10, "nome": "Padaria" }
   ]
 }
