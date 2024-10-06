@@ -1,5 +1,9 @@
 export interface Produto {
+  id: number;
   nome: string;
-  precoMedio: number;
-  imagem: string;
+  descricao: string;
+  image: string;
+  categoria: number;
+  created_at: string;
+  updated_at: string;
 }

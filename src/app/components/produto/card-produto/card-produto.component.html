@@ -1,13 +1,17 @@
 <div class="max-w-xs bg-white rounded-lg shadow-md overflow-hidden">
   <img
-    [src]="produto.imagem"
+    [src]="produto.image"
     alt="{{ produto.nome }}"
     class="w-full h-48 object-contain"
   />
   <div class="p-4">
     <h2 class="text-lg font-semibold text-gray-800">{{ produto.nome }}</h2>
     <p class="text-xl text-gray-700 font-bold">
-      R${{ produto.precoMedio | number : "1.2-2" }}
+      <!-- Mostra o preço médio ou uma mensagem de carregamento -->
+      <ng-container *ngIf="precoMedio !== null; else carregando">
+        R${{ precoMedio | number : '1.2-2' }}
+      </ng-container>
+      <ng-template #carregando>Carregando preço...</ng-template>
     </p>
     <div class="flex justify-between items-center mt-4">
       <!-- Botão de adicionar ao carrinho -->
