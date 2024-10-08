@@ -1,11 +1,13 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ProdutoService } from '../../../../services';
 import { Produto } from '../../../../shared/interface';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-produtos-similares',
   templateUrl: './produtos-similares.component.html',
   standalone: true,
+  imports: [CommonModule],
 })
 export class ProdutosSimilaresComponent implements OnInit {
   @Input() produtoId!: number;

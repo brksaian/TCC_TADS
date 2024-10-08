@@ -3,28 +3,30 @@
   <div class="flex justify-center md:w-1/4">
     <img
       class="w-32 h-auto object-cover"
-      [src]="produto?.image || 'https://via.placeholder.com/150'"
-      [alt]="produto?.nome || 'Imagem do Produto'"
+      [src]="produto.image || 'https://via.placeholder.com/150'"
+      [alt]="produto.nome || 'Imagem do Produto'"
     />
   </div>
 
   <!-- Informações do Produto -->
   <div class="md:w-3/4 md:ml-4 flex flex-col justify-between">
     <div>
-      <h2 class="text-2xl font-bold">{{ produto?.nome }}</h2>
+      <h2 class="text-2xl font-bold">{{ produto.nome }}</h2>
       <!-- Média de Estrelas -->
       <div class="text-sm text-gray-600">
         <span class="font-semibold text-yellow-500">
-          {{ getEstrelasMedia() | number:'1.1-1' }} ★
+          {{ getEstrelasMedia() | number : "1.1-1" }} ★
         </span>
-        <a href="#" class="underline ml-1">{{ getQuantidadeAvaliacoes() }} avaliações</a>
+        <a href="#" class="underline ml-1"
+          >{{ getQuantidadeAvaliacoes() }} avaliações</a
+        >
       </div>
 
       <!-- Menor Preço e Estabelecimento -->
       <p class="mt-2 text-lg text-gray-700">
         Menor preço encontrado:
         <span class="text-green-600 font-semibold">
-          R$ {{ getMenorPreco()?.preco || 'N/A' }}
+          R$ {{ getMenorPreco()?.preco || "N/A" }}
         </span>
       </p>
       <p class="text-gray-600">
@@ -37,13 +39,22 @@
 
     <!-- Botões de Ações -->
     <div class="mt-4 flex space-x-2">
-      <button class="bg-green-600 text-white px-4 py-2 rounded-lg" (click)="adicionarLista()">
+      <button
+        class="bg-green-600 text-white px-4 py-2 rounded-lg"
+        (click)="adicionarLista()"
+      >
         Adicionar à Lista
       </button>
-      <button class="bg-green-600 text-white px-4 py-2 rounded-lg" (click)="favoritar()">
+      <button
+        class="bg-green-600 text-white px-4 py-2 rounded-lg"
+        (click)="favoritar()"
+      >
         Favoritar
       </button>
-      <button class="bg-green-600 text-white px-4 py-2 rounded-lg" (click)="avaliar()">
+      <button
+        class="bg-green-600 text-white px-4 py-2 rounded-lg"
+        (click)="avaliar()"
+      >
         Avaliar
       </button>
     </div>
