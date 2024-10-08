@@ -92,7 +92,7 @@ export class ProdutoService {
     let query = `${this.apiUrl}?`;
 
     if (category) {
-      query += `categoria_like=${category}&`;
+      query += `&expand=categoria&categoria.nome=${category}&`;
     }
 
     if (search) {
