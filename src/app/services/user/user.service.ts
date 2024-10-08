@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { jwtDecode } from 'jwt-decode';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { AutoCadastroResponse, ForgotPasswordResponse, LoginResponse, UserProduto, Usuario } from '../../shared/interface';
@@ -62,6 +63,55 @@ export class UserService {
     return this.http.post<ForgotPasswordResponse>(url, body, { headers }).pipe(
       catchError(this.handleError)
     );
+  }
+
+  getUsuarioLogado(): Usuario | null {
+    const token = localStorage.getItem('token');
+
+    if (token) {
+      try {
+        // Decodifica o token JWT e retorna o usuário
+        const decoded: any = jwtDecode(token);
+        const usuarioLogado: Usuario = {
+          id: decoded.id,
+          nome: decoded.nome,
+          email: decoded.email,
+          perfil: decoded.perfil,
+          senha: decoded.senha,
+        };
+        return usuarioLogado;
+      } catch (error) {
+        console.error('Erro ao decodificar o token:', error);
+        return null;
+      }
+    }
+
+    return null; // Se não houver token, retorna null
+  }
+
+  getIdUsuarioLogado(): number {
+    const token = localStorage.getItem('token');
+
+    if (token) {
+      try {
+        // Decodifica o token JWT e retorna o usuário
+        const decoded: any = jwtDecode(token);
+        return decoded.id;
+      } catch (error) {
+        console.error('Erro ao decodificar o token:', error);
+        return 0;
+      }
+    }
+
+    return 0; // Se não houver token, retorna null
+  }
+
+  salvarLoginUsuario(token: string): void {
+    localStorage.setItem('token', token); // Salva o token no localStorage
+  }
+
+  logout(): void {
+    localStorage.removeItem('token'); // Remove o token do localStorage
   }
 
   // ============================

@@ -1,0 +1,23 @@
+<div class="mt-4">
+  <h3 class="text-lg font-semibold">Produtos Similares</h3>
+  <div class="flex space-x-2 mt-2">
+    <!-- Exibe produtos similares -->
+    <div *ngFor="let similar of produtosSimilares" class="w-12 h-12">
+      <img
+        [src]="similar.image"
+        alt="{{ similar.nome }}"
+        class="w-full h-full object-cover"
+      />
+    </div>
+  </div>
+
+  <!-- Mensagem de carregamento -->
+  <div *ngIf="loading" class="text-gray-500">
+    Carregando produtos similares...
+  </div>
+
+  <!-- Mensagem de erro -->
+  <div *ngIf="error" class="text-red-500">
+    Erro ao carregar produtos similares
+  </div>
+</div>

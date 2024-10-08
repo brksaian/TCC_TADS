@@ -11,7 +11,7 @@ describe('HistoricoPrecoComponent', () => {
       imports: [HistoricoPrecoComponent]
     })
     .compileComponents();
-
+    
     fixture = TestBed.createComponent(HistoricoPrecoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

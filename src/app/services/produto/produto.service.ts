@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
-import { PrecoProduto, Produto } from '../../shared/interface';
+import { Avaliacao, PrecoProduto, Produto } from '../../shared/interface';
 
 @Injectable({
   providedIn: 'root'
@@ -47,7 +47,6 @@ export class ProdutoService {
     return this.http.get<Produto[]>(url);
   }
 
-
   // ============================
   // Métodos de Preço de Produto
   // ============================
@@ -86,6 +85,10 @@ export class ProdutoService {
     );
   }
 
+  getPrecosProdutoById(id: number): Observable<Array<PrecoProduto>> {
+    return this.http.get<Array<PrecoProduto>>(`${this.precoApiUrl}/produto/${id}`);
+  }
+
   getProdutosFiltrados(queryParams: any): Observable<Produto[]> {
     const { category, search, sort } = queryParams;
 
@@ -106,5 +109,21 @@ export class ProdutoService {
     }
 
     return this.http.get<Produto[]>(query);
+  }
+
+  // ============================
+  // Métodos de Produto Similares
+  // ============================
+
+  getProdutosSimilares(produtoId: number): Observable<Produto[]> {
+    return this.http.get<Produto[]>(`${this.apiUrl}/${produtoId}/similares`);
+  }
+
+  // ================================
+  // Métodos de Avaliações do Produto
+  // ================================
+
+  getAvaliacoesProduto(produtoId: number): Observable<Avaliacao[]> {
+    return this.http.get<Avaliacao[]>(`${this.apiUrl}/${produtoId}/avaliacoes`);
   }
 }

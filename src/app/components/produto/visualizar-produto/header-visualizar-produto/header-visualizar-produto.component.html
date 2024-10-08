@@ -1,0 +1,61 @@
+<div class="flex flex-col md:flex-row bg-white p-4 rounded-lg shadow-md">
+  <!-- Imagem do Produto -->
+  <div class="flex justify-center md:w-1/4">
+    <img
+      class="w-32 h-auto object-cover"
+      [src]="produto?.image || 'https://via.placeholder.com/150'"
+      [alt]="produto?.nome || 'Imagem do Produto'"
+    />
+  </div>
+
+  <!-- Informações do Produto -->
+  <div class="md:w-3/4 md:ml-4 flex flex-col justify-between">
+    <div>
+      <h2 class="text-2xl font-bold">{{ produto?.nome }}</h2>
+      <!-- Média de Estrelas -->
+      <div class="text-sm text-gray-600">
+        <span class="font-semibold text-yellow-500">
+          {{ getEstrelasMedia() | number:'1.1-1' }} ★
+        </span>
+        <a href="#" class="underline ml-1">{{ getQuantidadeAvaliacoes() }} avaliações</a>
+      </div>
+
+      <!-- Menor Preço e Estabelecimento -->
+      <p class="mt-2 text-lg text-gray-700">
+        Menor preço encontrado:
+        <span class="text-green-600 font-semibold">
+          R$ {{ getMenorPreco()?.preco || 'N/A' }}
+        </span>
+      </p>
+      <p class="text-gray-600">
+        Estabelecimento:
+        <a href="#" class="underline text-green-600">
+          {{ getNomeEstabelecimento(getMenorPreco()?.estabelecimento_id || 0) }}
+        </a>
+      </p>
+    </div>
+
+    <!-- Botões de Ações -->
+    <div class="mt-4 flex space-x-2">
+      <button class="bg-green-600 text-white px-4 py-2 rounded-lg" (click)="adicionarLista()">
+        Adicionar à Lista
+      </button>
+      <button class="bg-green-600 text-white px-4 py-2 rounded-lg" (click)="favoritar()">
+        Favoritar
+      </button>
+      <button class="bg-green-600 text-white px-4 py-2 rounded-lg" (click)="avaliar()">
+        Avaliar
+      </button>
+    </div>
+
+    <!-- Produtos Similares -->
+    <app-produtos-similares [produtoId]="produto.id"></app-produtos-similares>
+  </div>
+</div>
+
+<!-- Modal de Avaliação -->
+<app-avaliar-produto
+  *ngIf="showModal"
+  (closeModal)="fecharModal()"
+  (submitAvaliacao)="enviarAvaliacao($event)"
+></app-avaliar-produto>

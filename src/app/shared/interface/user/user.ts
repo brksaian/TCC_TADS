@@ -3,5 +3,5 @@ export interface Usuario {
     nome: string;
     email: string;
     senha: string;
-    tipo: 'consumidor' | 'estabelecimento';
+    perfil: 'consumidor' | 'estabelecimento';
   }
