@@ -1,0 +1,21 @@
+<div class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+  <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
+    <h2 class="text-xl font-bold mb-4">Avaliar Produto</h2>
+
+    <!-- Seleção de Estrelas -->
+    <div class="flex space-x-1 mb-4">
+      <button *ngFor="let star of [1, 2, 3, 4, 5]" (click)="setEstrelas(star)">
+        <span [class.text-yellow-500]="star <= estrelas" class="text-gray-400 text-2xl">★</span>
+      </button>
+    </div>
+
+    <!-- Campo de Comentário -->
+    <textarea [(ngModel)]="comentario" placeholder="Escreva seu comentário..." class="w-full p-2 border rounded-lg mb-4"></textarea>
+
+    <!-- Botões -->
+    <div class="flex justify-end space-x-2">
+      <button (click)="fecharModal()" class="bg-gray-400 text-white px-4 py-2 rounded-lg">Cancelar</button>
+      <button (click)="enviarAvaliacao()" class="bg-green-600 text-white px-4 py-2 rounded-lg">Enviar Avaliação</button>
+    </div>
+  </div>
+</div>

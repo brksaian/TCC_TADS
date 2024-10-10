@@ -3,5 +3,6 @@ export interface PrecoProduto {
   produto_id: number;
   estabelecimento_id: number;
   preco: number;
+  data: Date;
   created_at: string;
 }

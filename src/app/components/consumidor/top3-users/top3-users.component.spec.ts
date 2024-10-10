@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HistoricoPrecoComponent } from './historico-preco.component';
+import { Top3UsersComponent } from './top3-users.component';
 
-describe('HistoricoPrecoComponent', () => {
-  let component: HistoricoPrecoComponent;
-  let fixture: ComponentFixture<HistoricoPrecoComponent>;
+describe('Top3UsersComponent', () => {
+  let component: Top3UsersComponent;
+  let fixture: ComponentFixture<Top3UsersComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HistoricoPrecoComponent]
+      imports: [Top3UsersComponent]
     })
     .compileComponents();
-
-    fixture = TestBed.createComponent(HistoricoPrecoComponent);
+    
+    fixture = TestBed.createComponent(Top3UsersComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
