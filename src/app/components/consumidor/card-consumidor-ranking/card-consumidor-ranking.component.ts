@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Consumidor } from '../../../shared/interface';
 
 @Component({
   selector: 'app-card-consumidor-ranking',
@@ -8,5 +9,5 @@ import { Component } from '@angular/core';
   styleUrl: './card-consumidor-ranking.component.css'
 })
 export class CardConsumidorRankingComponent {
-
+  @Input() user: Consumidor | null = null;
 }
