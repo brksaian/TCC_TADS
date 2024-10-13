@@ -7,7 +7,7 @@ import { Avaliacao, PrecoProduto, Produto } from '../../shared/interface';
   providedIn: 'root'
 })
 export class ProdutoService {
-  private apiUrl = 'http://localhost:3000/produtos';
+  private apiUrl = 'http://localhost:8083/product';
   private precoApiUrl = 'http://localhost:3000/preco_produto';
 
   constructor(private http: HttpClient) {}
