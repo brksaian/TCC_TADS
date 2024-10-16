@@ -23,7 +23,7 @@
       "nome": "Azeite de Oliva Gallo Extra Virgem",
       "descricao": "Azeite de oliva extra virgem com sabor suave e frutado.",
       "image": "https://www.paodeacucar.com/img/uploads/1/628/518628.png",
-      "categoria": 2,
+      "categoria": 5,
       "created_at": "2024-09-15T08:20:00Z",
       "updated_at": "2024-09-16T10:45:00Z"
     },
@@ -32,7 +32,7 @@
       "nome": "Macarrão Penne Barilla",
       "descricao": "Macarrão penne de trigo duro, perfeito para receitas italianas.",
       "image": "https://www.paodeacucar.com/img/uploads/1/473/605473.png",
-      "categoria": 3,
+      "categoria": 2,
       "created_at": "2024-09-10T07:30:00Z",
       "updated_at": "2024-09-12T09:00:00Z"
     },
@@ -41,7 +41,7 @@
       "nome": "Farinha de Trigo Dona Benta",
       "descricao": "Farinha de trigo especial para pães e bolos.",
       "image": "https://www.paodeacucar.com/img/uploads/1/473/605473.png",
-      "categoria": 3,
+      "categoria": 2,
       "created_at": "2024-09-05T10:00:00Z",
       "updated_at": "2024-09-06T12:00:00Z"
     },
@@ -59,7 +59,7 @@
       "nome": "Manteiga Aviação com Sal",
       "descricao": "Manteiga tradicional com sal.",
       "image": "https://www.paodeacucar.com/img/uploads/1/30/607030.png",
-      "categoria": 4,
+      "categoria": 7,
       "created_at": "2024-09-01T08:30:00Z",
       "updated_at": "2024-09-03T10:00:00Z"
     },
@@ -86,7 +86,7 @@
       "nome": "Detergente Líquido Ypê",
       "descricao": "Detergente eficaz para remoção de gordura.",
       "image": "https://www.paodeacucar.com/img/uploads/1/135/630135.png",
-      "categoria": 6,
+      "categoria": 4,
       "created_at": "2024-09-07T10:30:00Z",
       "updated_at": "2024-09-09T12:20:00Z"
     },
@@ -95,7 +95,7 @@
       "nome": "Sabão em Pó Omo Lavagem Perfeita",
       "descricao": "Sabão em pó de alta eficiência.",
       "image": "https://www.paodeacucar.com/img/uploads/1/138/607138.png",
-      "categoria": 6,
+      "categoria": 4,
       "created_at": "2024-08-20T11:40:00Z",
       "updated_at": "2024-08-22T13:10:00Z"
     },
@@ -104,7 +104,7 @@
       "nome": "Papel Higiênico Neve 30 Metros",
       "descricao": "Papel higiênico de alta qualidade e maciez.",
       "image": "https://www.paodeacucar.com/img/uploads/1/215/607215.png",
-      "categoria": 5,
+      "categoria": 3,
       "created_at": "2024-09-14T09:25:00Z",
       "updated_at": "2024-09-15T11:45:00Z"
     },
@@ -113,7 +113,7 @@
       "nome": "Desodorante Rexona Aerosol",
       "descricao": "Desodorante de longa duração para o dia todo.",
       "image": "https://www.paodeacucar.com/img/uploads/1/30/607030.png",
-      "categoria": 9,
+      "categoria": 13,
       "created_at": "2024-09-08T07:45:00Z",
       "updated_at": "2024-09-10T09:30:00Z"
     },
@@ -122,7 +122,7 @@
       "nome": "Escova de Dentes Oral-B",
       "descricao": "Escova de dentes com cerdas macias.",
       "image": "https://www.paodeacucar.com/img/uploads/1/205/607205.png",
-      "categoria": 5,
+      "categoria": 3,
       "created_at": "2024-09-02T08:00:00Z",
       "updated_at": "2024-09-04T09:45:00Z"
     },
@@ -131,7 +131,7 @@
       "nome": "Shampoo Clear Men Anticaspa",
       "descricao": "Shampoo anticaspa para homens.",
       "image": "https://www.paodeacucar.com/img/uploads/1/473/605473.png",
-      "categoria": 9,
+      "categoria": 13,
       "created_at": "2024-08-10T10:15:00Z",
       "updated_at": "2024-08-12T11:20:00Z"
     },
@@ -140,7 +140,7 @@
       "nome": "Condicionador Pantene",
       "descricao": "Condicionador para cabelos secos e danificados.",
       "image": "https://www.paodeacucar.com/img/uploads/1/30/607030.png",
-      "categoria": 9,
+      "categoria": 13,
       "created_at": "2024-08-11T09:05:00Z",
       "updated_at": "2024-08-13T10:10:00Z"
     },
@@ -158,7 +158,7 @@
       "nome": "Queijo Mussarela Fatiado",
       "descricao": "Queijo mussarela fatiado de alta qualidade.",
       "image": "https://www.paodeacucar.com/img/uploads/1/30/607099.png",
-      "categoria": 4,
+      "categoria": 7,
       "created_at": "2024-09-14T08:20:00Z",
       "updated_at": "2024-09-16T09:45:00Z"
     },
@@ -167,7 +167,7 @@
       "nome": "Pão de Forma Integral Wickbold",
       "descricao": "Pão de forma integral, fonte de fibras.",
       "image": "https://www.paodeacucar.com/img/uploads/1/30/607156.png",
-      "categoria": 3,
+      "categoria": 2,
       "created_at": "2024-08-15T07:10:00Z",
       "updated_at": "2024-08-17T08:45:00Z"
     },
@@ -176,7 +176,7 @@
       "nome": "Iogurte Grego Danone",
       "descricao": "Iogurte grego cremoso e saboroso.",
       "image": "https://www.paodeacucar.com/img/uploads/1/30/607222.png",
-      "categoria": 4,
+      "categoria": 7,
       "created_at": "2024-09-17T07:25:00Z",
       "updated_at": "2024-09-19T08:50:00Z"
     },
@@ -185,7 +185,7 @@
       "nome": "Água Mineral Bonafont",
       "descricao": "Água mineral pura e saudável.",
       "image": "https://www.paodeacucar.com/img/uploads/1/30/607290.png",
-      "categoria": 2,
+      "categoria": 5,
       "created_at": "2024-09-20T10:40:00Z",
       "updated_at": "2024-09-22T11:55:00Z"
     },
@@ -194,7 +194,7 @@
       "nome": "Refrigerante Coca-Cola 2L",
       "descricao": "Refrigerante clássico de cola.",
       "image": "https://www.paodeacucar.com/img/uploads/1/30/607356.png",
-      "categoria": 2,
+      "categoria": 5,
       "created_at": "2024-09-12T07:50:00Z",
       "updated_at": "2024-09-14T09:15:00Z"
     },
@@ -212,7 +212,7 @@
       "nome": "Vinho Tinto Chileno Concha Y Toro",
       "descricao": "Vinho tinto chileno de alta qualidade.",
       "image": "https://www.paodeacucar.com/img/uploads/1/30/607499.png",
-      "categoria": 8,
+      "categoria": 19,
       "created_at": "2024-09-18T08:45:00Z",
       "updated_at": "2024-09-20T09:50:00Z"
     },
@@ -221,7 +221,7 @@
       "nome": "Cerveja Heineken Long Neck",
       "descricao": "Cerveja lager de origem holandesa.",
       "image": "https://www.paodeacucar.com/img/uploads/1/30/607528.png",
-      "categoria": 8,
+      "categoria": 19,
       "created_at": "2024-08-30T10:00:00Z",
       "updated_at": "2024-09-01T12:15:00Z"
     },
@@ -230,7 +230,7 @@
       "nome": "Macarrão Fusilli Barilla",
       "descricao": "Macarrão fusilli de trigo duro.",
       "image": "https://www.paodeacucar.com/img/uploads/1/205/632205.png",
-      "categoria": 3,
+      "categoria": 2,
       "created_at": "2024-09-22T07:35:00Z",
       "updated_at": "2024-09-24T09:10:00Z"
     },
@@ -239,7 +239,7 @@
       "nome": "Suco de Uva Integral Casa Madeira",
       "descricao": "Suco de uva integral 100% natural.",
       "image": "https://www.paodeacucar.com/img/uploads/1/611/633611.png",
-      "categoria": 2,
+      "categoria": 5,
       "created_at": "2024-08-12T07:25:00Z",
       "updated_at": "2024-08-14T08:40:00Z"
     },
@@ -248,7 +248,7 @@
       "nome": "Queijo Mussarela Tirolez 400g",
       "descricao": "Queijo mussarela fatiado de alta qualidade.",
       "image": "https://www.paodeacucar.com/img/uploads/1/141/606141.png",
-      "categoria": 4,
+      "categoria": 7,
       "created_at": "2024-09-25T11:15:00Z",
       "updated_at": "2024-09-26T12:45:00Z"
     },
@@ -257,7 +257,7 @@
       "nome": "Cerveja Budweiser Long Neck",
       "descricao": "Cerveja lager americana com sabor equilibrado.",
       "image": "https://www.paodeacucar.com/img/uploads/1/228/606228.png",
-      "categoria": 8,
+      "categoria": 19,
       "created_at": "2024-09-18T09:20:00Z",
       "updated_at": "2024-09-20T10:30:00Z"
     },
@@ -266,7 +266,7 @@
       "nome": "Vodka Absolut 750ml",
       "descricao": "Vodka sueca destilada de alta pureza.",
       "image": "https://www.paodeacucar.com/img/uploads/1/729/637729.png",
-      "categoria": 8,
+      "categoria": 19,
       "created_at": "2024-08-22T11:50:00Z",
       "updated_at": "2024-08-24T12:35:00Z"
     }
@@ -311,14 +311,23 @@
 
   "categorias": [
     { "id": 1, "nome": "Alimentos" },
-    { "id": 2, "nome": "Bebidas" },
-    { "id": 3, "nome": "Massas" },
-    { "id": 4, "nome": "Laticínios" },
-    { "id": 5, "nome": "Higiene Pessoal" },
-    { "id": 6, "nome": "Limpeza" },
-    { "id": 7, "nome": "Congelados" },
-    { "id": 8, "nome": "Bebidas Alcoólicas" },
-    { "id": 9, "nome": "Cuidados Pessoais" },
-    { "id": 10, "nome": "Padaria" }
+    { "id": 2, "nome": "Massas" },
+    { "id": 3, "nome": "Higiene" },
+    { "id": 4, "nome": "Limpeza" },
+    { "id": 5, "nome": "Bebidas" },
+    { "id": 6, "nome": "Carnes" },
+    { "id": 7, "nome": "Laticínios" },
+    { "id": 8, "nome": "Congelados" },
+    { "id": 9, "nome": "Hortifruti" },
+    { "id": 10, "nome": "Padaria e Confeitaria" },
+    { "id": 11, "nome": "Bebê" },
+    { "id": 12, "nome": "Petshop" },
+    { "id": 13, "nome": "Saúde e Beleza" },
+    { "id": 14, "nome": "Papelaria" },
+    { "id": 15, "nome": "Eletrônicos" },
+    { "id": 16, "nome": "Utilidades Domésticas" },
+    { "id": 17, "nome": "Automotivo" },
+    { "id": 18, "nome": "Brinquedos" },
+    { "id": 19, "nome": "Bebidas Alcoólicas" }
   ]
 }
