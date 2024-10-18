@@ -1,0 +1,39 @@
+<div
+  class="bg-white p-6 rounded-lg shadow-md flex items-center justify-between"
+>
+  <div class="flex items-center">
+    <div
+      class="w-16 h-16 bg-green-500 rounded-full flex justify-center items-center text-white"
+    >
+      <!-- Placeholder para a imagem do usuário -->
+      <i class="fa fa-user text-3xl"></i>
+    </div>
+    <div class="ml-4">
+      <h2 class="text-2xl font-bold">{{ usuarioLogado?.nome }}</h2>
+      <p class="text-sm text-gray-600">
+        Notas cadastradas: {{ notasCadastradas }} | Produtos cadastrados:
+        {{ produtosCadastrados }}
+      </p>
+    </div>
+  </div>
+  <div class="flex items-center space-x-6">
+    <div class="text-center">
+      <p class="font-bold text-green-500">{{ avaliacoes }}</p>
+      <p class="text-sm text-gray-600">Avaliações</p>
+    </div>
+    <div class="text-center">
+      <p class="font-bold">{{ seguindo }}</p>
+      <p class="text-sm text-gray-600">Seguindo</p>
+    </div>
+    <div class="text-center">
+      <p class="font-bold">{{ seguidores }}</p>
+      <p class="text-sm text-gray-600">Seguidores</p>
+    </div>
+    <button
+      (click)="seguir()"
+      class="border border-green-500 text-green-500 px-4 py-2 rounded-md hover:bg-green-500 hover:text-white transition"
+    >
+      SEGUIR
+    </button>
+  </div>
+</div>
