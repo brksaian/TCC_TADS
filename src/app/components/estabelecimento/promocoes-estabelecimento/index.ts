@@ -1,0 +1,1 @@
+export * from './promocoes-estabelecimento.component';
