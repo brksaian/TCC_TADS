@@ -1,5 +1,7 @@
 export * from './card-consumidor';
 export * from './card-consumidor-ranking';
+export * from './footer-consumidor';
+export * from './header-consumidor';
 export * from './lista-ranking-consumidor';
 export * from './visualizar-avaliacoes';
 export * from './visualizar-favoritos-consumidor';

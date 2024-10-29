@@ -1,14 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BuscarProdutoComponent } from './components/produto';
-import { AutoCadastroComponent, HomeComponent, LoginComponent } from './components/user';
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'registrar', component: AutoCadastroComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'buscarProdutos', component: BuscarProdutoComponent },
-
+  {
+    path: 'consumidor',
+    loadChildren: () => import('./pages/consumidor').then(m => m.clientRoutes),
+  },
+  {
+    path: 'estabelecimento',
+    loadChildren: () => import('./pages/estabelecimento').then(m => m.estabelecimentoRoutes),
+  },
+  {
+    path: 'guest',
+    loadChildren: () => import('./pages/user').then(m => m.guestRoutes),
+  },
+  { path: '**', redirectTo: '/guest/home' },
   //{ path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   // outras rotas
 ];

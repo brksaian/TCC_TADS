@@ -1,10 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { CarrosselCategoriasComponent } from '../../../components/categoria/carrossel-categorias';
+import { CarrosselProdutosComponent } from '../../../components/produto';
+import { HeaderHomeComponent } from '../../../components/user';
 import { ProdutoService } from '../../../services';
 import { Categoria, Produto } from '../../../shared/interface';
-import { CarrosselCategoriasComponent } from '../../categoria/carrossel-categorias';
-import { CarrosselProdutosComponent } from '../../produto';
-import { HeaderHomeComponent } from "../header-home/header-home.component";
 
 @Component({
   selector: 'app-home',
@@ -112,9 +112,9 @@ export class HomeComponent implements OnInit {
       nome: 'Bebidas Alcoólicas',
       imagem: 'assets/Nota Social.jpg'
     }
-    
+
   ];
-  
+
   constructor(private produtoService: ProdutoService) {}
 
   ngOnInit(): void {

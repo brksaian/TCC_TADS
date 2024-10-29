@@ -1,5 +1,5 @@
-export * from './auto-cadastro';
+export * from './footer';
+export * from './forgot-password-modal';
+export * from './header';
 export * from './header-home';
-export * from './home';
-export * from './login';
 
