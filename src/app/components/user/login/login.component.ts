@@ -60,4 +60,10 @@ export class LoginComponent {
     this.mensagemModal = mensagem;
     this.mostrarModal = true;
   }
+
+  //Acesso provisório a tela Estabelecimento
+  acessarPerfilEstabelecimento() {
+    this.router.navigate(['/estabelecimento/promocoes-estabelecimento']);
+  }
+
 }
