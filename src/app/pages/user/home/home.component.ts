@@ -119,8 +119,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.produtoService.getProdutos().subscribe(
-      (produtos) => {
-        this.produtos = produtos;
+      (respoonse) => {
+        this.produtos = respoonse.content;
       },
       (error) => {
         console.error('Erro ao carregar os produtos:', error);
