@@ -1,1 +1,6 @@
-<p>card-consumidor works!</p>
+<div class="text-center cursor-pointer" (click)="goToProfile()">
+  <div class="flex justify-center">
+    <img [src]="consumidor.imagem" alt="{{ consumidor.name }}" class="rounded-full w-16 h-16" />
+  </div>
+  <p class="mt-2 text-sm font-medium">{{ consumidor.name }}</p>
+</div>

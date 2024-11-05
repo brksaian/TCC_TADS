@@ -5,4 +5,5 @@ export interface Consumidor {
   productsCount: number;
   rank: number;
   profileUrl: string;
+  imagem: string;
 }

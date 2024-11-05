@@ -18,4 +18,12 @@ export class ConsumidorService {
   getOtherUsers(): Observable<Consumidor[]> {
     return this.http.get<Consumidor[]>(`${this.apiUrl}?_sort=rank&_order=asc&_start=3`);
   }
+
+  getSeguidores(): Observable<Consumidor[]> {
+    return this.http.get<Consumidor[]>(this.apiUrl);
+  }
+
+  getSeguindo(): Observable<Consumidor[]> {
+    return this.http.get<Consumidor[]>(this.apiUrl);
+  }
 }
