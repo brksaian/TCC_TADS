@@ -1,1 +1,12 @@
-<p>listar-avaliacoes works!</p>
+<div>
+  <h2 class="text-2xl font-bold mb-4">Avaliações</h2>
+  <ng-container *ngIf="avaliacoes.length > 0; else noComments">
+    <app-visualizar-avaliacao-consumidor
+      *ngFor="let avaliacao of avaliacoes"
+      [avaliacao]="avaliacao"
+    ></app-visualizar-avaliacao-consumidor>
+  </ng-container>
+  <ng-template #noComments>
+    <p class="text-gray-600">Nenhum comentário encontrado.</p>
+  </ng-template>
+</div>

@@ -86,7 +86,15 @@ export class UserService {
       }
     }
 
-    return null; // Se não houver token, retorna null
+    return null;
+  }
+
+  getInformacoesPerfil(usuarioId: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/${usuarioId}/informacoes`);
+  }
+
+  seguirUsuario(usuarioId: number): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/${usuarioId}/seguir`, {});
   }
 
   getIdUsuarioLogado(): number {
@@ -94,7 +102,6 @@ export class UserService {
 
     if (token) {
       try {
-        // Decodifica o token JWT e retorna o usuário
         const decoded: any = jwtDecode(token);
         return decoded.id;
       } catch (error) {
@@ -103,16 +110,18 @@ export class UserService {
       }
     }
 
-    return 0; // Se não houver token, retorna null
+    return 0;
   }
 
   salvarLoginUsuario(token: string): void {
-    localStorage.setItem('token', token); // Salva o token no localStorage
+    localStorage.setItem('token', token);
   }
 
   logout(): void {
-    localStorage.removeItem('token'); // Remove o token do localStorage
+    localStorage.removeItem('token');
   }
+
+
 
   // ============================
   // Métodos de UserProduto (Favoritos)
