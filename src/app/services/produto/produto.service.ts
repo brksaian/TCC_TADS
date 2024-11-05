@@ -8,7 +8,7 @@ import { PaginatedResponse } from '../../shared/interface/API/retornoApi';
   providedIn: 'root'
 })
 export class ProdutoService {
-  private apiUrl = 'http://localhost:8080/catalog/product';
+  private apiUrl = 'http://localhost:8083/product';
   private precoApiUrl = 'http://localhost:3000/preco_produto';
 
   constructor(private http: HttpClient) {}
