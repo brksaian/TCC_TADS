@@ -2,8 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { AvaliacaoService, EstabelecimentoService, ProdutoService, UserService } from '../../../../services';
 import { Avaliacao, Estabelecimento, PrecoProduto, Produto } from '../../../../shared/interface';
-import { AvaliarProdutoComponent } from '../../../avaliacao/avaliar-produto/avaliar-produto.component';
 import { ProdutosSimilaresComponent } from '../produtos-similares';
+import { AvaliarProdutoComponent } from '../../../../components/avaliacao/avaliar-produto/avaliar-produto.component';
 
 @Component({
   selector: 'app-header-visualizar-produto',
