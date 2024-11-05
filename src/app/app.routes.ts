@@ -18,7 +18,6 @@ export const routes: Routes = [
   {path: 'login', component: LoginComponent },
   {path: 'registrar', component: AutoCadastroComponent },
   { path: '**', redirectTo: '/guest/home' },
-
   //{ path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   // outras rotas
 ];
