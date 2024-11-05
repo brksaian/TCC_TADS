@@ -15,7 +15,7 @@
 
   <div
     *ngIf="menuOpen"
-    class="absolute top-0 left-0 w-full bg-green-600 text-white p-8 flex flex-col justify-center items-center transition-all duration-300"
+    class="fixed top-0 left-0 w-full bg-green-600 text-white p-8 flex flex-col justify-center items-center transition-all duration-300 z-50"
   >
     <div class="absolute top-4 left-11">
       <button (click)="toggleMenu()" class="focus:outline-none">
@@ -41,7 +41,7 @@
         <div class="bg-white text-green-600 p-6 rounded-lg">
           <fa-icon [icon]="faChartBar" class="h-8 w-8"></fa-icon>
         </div>
-        <span class="mt-2 text-lg font-semibold">Ranking de Usuários</span>
+        <span class="mt-2 text-s font-semibold">Ranking de Usuários</span>
       </a>
 
       <a routerLink="/login" class="flex flex-col items-center text-white">

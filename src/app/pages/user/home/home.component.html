@@ -7,16 +7,21 @@
   ></app-carrossel-categorias>
 </section>
 
-<section class="flex justify-center items-center min-h-[240px]">
-  <ng-container *ngIf="produtos.length > 0; else noProducts">
-    <app-carrossel-produtos
-      [produtos]="produtos"
-      class="carrosselProduto"
-    ></app-carrossel-produtos>
-  </ng-container>
-  <ng-template #noProducts>
-    <p class="text-center text-gray-500 text-2xl font-semibold">
-      Não há produtos disponíveis no momento.
-    </p>
-  </ng-template>
+<section class="flex flex-col justify-center align-middle w-screen px-5 mt-4">
+  <p class="text-2xl text-gray-600 self-start text-start">
+    Ultimas Atualizações
+  </p>
+  <section class="flex justify-center items-center min-h-[240px]">
+    <ng-container *ngIf="produtos.length > 0; else noProducts">
+      <app-carrossel-produtos
+        [produtos]="produtos"
+        class="carrosselProduto"
+      ></app-carrossel-produtos>
+    </ng-container>
+    <ng-template #noProducts>
+      <p class="text-center text-gray-500 text-2xl font-semibold">
+        Não há produtos disponíveis no momento.
+      </p>
+    </ng-template>
+  </section>
 </section>

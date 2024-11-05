@@ -1,7 +1,7 @@
 <div class="relative w-full">
   <!-- Botão para deslizar à esquerda -->
   <button
-    class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-200 hover:bg-gray-300 rounded-full p-2 botao-navegacao"
+    class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-200 hover:bg-gray-300 rounded-full p-2 z-25"
     (click)="slide(-1)"
   >
     &#8249;
@@ -9,7 +9,7 @@
 
   <div class="bg-gray-50 p-4">
     <h2 class="text-black font-bold mb-4">Categorias</h2>
-    <div class="flex overflow-x-auto space-x-4"> 
+    <div class="flex overflow-x-auto space-x-4">
       <div *ngFor="let categoria of displayedCategories" class="flex flex-col items-center">
         <div class="bg-gray-100 rounded-full w-40 h-40 flex items-center justify-center">
           <img [src]="categoria.imagem" alt="{{ categoria.nome }}" class="rounded-full w-full h-full object-cover">
@@ -17,11 +17,11 @@
         <h3 class="text-black text-center mt-2">{{ categoria.nome }}</h3>
       </div>
     </div>
-  </div>    
+  </div>
 
   <!-- Botão para deslizar à direita -->
   <button
-    class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-200 hover:bg-gray-300 rounded-full p-2 botao-navegacao"
+    class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-200 hover:bg-gray-300 rounded-full p-2 z-25"
     (click)="slide(1)"
   >
     &#8250;

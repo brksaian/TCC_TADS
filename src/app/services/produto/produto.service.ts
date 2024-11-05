@@ -8,13 +8,14 @@ import { PaginatedResponse } from '../../shared/interface/API/retornoApi';
   providedIn: 'root'
 })
 export class ProdutoService {
-  private apiUrl = 'http://localhost:8083/product';
+  private apiUrl = 'http://localhost:3000/produtos';
   private precoApiUrl = 'http://localhost:3000/preco_produto';
 
   constructor(private http: HttpClient) {}
 
-  getProdutos(): Observable<PaginatedResponse<Produto>> {
-    return this.http.get<PaginatedResponse<Produto>>(`${this.apiUrl}?page=0&size=10&sortDirection=ASC&sortBy=name`);
+  getProdutos(): Observable<Produto[]> {
+    // return this.http.get<PaginatedResponse<Produto>>(`${this.apiUrl}?page=0&size=10&sortDirection=ASC&sortBy=name`);
+     return this.http.get<Produto[]>(`${this.apiUrl}`);
   }
 
   getProdutoById(id: number): Observable<Produto> {
