@@ -26,5 +26,4 @@ export class ListarAvaliacoesComponent implements OnInit {
       console.error('Usuário não está logado');
     }
   }
-
 }
