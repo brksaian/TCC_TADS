@@ -1,6 +1,6 @@
 <header class="bg-green-600 text-white py-4">
-  <div class="container mx-auto flex justify-between items-center px-4">
-    <div class="relative">
+  <div class="flex justify-end items-center px-4 w-full">
+    <div class="absolute top-4 left-11">
       <button (click)="toggleMenu()" class="focus:outline-none">
         <fa-icon
           *ngIf="!menuOpen"
@@ -10,7 +10,7 @@
       </button>
     </div>
 
-    <div class="text-2xl font-bold">NS</div>
+    <div class="text-2xl font-bold self-end justify-end">NS</div>
   </div>
 
   <div
