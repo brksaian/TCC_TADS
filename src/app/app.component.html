@@ -1,12 +1,5 @@
-<div class="flex flex-col h-screen w-screen box-border">
-  <!-- Header -->
-  <app-header class="w-full" *ngIf="!shouldHideHeaderFooter()"></app-header>
-
-  <!-- Conteúdo principal -->
+<div class="flex flex-col h-screen w-screen box-border overflow-x-hidden">
   <main class="flex-grow">
     <router-outlet></router-outlet>
   </main>
-
-  <!-- Footer -->
-  <app-footer class="w-full" *ngIf="!shouldHideHeaderFooter()"></app-footer>
 </div>

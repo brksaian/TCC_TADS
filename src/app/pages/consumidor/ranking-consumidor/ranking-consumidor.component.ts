@@ -3,8 +3,7 @@ import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ConsumidorService, UserService } from '../../../services';
 import { Consumidor } from '../../../shared/interface';
-import { ListaRankingConsumidorComponent } from "../lista-ranking-consumidor/lista-ranking-consumidor.component";
-import { Top3UsersComponent } from "../top3-users/top3-users.component";
+import { ListaRankingConsumidorComponent, Top3UsersComponent } from '../../../components/consumidor';
 
 @Component({
   selector: 'app-ranking-consumidor',

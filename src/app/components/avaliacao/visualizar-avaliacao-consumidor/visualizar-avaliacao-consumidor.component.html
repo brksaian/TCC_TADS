@@ -1,1 +1,12 @@
-<p>visualizar-avaliacao-consumidor works!</p>
+<div class="border p-4 rounded-lg shadow-md mb-4 flex">
+  <img [src]="avaliacao.produto.image" alt="{{ avaliacao.produto.nome }}" class="w-24 h-24 object-cover rounded-md mr-4">
+  <div>
+    <h3 class="text-xl font-semibold">{{ avaliacao.produto.nome }}</h3>
+    <div class="flex items-center mb-2">
+      <span *ngFor="let star of [1, 2, 3, 4, 5]" class="text-yellow-500">
+        <i class="fa" [class.fa-star]="star <= avaliacao.estrelas" [class.fa-star-o]="star > avaliacao.estrelas"></i>
+      </span>
+    </div>
+    <p class="text-gray-600"><strong>Avaliação:</strong> {{ avaliacao.comentario }}</p>
+  </div>
+</div>

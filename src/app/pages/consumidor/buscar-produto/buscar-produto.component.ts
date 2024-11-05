@@ -4,8 +4,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ProdutoService } from '../../../services';
-import { CardProdutoComponent } from '../card-produto';
 import { Produto } from '../../../shared/interface';
+import { CardProdutoComponent } from '../../../components/produto';
 
 @Component({
   selector: 'app-buscar-produto',

@@ -2,18 +2,19 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { Avaliacao, PrecoProduto, Produto } from '../../shared/interface';
+import { PaginatedResponse } from '../../shared/interface/API/retornoApi';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProdutoService {
-  private apiUrl = 'http://localhost:3000/produtos';
+  private apiUrl = 'http://localhost:8083/product';
   private precoApiUrl = 'http://localhost:3000/preco_produto';
 
   constructor(private http: HttpClient) {}
 
-  getProdutos(): Observable<Produto[]> {
-    return this.http.get<Produto[]>(this.apiUrl);
+  getProdutos(): Observable<PaginatedResponse<Produto>> {
+    return this.http.get<PaginatedResponse<Produto>>(`${this.apiUrl}?page=0&size=10&sortDirection=ASC&sortBy=name`);
   }
 
   getProdutoById(id: number): Observable<Produto> {

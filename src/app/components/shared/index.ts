@@ -1,3 +1,3 @@
-export * from './footer';
-export * from './header';
+export * from '../user/footer';
+export * from '../user/header';
 export * from './modal';

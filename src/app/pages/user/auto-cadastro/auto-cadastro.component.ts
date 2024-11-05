@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { UserService } from '../../../services';
 import { CnpjDirective, CpfDirective } from '../../../shared/directives';
-import { ModalAvisoComponent } from '../../shared/modal-aviso/modal-aviso.component';
+import { ModalAvisoComponent } from '../../../components/shared/modal-aviso/modal-aviso.component';
 
 @Component({
   selector: 'app-auto-cadastro',

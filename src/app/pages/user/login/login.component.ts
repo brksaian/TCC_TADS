@@ -3,9 +3,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
+import { ModalAvisoComponent } from '../../../components/shared/modal-aviso/modal-aviso.component';
+import { ForgotPasswordModalComponent } from '../../../components/user';
 import { UserService } from '../../../services';
-import { ModalAvisoComponent } from '../../shared/modal-aviso/modal-aviso.component';
-import { ForgotPasswordModalComponent } from '../forgot-password-modal/forgot-password-modal.component';
 
 @Component({
   selector: 'app-login',
