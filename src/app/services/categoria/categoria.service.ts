@@ -7,7 +7,7 @@ import { Categoria } from '../../shared/interface';
   providedIn: 'root'
 })
 export class CategoriaService {
-  private apiUrl = 'http://localhost:3000/categorias'; // URL da API
+  private apiUrl = 'http://localhost:3000/categorias';
 
   constructor(private http: HttpClient) {}
 
