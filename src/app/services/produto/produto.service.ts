@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { Avaliacao, PrecoProduto, Produto } from '../../shared/interface';
-import { PaginatedResponse } from '../../shared/interface/API/retornoApi';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +18,7 @@ export class ProdutoService {
   }
 
   getProdutoById(id: number): Observable<Produto> {
-    return this.http.get<Produto>(`${this.apiUrl}/${id}`);
+    return this.http.get<Produto>(`${this.apiUrl}?id=${id}`);
   }
 
   createProduto(produto: Produto): Observable<Produto> {
@@ -97,7 +96,7 @@ export class ProdutoService {
     let query = `${this.apiUrl}?`;
 
     if (category) {
-      query += `&expand=categoria&categoria.nome=${category}&`;
+      query += `categoria=${category}&`;
     }
 
     if (search) {
