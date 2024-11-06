@@ -26,6 +26,7 @@ export class LoginComponent {
   senha: string = '';
 
   mostrarModal: boolean = false;
+  mostrarModalPassword: boolean = false;
   tipoModal: 'sucesso' | 'erro' | 'atencao' = 'sucesso';
   tituloModal: string = '';
   mensagemModal: string = '';

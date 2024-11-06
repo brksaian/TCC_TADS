@@ -302,11 +302,59 @@
     { "id": 4, "user_id": 4, "produto_id": 4, "favorito": true }
   ],
 
-  "usuarios": [
-    { "id": 1, "nome": "João Silva", "email": "joao.silva@example.com", "senha": "senha123", "tipo": "consumidor" },
-    { "id": 2, "nome": "Maria Oliveira", "email": "maria.oliveira@example.com", "senha": "senha456", "tipo": "consumidor" },
-    { "id": 3, "nome": "Carlos Pereira", "email": "carlos.pereira@example.com", "senha": "senha789", "tipo": "consumidor" },
-    { "id": 4, "nome": "Supermercado XYZ", "email": "contato@supermercadoxyz.com.br", "senha": "super123", "tipo": "estabelecimento" }
+    "usuarios": [
+      { "id": 1, "nome": "João Silva", "email": "joao.silva@example.com", "senha": "senha123", "tipo": "consumidor", "imagem": "https://example.com/avatar1.jpg" },
+      { "id": 2, "nome": "Maria Oliveira", "email": "maria.oliveira@example.com", "senha": "senha456", "tipo": "consumidor", "imagem": "https://example.com/avatar2.jpg" },
+      { "id": 3, "nome": "Carlos Pereira", "email": "carlos.pereira@example.com", "senha": "senha789", "tipo": "consumidor", "imagem": "https://example.com/avatar3.jpg" },
+      { "id": 4, "nome": "Supermercado XYZ", "email": "contato@supermercadoxyz.com.br", "senha": "super123", "tipo": "estabelecimento", "imagem": "https://example.com/avatar4.jpg" },
+      { "id": 5, "nome": "Ana Costa", "email": "ana.costa@example.com", "senha": "senha234", "tipo": "consumidor", "imagem": "https://example.com/avatar5.jpg" },
+      { "id": 6, "nome": "Pedro Souza", "email": "pedro.souza@example.com", "senha": "senha345", "tipo": "consumidor", "imagem": "https://example.com/avatar6.jpg" },
+      { "id": 7, "nome": "Lucas Lima", "email": "lucas.lima@example.com", "senha": "senha456", "tipo": "consumidor", "imagem": "https://example.com/avatar7.jpg" },
+      { "id": 8, "nome": "Fernanda Gomes", "email": "fernanda.gomes@example.com", "senha": "senha567", "tipo": "consumidor", "imagem": "https://example.com/avatar8.jpg" },
+      { "id": 9, "nome": "Roberto Alves", "email": "roberto.alves@example.com", "senha": "senha678", "tipo": "consumidor", "imagem": "https://example.com/avatar9.jpg" },
+      { "id": 10, "nome": "Patrícia Mendes", "email": "patricia.mendes@example.com", "senha": "senha789", "tipo": "consumidor", "imagem": "https://example.com/avatar10.jpg" },
+      { "id": 11, "nome": "Gabriel Barbosa", "email": "gabriel.barbosa@example.com", "senha": "senha890", "tipo": "consumidor", "imagem": "https://example.com/avatar11.jpg" },
+      { "id": 12, "nome": "Juliana Teixeira", "email": "juliana.teixeira@example.com", "senha": "senha901", "tipo": "consumidor", "imagem": "https://example.com/avatar12.jpg" },
+      { "id": 13, "nome": "Rafael Ferreira", "email": "rafael.ferreira@example.com", "senha": "senha012", "tipo": "consumidor", "imagem": "https://example.com/avatar13.jpg" },
+      { "id": 14, "nome": "Isabela Castro", "email": "isabela.castro@example.com", "senha": "senha123", "tipo": "consumidor", "imagem": "https://example.com/avatar14.jpg" },
+      { "id": 15, "nome": "Marcos Santana", "email": "marcos.santana@example.com", "senha": "senha234", "tipo": "consumidor", "imagem": "https://example.com/avatar15.jpg" },
+      { "id": 16, "nome": "Aline Cardoso", "email": "aline.cardoso@example.com", "senha": "senha345", "tipo": "consumidor", "imagem": "https://example.com/avatar16.jpg" },
+      { "id": 17, "nome": "Renato Matos", "email": "renato.matos@example.com", "senha": "senha456", "tipo": "consumidor", "imagem": "https://example.com/avatar17.jpg" },
+      { "id": 18, "nome": "Viviane Santos", "email": "viviane.santos@example.com", "senha": "senha567", "tipo": "consumidor", "imagem": "https://example.com/avatar18.jpg" },
+      { "id": 19, "nome": "Eduardo Ribeiro", "email": "eduardo.ribeiro@example.com", "senha": "senha678", "tipo": "consumidor", "imagem": "https://example.com/avatar19.jpg" },
+      { "id": 20, "nome": "Camila Rocha", "email": "camila.rocha@example.com", "senha": "senha789", "tipo": "consumidor", "imagem": "https://example.com/avatar20.jpg" },
+      { "id": 21, "nome": "Joana Martins", "email": "joana.martins@example.com", "senha": "senha890", "tipo": "consumidor", "imagem": "https://example.com/avatar21.jpg" },
+      { "id": 22, "nome": "Felipe Cunha", "email": "felipe.cunha@example.com", "senha": "senha901", "tipo": "consumidor", "imagem": "https://example.com/avatar22.jpg" },
+      { "id": 23, "nome": "Thiago Costa", "email": "thiago.costa@example.com", "senha": "senha012", "tipo": "consumidor", "imagem": "https://example.com/avatar23.jpg" },
+      { "id": 24, "nome": "Letícia Farias", "email": "leticia.farias@example.com", "senha": "senha123", "tipo": "consumidor", "imagem": "https://example.com/avatar24.jpg" }
+    ],
+
+
+  "usuarioxranking": [
+    { "usuarioId": 1, "pontos": 150 },
+    { "usuarioId": 2, "pontos": 120 },
+    { "usuarioId": 3, "pontos": 110 },
+    { "usuarioId": 4, "pontos": 300 },
+    { "usuarioId": 5, "pontos": 80 },
+    { "usuarioId": 6, "pontos": 90 },
+    { "usuarioId": 7, "pontos": 100 },
+    { "usuarioId": 8, "pontos": 70 },
+    { "usuarioId": 9, "pontos": 85 },
+    { "usuarioId": 10, "pontos": 60 },
+    { "usuarioId": 11, "pontos": 95 },
+    { "usuarioId": 12, "pontos": 130 },
+    { "usuarioId": 13, "pontos": 140 },
+    { "usuarioId": 14, "pontos": 65 },
+    { "usuarioId": 15, "pontos": 75 },
+    { "usuarioId": 16, "pontos": 155 },
+    { "usuarioId": 17, "pontos": 145 },
+    { "usuarioId": 18, "pontos": 105 },
+    { "usuarioId": 19, "pontos": 115 },
+    { "usuarioId": 20, "pontos": 160 },
+    { "usuarioId": 21, "pontos": 90 },
+    { "usuarioId": 22, "pontos": 125 },
+    { "usuarioId": 23, "pontos": 135 },
+    { "usuarioId": 24, "pontos": 170 }
   ],
 
   "categorias": [

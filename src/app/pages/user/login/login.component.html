@@ -78,7 +78,7 @@
       <p class="text-center text-white">
         <button
           type="button"
-          (click)="mostrarModal = true"
+          (click)="mostrarModalPassword = true"
           class="text-white underline"
         >
           Esqueci minha senha
@@ -95,7 +95,7 @@
           Acessar Perfil Estabelecimento
         </button>
       </p>
-        
+
 
     </form>
   </div>
@@ -103,8 +103,8 @@
 
 <!-- Modal de Esqueci minha senha -->
 <app-forgot-password-modal
-  *ngIf="mostrarModal"
-  (close)="mostrarModal = false"
+  *ngIf="mostrarModalPassword"
+  (close)="mostrarModalPassword = false"
 ></app-forgot-password-modal>
 
 <!-- Modal de Aviso -->

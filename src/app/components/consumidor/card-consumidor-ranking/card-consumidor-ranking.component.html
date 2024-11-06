@@ -1,13 +1,22 @@
 <div class="border rounded-lg shadow p-4 text-center">
   <div class="flex justify-center items-center mb-4">
-    <!-- Placeholder para o ícone do usuário -->
-    <div class="w-12 h-12 rounded-full bg-gray-300"></div>
+    <!-- Imagem do usuário -->
+    <img
+      *ngIf="user?.imagem; else placeholder"
+      [src]="user?.imagem"
+      alt="{{ user?.nome }}"
+      class="w-12 h-12 rounded-full object-cover"
+    />
+    <!-- Placeholder para quando não há imagem -->
+    <ng-template #placeholder>
+      <div class="w-12 h-12 rounded-full bg-gray-300"></div>
+    </ng-template>
   </div>
-  <h3 class="text-lg font-bold">{{ user?.name }}</h3>
+  <h3 class="text-lg font-bold">{{ user?.nome }}</h3>
   <div class="mt-2 flex justify-between items-center">
     <div class="text-center">
       <p>Notas</p>
-      <p>{{ user?.notesCount }}</p>
+      <p>{{ user?.pontos }}</p>
     </div>
     <div class="text-center">
       <p>Produtos</p>

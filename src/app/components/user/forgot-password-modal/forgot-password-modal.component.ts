@@ -1,9 +1,8 @@
+import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Output } from '@angular/core';
-import { UserService } from '../../../services'; // Ajuste o caminho conforme necessário
-import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { UserService } from '../../../services';
 
 @Component({
   selector: 'app-forgot-password-modal',
@@ -17,12 +16,11 @@ export class ForgotPasswordModalComponent {
   errorMessage: string = '';
   @Output() close = new EventEmitter<void>();
 
-  constructor(private userService: UserService) {} // Injetando o UserService
+  constructor(private userService: UserService) {}
 
   onSubmit() {
     this.userService.forgotPassword(this.email).subscribe(
       response => {
-        // Adicione lógica para lidar com o sucesso, como mostrar uma mensagem de sucesso
         this.closeModal();
       },
       error => {
@@ -32,6 +30,6 @@ export class ForgotPasswordModalComponent {
   }
 
   closeModal() {
-    this.close.emit(); // Emite um evento para fechar a modal
+    this.close.emit();
   }
 }
