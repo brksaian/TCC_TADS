@@ -22,9 +22,9 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.produtoService.getProdutos().subscribe(
-      (respoonse) => {
+      (response) => {
         // this.produtos = respoonse.content;
-        this.produtos = respoonse;
+        this.produtos = response;
       },
       (error) => {
         console.error('Erro ao carregar os produtos:', error);
@@ -32,9 +32,9 @@ export class HomeComponent implements OnInit {
     );
 
     this.categoriaService.getCategorias().subscribe(
-      (respoonse) => {
+      (response) => {
         // this.produtos = respoonse.content;
-        this.categorias = respoonse;
+        this.categorias = response;
       },
       (error) => {
         console.error('Erro ao carregar os produtos:', error);

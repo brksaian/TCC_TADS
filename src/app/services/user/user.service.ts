@@ -1,9 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { jwtDecode } from 'jwt-decode';
-import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
-import { AutoCadastroResponse, ForgotPasswordResponse, LoginResponse, UserProduto, Usuario } from '../../shared/interface';
+import { Observable, of, throwError } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
+import { AutoCadastroResponse, ForgotPasswordResponse, UserProduto, Usuario } from '../../shared/interface';
 
 @Injectable({
   providedIn: 'root'
@@ -31,15 +31,35 @@ export class UserService {
     return this.http.put<Usuario>(`${this.apiUrl}/${id}`, usuario);
   }
 
-  login(email: string, senha: string): Observable<LoginResponse> {
-    const url = `${this.apiUrl}/login`;
-    const body = { email, senha };
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+  // login(email: string, senha: string): Observable<LoginResponse> {
+  //   const url = `${this.apiUrl}/login`;
+  //   const body = { email, senha };
+  //   const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
-    return this.http.post<LoginResponse>(url, body, { headers }).pipe(
-      catchError(this.handleError)
+  //   return this.http.post<LoginResponse>(url, body, { headers }).pipe(
+  //     catchError(this.handleError)
+  //   );
+  // }
+  login(email: string, senha: string): Observable<Usuario | null> {
+    return this.http.get<Usuario[]>(this.apiUrl).pipe(
+      map((response) => {
+        // Verifica se existe um usuário com o email e senha fornecidos
+        const user = response.find(user => user.email === email && user.senha === senha);
+        if (user) {
+          // Salva o usuário no localStorage
+          localStorage.setItem('currentUser', JSON.stringify(user));
+          return user;
+        } else {
+          return null;
+        }
+      }),
+      catchError((error) => {
+        console.error('Erro ao carregar os usuários:', error);
+        return of(null);
+      })
     );
   }
+
 
   autoCadastro(nome: string, email: string, senha: string, perfil: string, cnpj?: string): Observable<AutoCadastroResponse> {
     const url = `${this.apiUrl}/autocadastro`;
