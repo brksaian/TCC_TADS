@@ -2,23 +2,23 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { Avaliacao, PrecoProduto, Produto } from '../../shared/interface';
-import { PaginatedResponse } from '../../shared/interface/API/retornoApi';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProdutoService {
-  private apiUrl = 'http://localhost:8083/product';
+  private apiUrl = 'http://localhost:3000/produtos';
   private precoApiUrl = 'http://localhost:3000/preco_produto';
 
   constructor(private http: HttpClient) {}
 
-  getProdutos(): Observable<PaginatedResponse<Produto>> {
-    return this.http.get<PaginatedResponse<Produto>>(`${this.apiUrl}?page=0&size=10&sortDirection=ASC&sortBy=name`);
+  getProdutos(): Observable<Produto[]> {
+    // return this.http.get<PaginatedResponse<Produto>>(`${this.apiUrl}?page=0&size=10&sortDirection=ASC&sortBy=name`);
+     return this.http.get<Produto[]>(`${this.apiUrl}`);
   }
 
   getProdutoById(id: number): Observable<Produto> {
-    return this.http.get<Produto>(`${this.apiUrl}/${id}`);
+    return this.http.get<Produto>(`${this.apiUrl}?id=${id}`);
   }
 
   createProduto(produto: Produto): Observable<Produto> {
@@ -96,7 +96,7 @@ export class ProdutoService {
     let query = `${this.apiUrl}?`;
 
     if (category) {
-      query += `&expand=categoria&categoria.nome=${category}&`;
+      query += `categoria=${category}&`;
     }
 
     if (search) {

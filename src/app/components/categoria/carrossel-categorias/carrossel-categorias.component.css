@@ -1,8 +1,4 @@
 .overflow-hidden {
-    overflow-x: hidden;
-  }
-  
-  
-  .botao-navegacao {
-    z-index: 9999;
-  }  
+  overflow-x: hidden;
+}
+

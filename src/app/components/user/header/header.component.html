@@ -1,29 +1,61 @@
 <header class="bg-green-600 text-white py-4">
-  <div class="container mx-auto flex justify-between items-center px-4">
-    <!-- Logo -->
-    <div class="text-2xl font-bold">Nota Social</div>
+  <div class="flex justify-end items-center px-4 w-full">
+    <div class="absolute top-4 left-11">
+      <button (click)="toggleMenu()" class="focus:outline-none">
+        <fa-icon
+          *ngIf="!menuOpen"
+          [icon]="faBars"
+          class="text-white h-8 w-8"
+        ></fa-icon>
+      </button>
+    </div>
 
-    <!-- Navegação -->
-    <nav>
-      <ul class="flex space-x-6">
-        <li><a routerLink="/inicio" class="hover:underline">Início</a></li>
-        <li><a routerLink="/sobre" class="hover:underline">Sobre</a></li>
-        <li>
-          <a routerLink="/funcionalidades" class="hover:underline"
-            >Funcionalidades</a
-          >
-        </li>
-        <li><a routerLink="/contato" class="hover:underline">Contato</a></li>
-      </ul>
-    </nav>
+    <div class="text-2xl font-bold self-end justify-end">NS</div>
+  </div>
 
-    <!-- Botão de Login -->
-    <div>
+  <div
+    *ngIf="menuOpen"
+    class="fixed top-0 left-0 w-full bg-green-600 text-white p-8 flex flex-col justify-center items-center transition-all duration-300 z-50"
+  >
+    <div class="absolute top-4 left-11">
+      <button (click)="toggleMenu()" class="focus:outline-none">
+        <fa-icon [icon]="faTimes" class="text-white h-8 w-8 text-xl"></fa-icon>
+      </button>
+    </div>
+
+    <div class="flex space-x-8 mb-8">
       <a
-        routerLink="/login"
-        class="bg-white text-green-600 px-4 py-2 rounded-lg font-semibold hover:bg-green-100"
+        routerLink="/buscar-produto"
+        class="flex flex-col items-center text-white"
       >
-        Login
+        <div class="bg-white text-green-600 p-6 rounded-lg">
+          <fa-icon [icon]="faSearch" class="h-8 w-8"></fa-icon>
+        </div>
+        <span class="mt-2 text-lg font-semibold">Buscar Produto</span>
+      </a>
+
+      <a
+        routerLink="/guest/ranking-users"
+        class="flex flex-col items-center text-white"
+      >
+        <div class="bg-white text-green-600 p-6 rounded-lg">
+          <fa-icon [icon]="faChartBar" class="h-8 w-8"></fa-icon>
+        </div>
+        <span class="mt-2 text-s font-semibold">Ranking de Usuários</span>
+      </a>
+
+      <a routerLink="/login" class="flex flex-col items-center text-white">
+        <div class="bg-white text-green-600 p-6 rounded-lg">
+          <fa-icon [icon]="faSignInAlt" class="h-8 w-8"></fa-icon>
+        </div>
+        <span class="mt-2 text-lg font-semibold">Entrar</span>
+      </a>
+
+      <a routerLink="/registrar" class="flex flex-col items-center text-white">
+        <div class="bg-white text-green-600 p-6 rounded-lg">
+          <fa-icon [icon]="faDoorOpen" class="h-8 w-8"></fa-icon>
+        </div>
+        <span class="mt-2 text-lg font-semibold">Registrar</span>
       </a>
     </div>
   </div>

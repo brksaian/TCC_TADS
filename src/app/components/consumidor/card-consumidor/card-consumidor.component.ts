@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
+import { Consumidor } from '../../../shared/interface';
 
 @Component({
   selector: 'app-card-consumidor',
@@ -8,5 +10,11 @@ import { Component } from '@angular/core';
   styleUrl: './card-consumidor.component.css'
 })
 export class CardConsumidorComponent {
+  @Input() consumidor!: Consumidor;
 
+  constructor(private router: Router) {}
+
+  goToProfile() {
+    this.router.navigate(['/perfil', this.consumidor.id]);
+  }
 }
