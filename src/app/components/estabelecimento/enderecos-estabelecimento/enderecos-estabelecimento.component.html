@@ -2,7 +2,7 @@
   <app-header-estabelecimento></app-header-estabelecimento>
 
   <div class="p-4">
-    <div class="flex justify-between items-center pr-4"> <!-- Adicionado pr-4 -->
+    <div class="flex justify-between items-center pr-4">
       <h1 class="text-2xl font-bold">Endereços</h1>
       <div class="flex items-center space-x-2">
         <button 
@@ -20,6 +20,14 @@
         <span class="text-lg font-semibold text-green-500">CADASTRAR ENDEREÇO</span>
       </div>
     </div>
-    <!-- Mais conteúdo -->
+
+    <!-- Lista de endereços -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-16 mt-16">
+      <app-card-endereco
+        *ngFor="let estabelecimento of estabelecimentos"
+        [estabelecimento]="estabelecimento"
+        class="shadow-lg min-h-full"
+      ></app-card-endereco>
+    </div>
   </div>
 </div>
