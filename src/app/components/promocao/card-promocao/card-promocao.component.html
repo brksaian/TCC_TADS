@@ -1,1 +1,19 @@
-<p>card-promocao works!</p>
+<div class="max-w-xs bg-white rounded-lg shadow-md overflow-hidden flex flex-col h-full">
+    <div class="p-4 text-center">
+      <h2 class="text-lg font-semibold text-gray-800">{{ promocao.nome }}</h2>
+    </div>
+  
+    <img
+      [src]="promocao.imagem"
+      alt="{{ promocao.nome }}"
+      class="w-full h-48 object-contain"
+    />
+  
+    <div class="p-4 text-center flex-grow">
+      <p class="text-lg text-gray-700">Validade</p> 
+      <p class="text-lg text-gray-700">
+        {{ promocao.validade | date: 'dd/MM/yyyy' }}
+      </p>
+    </div>
+  </div>
+  

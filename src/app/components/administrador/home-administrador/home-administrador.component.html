@@ -1,1 +1,104 @@
-<p>home-administrador works!</p>
+<div class="bg-gray-100 min-h-screen relative">
+  <header class="bg-white h-10 w-full flex items-center justify-end pr-4 absolute top-0 left-0 border-b-2">
+    
+    <!-- Ícone de menu -->
+    <div class="absolute left-4 flex flex-col justify-center items-center h-full cursor-pointer" (click)="toggleMenu()">
+      <div class="w-6 h-1 bg-black mb-1"></div>
+      <div class="w-6 h-1 bg-black mb-1"></div>
+      <div class="w-6 h-1 bg-black"></div>
+    </div>
+    
+    <span class="text-black">Admin</span>
+  </header>
+
+  <!-- Menu de Navegação - Condicionalmente visível -->
+ <app-nav-bar-administrador *ngIf="menuVisible" class="absolute z-30"></app-nav-bar-administrador>
+
+  <div class="bg-gray-300 pt-12 grid grid-cols-2 gap-4 px-5">
+
+    <!-- Retângulo azul -->
+    <div class="h-[16.66vh] bg-blue-600">
+      <div class="flex w-full h-full">
+        <!-- Retângulo azul icone -->
+        <div class="w-[40%] h-full bg-blue-600 border-r-2 border-white flex items-center justify-center">
+          <img src="assets/usuarios-adm.png" alt="Ícone de Usuários" class="h-3/4 w-auto">
+        </div>
+        <!-- Retângulo azul dados -->
+        <div class="w-[60%] h-full flex flex-col">
+          <div class="w-full h-[50%] bg-blue-600 flex items-center justify-center">
+            <span class="text-white text-2xl">525</span>
+          </div>
+          <div class="w-full h-[50%] bg-blue-600 border-t-2 border-white flex items-center justify-center">
+            <span class="text-white text-1xl opacity-75">USUÁRIOS</span>
+          </div>
+        </div>    
+      </div>  
+    </div> 
+
+    <!-- Retângulo cinza -->
+    <div class="h-[16.66vh] bg-gray-700">
+      <div class="flex w-full h-full">
+        <div class="w-[40%] h-full bg-gray-700 border-r-2 border-white flex items-center justify-center">
+          <img src="assets/estabelecimentos-adm.png" alt="Ícone de Usuários" class="h-3/4 w-auto">
+        </div>
+        <div class="w-[60%] h-full flex flex-col">
+          <div class="w-full h-[50%] bg-gray-700 flex items-center justify-center">
+            <span class="text-white text-2xl">55</span>
+          </div>
+          <div class="w-full h-[50%] bg-gray-700 border-t-2 border-white flex items-center justify-center">
+            <span class="text-white text-1xl opacity-75">ESTABELECIMENTOS</span>
+          </div>
+        </div>
+      </div>
+    </div> 
+
+    <!-- Retângulo marrom-->
+    <div class="h-[16.66vh] bg-yellow-700">
+      <div class="flex w-full h-full">
+        <div class="w-[40%] h-full bg-yellow-700 border-r-2 border-white flex items-center justify-center">
+          <img src="assets/produtos-adm.png" alt="Ícone de Usuários" class="h-3/4 w-auto">
+        </div>
+        <div class="w-[60%] h-full flex flex-col">
+          <div class="w-full h-[50%] bg-yellow-700 flex items-center justify-center">
+            <span class="text-white text-2xl">2010</span>
+          </div>
+          <div class="w-full h-[50%] bg-yellow-700 border-t-2 border-white flex items-center justify-center">
+            <span class="text-white text-1xl opacity-75">PRODUTOS</span>
+          </div>          
+        </div>
+      </div>
+    </div> 
+
+    <!-- Retângulo Verde-->
+    <div class="h-[16.66vh] bg-green-700">
+      <div class="flex w-full h-full">
+        <div class="w-[40%] h-full bg-green-700 border-r-2 border-white flex items-center justify-center">
+          <img src="assets/avaliacoes-adm.png" alt="Ícone de Usuários" class="h-3/4 w-auto">
+        </div>
+        <div class="w-[60%] h-full flex flex-col">
+          <div class="w-full h-[50%] bg-green-700 flex items-center justify-center">
+            <span class="text-white text-2xl">789</span>
+          </div>
+          <div class="w-full h-[50%] bg-green-700 border-t-2 border-white flex items-center justify-center">
+            <span class="text-white text-1xl opacity-75">AVALIAÇÕES</span>
+          </div>          
+        </div>
+      </div>
+    </div> 
+
+    <!-- Carrossel de Categorias -->
+    <section class="flex justify-center align-middle col-span-2 mt-5 relative z-10">
+      <app-carrossel-categorias
+        [categorias]="categorias"
+        class="carrosselCategoria"
+      ></app-carrossel-categorias>
+    </section>
+
+
+    <!-- Novo Retângulo de fundo 2 -->
+    <div class="h-[33vh] bg-gray-400 col-span-2 mt-5">
+      <div class="flex w-full h-full"></div>
+    </div>
+
+  </div>
+</div>

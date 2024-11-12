@@ -1,12 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Estabelecimento } from '../../../shared/interface';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-card-endereco',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './card-endereco.component.html',
-  styleUrl: './card-endereco.component.css'
+  styleUrls: ['./card-endereco.component.css']
 })
 export class CardEnderecoComponent {
-
+  @Input() estabelecimento!: Estabelecimento;
 }

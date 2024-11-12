@@ -1,1 +1,16 @@
-<p>card-endereco works!</p>
+<div class="max-w-xs bg-white rounded-lg shadow-md overflow-hidden flex flex-col h-full">
+    <div class="p-4 text-center">
+      <h2 class="text-lg font-semibold text-gray-800">{{ estabelecimento.nome }}</h2>
+    </div>
+  
+    <img
+      [src]="estabelecimento.imagem"
+      alt="{{ estabelecimento.nome }}"
+      class="w-full h-48 object-contain"
+    />
+  
+    <div class="p-4 text-center">
+      <p class="text-lg text-gray-700">{{ estabelecimento.endereco }}</p>
+    </div>
+  </div>
+  

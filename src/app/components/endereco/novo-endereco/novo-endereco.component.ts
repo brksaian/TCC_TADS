@@ -1,12 +1,17 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router'; 
 
 @Component({
   selector: 'app-novo-endereco',
   standalone: true,
-  imports: [],
+  imports: [], 
   templateUrl: './novo-endereco.component.html',
-  styleUrl: './novo-endereco.component.css'
+  styleUrls: ['./novo-endereco.component.css'] 
 })
 export class NovoEnderecoComponent {
+  constructor(private router: Router) {} 
 
+  voltar() {
+    this.router.navigate(['estabelecimento/enderecos-estabelecimento']);
+  }
 }

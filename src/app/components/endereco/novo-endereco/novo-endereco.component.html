@@ -1,15 +1,79 @@
-<body class="bg-gray-100 min-h-screen flex">
-  <div class="mt-[8vh] flex w-full"> 
-    <div class="w-1/3 p-4 pl-40"> 
-      <img src="assets/Nota Social.jpg" alt="Nota Social" class="w-full h-auto"> 
+<div class="bg-gray-100 min-h-screen flex">
+  <div class="mt-[8vh] flex w-full">
+    <div class="w-1/3 p-4 pl-40">
+      <img src="assets/Nota Social.jpg" alt="Nota Social" class="w-full h-auto">
     </div>
-    <div class="w-7/12 p-4"> 
-      <div class="bg-white p-4 rounded shadow border-b-2 border-gray-400"> 
+    <div class="w-7/12 p-4">
+      <!-- Título principal do formulário -->
+      <div class="bg-white p-4 rounded shadow border-b-2 border-gray-400">
         <h2 class="text-2xl font-bold">Cadastrar Novo Endereço</h2>
       </div>
-      <div class="bg-white mt-4 rounded shadow border-b-2 border-gray-400 h-[24rem]">
-        <h2 class="text-xl font-bold">Conteúdo do Formulario</h2> 
+
+      <!-- Conteúdo do formulário -->
+      <div class="bg-white mt-4 rounded shadow border-b-2 border-gray-400 p-6 space-y-6">
+        <!-- Caixa 1 (Rua, Número e Complemento) -->
+        <div class="w-full flex space-x-4">
+          <!-- Campo Rua (60%) -->
+          <div class="w-3/5">
+            <label class="block text-gray-700 font-bold mb-2">Rua</label>
+            <input type="text" placeholder="Digite a Rua" class="w-full p-2 border border-gray-300 rounded">
+          </div>
+
+          <!-- Campo Número (15%) -->
+          <div class="w-1/6">
+            <label class="block text-gray-700 font-bold mb-2">Número</label>
+            <input type="text" placeholder="Nº" class="w-full p-2 border border-gray-300 rounded">
+          </div>
+
+          <!-- Campo Complemento (25%) -->
+          <div class="w-1/4">
+            <label class="block text-gray-700 font-bold mb-2">Complemento</label>
+            <input type="text" placeholder="Complemento" class="w-full p-2 border border-gray-300 rounded">
+          </div>
+        </div>
+
+        <!-- Caixa 2 (Bairro e Cidade) -->
+        <div class="w-full flex space-x-4">
+          <!-- Campo Bairro -->
+          <div class="w-1/2">
+            <label class="block text-gray-700 font-bold mb-2">Bairro</label>
+            <input type="text" placeholder="Digite o Bairro" class="w-full p-2 border border-gray-300 rounded">
+          </div>
+
+          <!-- Campo Cidade -->
+          <div class="w-1/2">
+            <label class="block text-gray-700 font-bold mb-2">Cidade</label>
+            <input type="text" placeholder="Digite a Cidade" class="w-full p-2 border border-gray-300 rounded">
+          </div>
+        </div>
+
+        <!-- Caixa 3 (Estado, CEP e Telefone) -->
+        <div class="w-full flex space-x-4">
+          <!-- Campo Estado (25%) -->
+          <div class="w-1/4">
+            <label class="block text-gray-700 font-bold mb-2">Estado</label>
+            <input type="text" placeholder="Digite o Estado" class="w-full p-2 border border-gray-300 rounded">
+          </div>
+
+          <!-- Campo CEP (25%) -->
+          <div class="w-1/4">
+            <label class="block text-gray-700 font-bold mb-2">CEP</label>
+            <input type="text" placeholder="Digite o CEP" class="w-full p-2 border border-gray-300 rounded">
+          </div>
+
+          <!-- Campo Telefone (50%) -->
+          <div class="w-1/2">
+            <label class="block text-gray-700 font-bold mb-2">Telefone</label>
+            <input type="text" placeholder="Digite o Telefone" class="w-full p-2 border border-gray-300 rounded">
+          </div>
+        </div>
+
+        <!-- Botões -->
+        <div class="w-full flex justify-between mt-4">
+          <button (click)="voltar()" class="bg-gray-300 text-black px-4 py-2 rounded w-1/2 mr-2">Voltar</button>
+          <button class="bg-green-500 text-white px-4 py-2 rounded w-1/2 ml-2">Cadastrar</button>
+        </div>
       </div>
     </div>
   </div>
-</body>
+</div>
