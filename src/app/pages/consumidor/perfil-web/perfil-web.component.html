@@ -1,0 +1,21 @@
+<div class="flex h-screen">
+  <!-- Menu Lateral -->
+  <app-perfil-web-menu
+    [user]="usuario"
+    class="w-1/4 bg-gray-100 border-r border-gray-300"
+  ></app-perfil-web-menu>
+
+  <!-- Conteúdo Principal -->
+  <div class="flex-1 flex flex-col">
+    <!-- Header -->
+    <app-perfil-web-header
+      [fLogado]="usuarioLogado"
+      (tabSelected)="onTabChange($event)"
+    ></app-perfil-web-header>
+
+    <!-- Conteúdo das Abas -->
+    <div class="p-6 flex-1">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
