@@ -19,6 +19,14 @@
         <span class="text-lg font-semibold text-green-500">CADASTRAR PROMOÇÃO</span>
       </div>
     </div>
-    <!-- Mais conteúdo específico de promoções vai aqui -->
+
+    <!-- Lista de promoções -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-16 mt-16">
+  <app-card-promocao
+    *ngFor="let promocao of promocoes"
+    [promocao]="promocao"
+    class="shadow-lg min-h-full"
+  ></app-card-promocao>
+</div>
   </div>
 </div>

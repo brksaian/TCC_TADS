@@ -1,1 +1,33 @@
-<p>login-administrador works!</p>
+<div class="h-screen bg-black flex flex-col">
+  <header class="flex items-center justify-center bg-[#0095B6] h-1/6">
+    <h1 class="text-white text-xl font-semibold">Nota Social Administrador</h1>
+  </header>
+
+  <div class="flex flex-col items-center justify-center flex-grow space-y-6">
+    <div class="w-3/4 max-w-md">
+      <label for="login" class="text-white block mb-2">Login/Email:</label>
+      <input
+        type="text"
+        id="login"
+        class="w-full px-4 py-2 bg-gray-800 text-white border border-gray-600 rounded-md"
+        placeholder="Digite seu login ou email"
+      />
+    </div>
+    
+    <div class="w-3/4 max-w-md">
+      <label for="senha" class="text-white block mb-2">Senha:</label>
+      <input
+        type="password"
+        id="senha"
+        class="w-full px-4 py-2 bg-gray-800 text-white border border-gray-600 rounded-md"
+        placeholder="Digite sua senha"
+      />
+    </div>
+
+    <button 
+      (click)="onEntrar()"
+      class="w-3/4 max-w-md bg-[#0095B6] text-white py-2 rounded-md font-semibold">
+      Entrar
+    </button>
+  </div>
+</div>

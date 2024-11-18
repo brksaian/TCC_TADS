@@ -1,17 +1,55 @@
-<body class="bg-gray-100 min-h-screen flex">
-    <div class="mt-[8vh] flex w-full"> 
-      <div class="w-1/3 p-4 pl-40"> 
-        <img src="assets/Nota Social.jpg" alt="Nota Social" class="w-full h-auto"> 
+<div class="bg-gray-100 min-h-screen flex">
+  <div class="mt-[8vh] flex w-full">
+    <div class="w-1/3 p-4 pl-40">
+      <img src="assets/Nota Social.jpg" alt="Nota Social" class="w-full h-auto">
+    </div>
+    <div class="w-7/12 p-4">
+      <div class="bg-white p-4 rounded shadow border-b-2 border-gray-400">
+        <h2 class="text-2xl font-bold">Cadastrar Nova Promoção</h2>
       </div>
-      <div class="w-7/12 p-4"> 
-        <div class="bg-white p-4 rounded shadow border-b-2 border-gray-400"> 
-          <h2 class="text-2xl font-bold">Cadastrar Nova Promoção</h2>
+      <div class="bg-white mt-4 rounded shadow border-b-2 border-gray-400 p-6 space-y-6">
+        <div class="w-full flex space-x-4">
+          <div class="w-7/12">
+            <label class="block text-gray-700 font-bold mb-2">Título</label>
+            <input type="text" placeholder="Digite o título" class="w-full p-2 border border-gray-300 rounded">
+          </div>
+          <div class="w-3/12">
+            <label class="block text-gray-700 font-bold mb-2">Validade</label>
+            <input type="text" placeholder="Digite a validade" class="w-full p-2 border border-gray-300 rounded">
+          </div>
         </div>
-        <div class="bg-white mt-4 rounded shadow border-b-2 border-gray-400 h-[36rem]">
-          <h2 class="text-xl font-bold">Conteúdo do Formulário de Promoção</h2> 
-          <!-- Aqui você pode adicionar os campos do formulário de promoção -->
+        <div class="w-full flex space-x-4">
+          <div class="w-full">
+            <label class="block text-gray-700 font-bold mb-2">Endereço</label>
+            <input type="text" placeholder="Digite informações da Caixa 2" class="w-full p-2 border border-gray-300 rounded">
+          </div>
+        </div>
+        <h3 class="h-2 text-xl font-bold mt-4">Produtos</h3>
+
+        <div id="produtos-container" class="w-full flex flex-col space-y-4">
+          <div *ngFor="let produto of produtos; let i = index" class="w-full flex space-x-4 mt-4">
+            <div class="w-7/12">
+              <label class="block text-gray-700 font-bold mb-2">Nome</label>
+              <input type="text" [(ngModel)]="produtos[i].nome" placeholder="Digite o nome" class="w-full p-2 border border-gray-300 rounded">
+            </div>
+            <div class="w-5/12">
+              <label class="block text-gray-700 font-bold mb-2">Preço</label>
+              <input type="text" [(ngModel)]="produtos[i].preco" placeholder="Digite o preço" class="w-full p-2 border border-gray-300 rounded">
+            </div>
+          </div>
+        </div>
+
+        <div class="flex justify-end mt-4">
+          <button (click)="adicionarProduto()" class="bg-green-500 text-white rounded w-12 h-12 flex items-center justify-center"> + </button>
+        </div>
+
+        <div class="h-2"></div>
+
+        <div class="w-full flex justify-between mt-4">
+          <button (click)="voltar()" class="bg-gray-300 text-black px-4 py-2 rounded w-1/2 mr-2">Voltar</button>
+          <button class="bg-green-500 text-white px-4 py-2 rounded w-1/2 ml-2">Cadastrar</button>
         </div>
       </div>
     </div>
-  </body>
-  
+  </div>
+</div>
