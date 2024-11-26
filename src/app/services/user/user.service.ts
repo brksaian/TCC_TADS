@@ -1,16 +1,21 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { jwtDecode } from 'jwt-decode';
+import jwtDecode from 'jwt-decode';
 import { Observable, of, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import { AutoCadastroResponse, ForgotPasswordResponse, UserProduto, Usuario } from '../../shared/interface';
+import {
+  AutoCadastroResponse,
+  ForgotPasswordResponse,
+  LoginResponse,
+  UserProduto,
+  Usuario,
+} from '../../shared/interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserService {
-
-  private apiUrl = 'http://localhost:3000/usuarios';
+  private apiUrl = 'http://localhost:8086/auth';
   private userProdutoApiUrl = 'http://localhost:3000/user_produto';
 
   constructor(private http: HttpClient) {}
@@ -40,39 +45,51 @@ export class UserService {
   //     catchError(this.handleError)
   //   );
   // }
-  login(email: string, senha: string): Observable<Usuario | null> {
-    return this.http.get<Usuario[]>(this.apiUrl).pipe(
-      map((response) => {
-        // Verifica se existe um usuário com o email e senha fornecidos
-        const user = response.find(user => user.email === email && user.senha === senha);
-        if (user) {
-          // Salva o usuário no localStorage
-          localStorage.setItem('currentUser', JSON.stringify(user));
-          return user;
-        } else {
-          return null;
-        }
-      }),
-      catchError((error) => {
-        console.error('Erro ao carregar os usuários:', error);
-        return of(null);
-      })
-    );
+  login(email: string, senha: string): Observable<String | null> {
+    return this.http
+      .post<LoginResponse>(`${this.apiUrl}/generate-token`, { email, senha })
+      .pipe(
+        map((response) => {
+          if (response && response.token) {
+            const { token } = response;
+
+            // Salva o token no localStorage
+            localStorage.setItem('authToken', token);
+
+            // Decodifica o token JWT para obter os dados do usuário
+            const decodedToken: any = jwtDecode(token);
+
+            return token;
+          } else {
+            return null;
+          }
+        }),
+        catchError((error) => {
+          console.error('Erro ao fazer login:', error);
+          return of(null);
+        })
+      );
   }
 
-
-  autoCadastro(nome: string, email: string, senha: string, perfil: string, cnpj?: string): Observable<AutoCadastroResponse> {
+  autoCadastro(
+    nome: string,
+    email: string,
+    senha: string,
+    perfil: string,
+    cnpj?: string
+  ): Observable<AutoCadastroResponse> {
     const url = `${this.apiUrl}/autocadastro`;
 
-    const body = perfil === 'estabelecimento'
-      ? { nome, email, senha, perfil, cnpj }
-      : { nome, email, senha, perfil };
+    const body =
+      perfil === 'estabelecimento'
+        ? { nome, email, senha, perfil, cnpj }
+        : { nome, email, senha, perfil };
 
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
-    return this.http.post<AutoCadastroResponse>(url, body, { headers }).pipe(
-      catchError(this.handleError)
-    );
+    return this.http
+      .post<AutoCadastroResponse>(url, body, { headers })
+      .pipe(catchError(this.handleError));
   }
 
   forgotPassword(email: string): Observable<ForgotPasswordResponse> {
@@ -80,9 +97,9 @@ export class UserService {
     const body = { email };
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
-    return this.http.post<ForgotPasswordResponse>(url, body, { headers }).pipe(
-      catchError(this.handleError)
-    );
+    return this.http
+      .post<ForgotPasswordResponse>(url, body, { headers })
+      .pipe(catchError(this.handleError));
   }
 
   getUsuarioLogado(): Usuario | null {
@@ -141,8 +158,6 @@ export class UserService {
     localStorage.removeItem('token');
   }
 
-
-
   // ============================
   // Métodos de UserProduto (Favoritos)
   // ============================
@@ -159,8 +174,14 @@ export class UserService {
     return this.http.post<UserProduto>(this.userProdutoApiUrl, userProduto);
   }
 
-  updateUserProduto(id: number, userProduto: UserProduto): Observable<UserProduto> {
-    return this.http.put<UserProduto>(`${this.userProdutoApiUrl}/${id}`, userProduto);
+  updateUserProduto(
+    id: number,
+    userProduto: UserProduto
+  ): Observable<UserProduto> {
+    return this.http.put<UserProduto>(
+      `${this.userProdutoApiUrl}/${id}`,
+      userProduto
+    );
   }
 
   deleteUserProduto(id: number): Observable<void> {
