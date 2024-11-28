@@ -1,0 +1,16 @@
+<header class="bg-white h-10 w-full flex items-center justify-end pr-4 absolute top-0 left-0 border-b-2">
+    <!-- Ícone de menu -->
+    <div
+      class="absolute left-4 flex flex-col justify-center items-center h-full cursor-pointer"
+      (click)="toggleMenu()"
+    >
+      <div class="w-6 h-1 bg-black mb-1"></div>
+      <div class="w-6 h-1 bg-black mb-1"></div>
+      <div class="w-6 h-1 bg-black"></div>
+    </div>
+    <span class="text-black">Admin</span>
+  </header>
+  
+  <!-- Menu de Navegação - Condicionalmente visível -->
+  <app-nav-bar-administrador *ngIf="menuVisible" class="absolute z-30"></app-nav-bar-administrador>
+  

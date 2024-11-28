@@ -8,6 +8,10 @@ import { NovoEnderecoComponent } from './components/endereco';
 import { NovaPromocaoComponent } from './components/promocao';
 import {LoginAdministradorComponent} from './components/administrador';
 import {HomeAdministradorComponent} from './components/administrador';
+import {HomeUsuariosADMComponent} from './components/administrador';
+import {HomeAvaliacoesADMComponent} from './components/administrador';
+import {HomeEstabelecimentosADMComponent} from './components/administrador';
+import {HomeProdutosADMComponent} from './components/administrador';
 
 export const routes: Routes = [
   {
@@ -18,20 +22,24 @@ export const routes: Routes = [
     path: 'estabelecimento',
     loadChildren: () => import('./pages/estabelecimento').then(m => m.estabelecimentoRoutes),
   },
-  {
+  /*{
     path: 'guest',
     loadChildren: () => import('./pages/user').then(m => m.guestRoutes),
-  },
+  },*/
   {path: 'login', component: LoginComponent },
   {path: 'registrar', component: AutoCadastroComponent },
-  { path: '**', redirectTo: '/guest/home' },
+  /*{ path: '**', redirectTo: '/guest/home' },*/
   //Integrado 12/11//
   { path: 'estabelecimento/promocoes-estabelecimento', component: PromocoesEstabelecimentoComponent }, 
   { path: 'estabelecimento/enderecos-estabelecimento', component: EnderecosEstabelecimentoComponent },
   { path: 'endereco/novo-endereco', component: NovoEnderecoComponent },
   { path: 'promocao/nova-promocao', component: NovaPromocaoComponent },
   { path: 'administrador/login-administrador', component: LoginAdministradorComponent },
-  { path: 'administrador/home-administrador', component: HomeAdministradorComponent }
+  { path: 'administrador/home-administrador', component: HomeAdministradorComponent },
+  { path: 'administrador/usuarios/home-usuarios-adm', component: HomeUsuariosADMComponent },
+  { path: 'administrador/avaliacoes/home-avaliacoes-adm', component: HomeAvaliacoesADMComponent },
+  { path: 'administrador/estabelecimentos/home-estabelecimentos-adm', component: HomeEstabelecimentosADMComponent },
+  { path: 'administrador/produtos/home-produtos-adm', component: HomeProdutosADMComponent }
   //{ path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   // outras rotas
 ];
