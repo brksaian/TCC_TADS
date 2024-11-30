@@ -1,1 +1,60 @@
-<p>perfil-web-notas works!</p>
+<div class="p-6 w-full bg-gray-100">
+  <div class="flex justify-between items-center mb-6">
+    <!-- Busca -->
+    <div class="flex items-center gap-2">
+      <input
+        type="text"
+        placeholder="Buscar Nota"
+        (input)="buscarNota($any($event.target).value)"
+        class="border border-gray-300 rounded-lg p-2 w-64"
+      />
+    </div>
+
+    <!-- Ordenação -->
+    <div class="flex items-center gap-2">
+      <label for="ordenar" class="text-sm font-medium">Ordenar por</label>
+      <select
+        id="ordenar"
+        (change)="ordenarNotas($any($event.target).value)"
+        class="border border-gray-300 rounded-lg p-2"
+      >
+        <option value="asc">Crescente</option>
+        <option value="desc">Decrescente</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Lista de Notas -->
+  <div
+    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+  >
+    <div
+      *ngFor="let nota of notasFiltradas"
+      class="border border-gray-300 rounded-lg p-4 flex flex-col items-center bg-white"
+    >
+      <div class="bg-green-500 rounded-full p-3 mb-4">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-8 h-8 text-white"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M6 9h12M9 12h6m-9 3h9M4 5h16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"
+          />
+        </svg>
+      </div>
+      <h3 class="text-sm font-semibold">{{ nota.titulo }}</h3>
+      <p class="text-xs text-gray-500">Cadastro {{ nota.dataCadastro }}</p>
+      <button
+        class="mt-4 px-4 py-2 bg-green-500 text-white text-sm font-medium rounded-lg hover:bg-green-600"
+      >
+        CONFERIR
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,8 +1,8 @@
-<div class="flex h-screen">
+<div class="flex h-screen w-screen">
   <!-- Menu Lateral -->
   <app-perfil-web-menu
     [user]="usuario"
-    class="w-1/4 bg-gray-100 border-r border-gray-300"
+    class="w-1/4 bg-gray-100 border-r border-gray-300 menu-lateral"
   ></app-perfil-web-menu>
 
   <!-- Conteúdo Principal -->
@@ -14,7 +14,7 @@
     ></app-perfil-web-header>
 
     <!-- Conteúdo das Abas -->
-    <div class="p-6 flex-1">
+    <div class="p-6 flex-1 w-full">
       <router-outlet></router-outlet>
     </div>
   </div>

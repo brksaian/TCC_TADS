@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HistoricoPrecoComponent } from '../../../pages/consumidor/visualizar-produto';
 
-import { HistoricoPrecoComponent } from './historico-preco.component';
 
 describe('HistoricoPrecoComponent', () => {
   let component: HistoricoPrecoComponent;

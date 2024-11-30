@@ -1,3 +1,4 @@
+import { produtoRoutes } from './pages/produto/produto-routing';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AutoCadastroComponent, LoginComponent } from './pages/user';
@@ -7,10 +8,6 @@ import {
   LoginAdministradorComponent,
 } from './components/administrador';
 import { NovoEnderecoComponent } from './components/endereco';
-import {
-  EnderecosEstabelecimentoComponent,
-  PromocoesEstabelecimentoComponent,
-} from './components/estabelecimento';
 import { NovaPromocaoComponent } from './components/promocao';
 
 export const routes: Routes = [
@@ -33,9 +30,14 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./pages/administrador').then((m) => m.administradorRoutes),
   },
+  {
+    path: 'produto',
+    loadChildren: () =>
+      import('./pages/produto').then((m) => m.produtoRoutes),
+  },
   { path: 'login', component: LoginComponent },
   { path: 'registrar', component: AutoCadastroComponent },
-  { path: '**', redirectTo: '/guest/home' },
+  // { path: '**', redirectTo: '/guest/home' },
   { path: 'endereco/novo-endereco', component: NovoEnderecoComponent },
   { path: 'promocao/nova-promocao', component: NovaPromocaoComponent },
   {

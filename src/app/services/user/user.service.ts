@@ -1,6 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import jwtDecode from 'jwt-decode';
 import { Observable, of, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import {
@@ -57,7 +56,7 @@ export class UserService {
             localStorage.setItem('authToken', token);
 
             // Decodifica o token JWT para obter os dados do usuário
-            const decodedToken: any = jwtDecode(token);
+            //const decodedToken: any = jwtDecode(token);
 
             return token;
           } else {
@@ -108,15 +107,15 @@ export class UserService {
     if (token) {
       try {
         // Decodifica o token JWT e retorna o usuário
-        const decoded: any = jwtDecode(token);
-        const usuarioLogado: Usuario = {
-          id: decoded.id,
-          nome: decoded.nome,
-          email: decoded.email,
-          perfil: decoded.perfil,
-          senha: decoded.senha,
-        };
-        return usuarioLogado;
+        // const decoded: any = jwtDecode(token);
+        // const usuarioLogado: Usuario = {
+        //   id: decoded.id,
+        //   nome: decoded.nome,
+        //   email: decoded.email,
+        //   perfil: decoded.perfil,
+        //   senha: decoded.senha,
+        // };
+        return null; //usuarioLogado;
       } catch (error) {
         console.error('Erro ao decodificar o token:', error);
         return null;
@@ -139,8 +138,8 @@ export class UserService {
 
     if (token) {
       try {
-        const decoded: any = jwtDecode(token);
-        return decoded.id;
+        //const decoded: any = jwtDecode(token);
+        return 0; //decoded.id;
       } catch (error) {
         console.error('Erro ao decodificar o token:', error);
         return 0;

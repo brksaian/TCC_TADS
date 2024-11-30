@@ -1,1 +1,50 @@
-<p>perfil-web-favoritos works!</p>
+<div class="p-6 w-full bg-gray-100 min-h-screen">
+  <h1 class="text-xl font-bold mb-4 text-center sm:text-left">
+    Seus Favoritos
+  </h1>
+  <div
+    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+  >
+    <div
+      *ngFor="let produto of produtos"
+      class="border rounded-md p-4 relative flex flex-col items-center gap-2 shadow-sm bg-white"
+    >
+      <img
+        [src]="produto.image"
+        [alt]="produto.nome"
+        class="w-20 h-20 object-cover"
+      />
+      <h3 class="text-center text-sm font-semibold">
+        {{ produto.nome }}
+      </h3>
+      <p class="text-center text-xs text-gray-500">
+        {{ produto.descricao }}
+      </p>
+      <button
+        (click)="removerFavorito(produto.id)"
+        class="absolute top-2 right-2 p-1 bg-red-500 text-white rounded-full hover:bg-red-600 transition-all"
+        aria-label="Remover favorito"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-4 h-4"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M6 18L18 6M6 6l12 12"
+          />
+        </svg>
+      </button>
+      <button
+        class="px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 transition-colors"
+      >
+        CONFERIR
+      </button>
+    </div>
+  </div>
+</div>
