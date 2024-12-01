@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 import { BuscarProdutoComponent } from './buscar-produto';
 import { ConsumidorLayoutComponent } from '../consumidor/consumidor-layout';
-import { VisualizarProdutoComponent } from '../consumidor/visualizar-produto';
+import { VisualizarProdutoComponent } from './visualizar-produto';
 
 export const produtoRoutes: Routes = [
   {

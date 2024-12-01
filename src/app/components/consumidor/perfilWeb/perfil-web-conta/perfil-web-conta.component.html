@@ -1,1 +1,88 @@
-<p>perfil-web-conta works!</p>
+<div class="p-6 w-full bg-gray-100 flex justify-center items-center">
+  <form
+    [formGroup]="contaForm"
+    class="bg-white p-6 rounded-lg shadow-lg w-full"
+  >
+    <!-- Nome e Sobrenome -->
+    <div class="grid grid-cols-2 gap-4 mb-4">
+      <div>
+        <label class="block text-sm font-medium mb-1" for="nome">Nome</label>
+        <input
+          id="nome"
+          type="text"
+          formControlName="nome"
+          class="w-full border border-gray-300 rounded-lg p-2"
+        />
+      </div>
+      <div>
+        <label class="block text-sm font-medium mb-1" for="sobrenome"
+          >Sobrenome</label
+        >
+        <input
+          id="sobrenome"
+          type="text"
+          formControlName="sobrenome"
+          class="w-full border border-gray-300 rounded-lg p-2"
+        />
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <label class="block text-sm font-medium mb-1" for="email">Email</label>
+      <input
+        id="email"
+        type="email"
+        formControlName="email"
+        class="w-full border border-gray-300 rounded-lg p-2 bg-gray-200 cursor-not-allowed"
+        [disabled]="true"
+      />
+    </div>
+
+    <!-- Mudar Senha -->
+    <div class="mb-4">
+      <button
+        type="button"
+        (click)="toggleMudarSenha()"
+        class="w-full text-left text-green-600 font-medium flex justify-between items-center"
+      >
+        Mudar Senha
+        <span>{{ mudarSenha ? "▲" : "▼" }}</span>
+      </button>
+    </div>
+
+    <!-- Campos de Senha -->
+    <div *ngIf="mudarSenha" class="grid grid-cols-2 gap-4 mb-4">
+      <div>
+        <label class="block text-sm font-medium mb-1" for="senha">Senha</label>
+        <input
+          id="senha"
+          type="password"
+          formControlName="senha"
+          class="w-full border border-gray-300 rounded-lg p-2"
+        />
+      </div>
+      <div>
+        <label class="block text-sm font-medium mb-1" for="confirmarSenha"
+          >Confirmar Senha</label
+        >
+        <input
+          id="confirmarSenha"
+          type="password"
+          formControlName="confirmarSenha"
+          class="w-full border border-gray-300 rounded-lg p-2"
+        />
+      </div>
+    </div>
+
+    <!-- Botão de Salvar -->
+    <div class="text-right">
+      <button
+        type="button"
+        (click)="salvar()"
+        class="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600"
+      >
+        SALVAR
+      </button>
+    </div>
+  </form>
+</div>

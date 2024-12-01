@@ -1,16 +1,15 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router'; 
 import { CommonModule } from '@angular/common';
-import { HeaderEstabelecimentoComponent } from '../header-estabelecimento';
-import { CardPromocaoComponent } from '../../promocao/card-promocao/card-promocao.component';
-import { Promocao } from '../../../shared/interface';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { CardPromocaoComponent } from '../../../promocao';
+import { Promocao } from '../../../../shared/interface';
 
 @Component({
   selector: 'app-promocoes-estabelecimento',
   standalone: true,
-  imports: [CommonModule, HeaderEstabelecimentoComponent, CardPromocaoComponent],
+  imports: [CommonModule, CardPromocaoComponent],
   templateUrl: './promocoes-estabelecimento.component.html',
-  styleUrls: ['./promocoes-estabelecimento.component.css']
+  styleUrls: ['./promocoes-estabelecimento.component.css'],
 })
 export class PromocoesEstabelecimentoComponent {
   promocoes: Promocao[] = [
@@ -19,7 +18,7 @@ export class PromocoesEstabelecimentoComponent {
       nome: 'Promoção de Verão',
       validade: new Date(2024, 11, 31),
       produtos: ['Salgadinhos', 'Refrigerantes'],
-      precos: [9.99, 14.99], 
+      precos: [9.99, 14.99],
       imagem: './assets/menu-provisorio.png',
     },
     {
@@ -27,15 +26,15 @@ export class PromocoesEstabelecimentoComponent {
       nome: 'Carnes',
       validade: new Date(2024, 9, 15),
       produtos: ['Carne Friboi Kg', 'Peito de Frango Kg'],
-      precos: [27.99, 4.99], 
-      imagem: './assets/menu-provisorio.png', 
+      precos: [27.99, 4.99],
+      imagem: './assets/menu-provisorio.png',
     },
     {
       id: 3,
       nome: 'Promoção de Verduras',
       validade: new Date(2024, 10, 31),
       produtos: ['Alface', 'Tomate', 'Cenoura'],
-      precos: [1.99, 3.50, 1.99],
+      precos: [1.99, 3.5, 1.99],
       imagem: './assets/menu-provisorio.png',
     },
     {
@@ -43,7 +42,7 @@ export class PromocoesEstabelecimentoComponent {
       nome: 'Promoção de Frutas',
       validade: new Date(2024, 10, 15),
       produtos: ['Maçã', 'Banana', 'Laranja'],
-      precos: [2.99, 1.50, 3.00],
+      precos: [2.99, 1.5, 3.0],
       imagem: './assets/menu-provisorio.png',
     },
     {
@@ -67,7 +66,7 @@ export class PromocoesEstabelecimentoComponent {
       nome: 'Promoção de Higiene - Desodorantes',
       validade: new Date(2024, 9, 30),
       produtos: ['Desodorante Roll-On'],
-      precos: [8.50],
+      precos: [8.5],
       imagem: './assets/menu-provisorio.png',
     },
     {
@@ -83,7 +82,7 @@ export class PromocoesEstabelecimentoComponent {
       nome: 'Promoção de Limpeza - Desinfetantes',
       validade: new Date(2024, 11, 5),
       produtos: ['Desinfetante', 'Álcool em Gel', 'Água Sanitária'],
-      precos: [3.99, 6.50, 2.89],
+      precos: [3.99, 6.5, 2.89],
       imagem: './assets/menu-provisorio.png',
     },
     {

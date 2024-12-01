@@ -1,7 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { PerfilWebHeaderComponent, PerfilWebMenuComponent } from '../../../components/consumidor';
+import {
+  PerfilWebHeaderComponent,
+  PerfilWebMenuComponent,
+} from '../../../components/consumidor';
+import { HeaderperfilusuariodeslogadoComponent } from '../../../components/consumidor/headerperfilusuariodeslogado/headerperfilusuariodeslogado.component';
+import { HeaderPerfilConsumidorComponent } from "../../../components/consumidor/header-perfil-consumidor/header-perfil-consumidor.component";
 
 @Component({
   selector: 'app-perfil-web',
@@ -11,7 +16,9 @@ import { PerfilWebHeaderComponent, PerfilWebMenuComponent } from '../../../compo
     PerfilWebHeaderComponent,
     RouterModule,
     CommonModule,
-  ],
+    HeaderperfilusuariodeslogadoComponent,
+    HeaderPerfilConsumidorComponent
+],
   templateUrl: './perfil-web.component.html',
   styleUrls: ['./perfil-web.component.css'],
 })
@@ -22,9 +29,13 @@ export class PerfilWebComponent {
     endereco: 'Rua Exemplo, 123 - Curitiba, PR',
   };
 
-  usuarioLogado = true;
+  usuarioLogado = false;
 
   onTabChange(tab: string) {
     console.log(`Aba selecionada: ${tab}`);
+  }
+  onSeguirChange(estaSeguindo: boolean): void {
+    console.log(`Seguir alterado para: ${estaSeguindo}`);
+    // Você pode adicionar lógica adicional aqui, como enviar uma solicitação para o backend.
   }
 }

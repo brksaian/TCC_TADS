@@ -7,6 +7,7 @@ import {
   PerfilWebSeguidoresComponent,
   PerfilWebSeguindoComponent,
 } from '../../../components/consumidor';
+import { AvaliacoesuserComponent } from '../../../components/consumidor/avaliacoesuser/avaliacoesuser.component';
 
 export const perfilWebRoutes: Routes = [
   {
@@ -36,5 +37,9 @@ export const perfilWebRoutes: Routes = [
   {
     path: 'conta',
     component: PerfilWebContaComponent,
+  },
+  {
+    path: 'avaliacoes',
+    component: AvaliacoesuserComponent,
   },
 ];

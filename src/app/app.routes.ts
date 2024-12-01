@@ -1,4 +1,3 @@
-import { produtoRoutes } from './pages/produto/produto-routing';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AutoCadastroComponent, LoginComponent } from './pages/user';
@@ -32,8 +31,7 @@ export const routes: Routes = [
   },
   {
     path: 'produto',
-    loadChildren: () =>
-      import('./pages/produto').then((m) => m.produtoRoutes),
+    loadChildren: () => import('./pages/produto').then((m) => m.produtoRoutes),
   },
   { path: 'login', component: LoginComponent },
   { path: 'registrar', component: AutoCadastroComponent },

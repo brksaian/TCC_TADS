@@ -1,16 +1,15 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { CommonModule } from '@angular/common';
-import { HeaderEstabelecimentoComponent } from '../header-estabelecimento';
-import { CardEnderecoComponent } from '../../endereco/card-endereco/card-endereco.component';
-import { Estabelecimento } from '../../../shared/interface';
+import { Estabelecimento } from '../../../../shared/interface';
+import { CardEnderecoComponent } from '../../../endereco';
 
 @Component({
   selector: 'app-enderecos-estabelecimento',
   standalone: true,
-  imports: [CommonModule,HeaderEstabelecimentoComponent, CardEnderecoComponent],
+  imports: [CommonModule, CardEnderecoComponent],
   templateUrl: './enderecos-estabelecimento.component.html',
-  styleUrls: ['./enderecos-estabelecimento.component.css']
+  styleUrls: ['./enderecos-estabelecimento.component.css'],
 })
 export class EnderecosEstabelecimentoComponent {
   estabelecimentos: Estabelecimento[] = [

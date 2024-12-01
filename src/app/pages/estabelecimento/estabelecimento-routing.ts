@@ -1,15 +1,20 @@
 import { Routes } from '@angular/router';
+import { BuscaEstabelecimentoComponent } from './busca-estabelecimento/busca-estabelecimento.component';
 import { EstabelecimentoLayoutComponent } from './estabelecimento-layout/estabelecimento-layout.component';
-import { EnderecosEstabelecimentoComponent, PromocoesEstabelecimentoComponent } from '../../components/estabelecimento';
 
 export const estabelecimentoRoutes: Routes = [
   {
     path: '',
     component: EstabelecimentoLayoutComponent,
     children: [
-      { path: 'promocoes', component: PromocoesEstabelecimentoComponent },
-      { path: 'enderecos', component: EnderecosEstabelecimentoComponent },
-      // { path: 'reserva/:codigoReserva', component: ReservationComponent },
+      {
+        path: 'visualizar',
+        loadChildren: () =>
+          import('./visualizar-estabelecimentos').then(
+            (m) => m.visualizarestabelecimentosRoutes
+          ),
+      },
+      { path: 'buscar', component: BuscaEstabelecimentoComponent },
       // { path: 'mileage-purchase', component:  MilesPurchaseComponent},
       // { path: 'miles-details', component: MilesDetailsComponent},
       // { path: 'flight-booking', component: FlightBookingComponent},

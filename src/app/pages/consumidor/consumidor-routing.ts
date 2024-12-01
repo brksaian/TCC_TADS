@@ -1,8 +1,7 @@
 import { Routes } from '@angular/router';
-import { BuscarProdutoComponent } from '../produto/buscar-produto';
+import { VisualizarCarrinhoComponent } from '../../components/carrinho';
 import { ConsumidorLayoutComponent } from './consumidor-layout';
 import { PerfilWebComponent, perfilWebRoutes } from './perfil-web';
-import { VisualizarProdutoComponent } from './visualizar-produto';
 
 export const clientRoutes: Routes = [
   {
@@ -14,8 +13,7 @@ export const clientRoutes: Routes = [
         component: PerfilWebComponent,
         children: perfilWebRoutes,
       },
-      { path: 'visualizar-produto', component: VisualizarProdutoComponent },
-      // { path: 'mileage-purchase', component:  MilesPurchaseComponent},
+      { path: 'visualizar-carrinho', component: VisualizarCarrinhoComponent },
       // { path: 'miles-details', component: MilesDetailsComponent},
       // { path: 'flight-booking', component: FlightBookingComponent},
       // { path: 'cancel-reservation', component:  CancelReservationComponent},
