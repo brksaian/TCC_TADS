@@ -64,12 +64,12 @@ export class LoginComponent {
 
   //Acesso provisório a tela Estabelecimento
   acessarPerfilEstabelecimento() {
-    this.router.navigate(['../../../components/estabelecimento/promocoes-estabelecimento']);
+    this.router.navigate(['/estabelecimento/promocoes-estabelecimento']);
   }
 
   //Acesso Login ADMIN
   logarAdmin(){
-    this.router.navigate(['../../../components/administrador/login-administrador']);
+    this.router.navigate(['/administrador/login-administrador']);
   }
 
 }

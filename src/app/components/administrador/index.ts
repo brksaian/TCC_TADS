@@ -5,3 +5,7 @@ export * from './avaliacoes';
 export * from './usuarios';
 export * from './estabelecimentos';
 export * from './produtos';
+export * from './header-administrador';
+
+
+

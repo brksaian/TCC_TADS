@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AutoCadastroComponent, LoginComponent } from './pages/user';
-//Integrado 12/11//
 import {
   HomeAdministradorComponent,
+  HomeAvaliacoesADMComponent,
+  HomeEstabelecimentosADMComponent,
+  HomeProdutosADMComponent,
+  HomeUsuariosADMComponent,
   LoginAdministradorComponent,
 } from './components/administrador';
 import { NovoEnderecoComponent } from './components/endereco';
@@ -45,6 +48,33 @@ export const routes: Routes = [
   {
     path: 'administrador/home-administrador',
     component: HomeAdministradorComponent,
+  },
+
+  { path: 'endereco/novo-endereco', component: NovoEnderecoComponent },
+  { path: 'promocao/nova-promocao', component: NovaPromocaoComponent },
+  {
+    path: 'administrador/login-administrador',
+    component: LoginAdministradorComponent,
+  },
+  {
+    path: 'administrador/home-administrador',
+    component: HomeAdministradorComponent,
+  },
+  {
+    path: 'administrador/usuarios/home-usuarios-adm',
+    component: HomeUsuariosADMComponent,
+  },
+  {
+    path: 'administrador/avaliacoes/home-avaliacoes-adm',
+    component: HomeAvaliacoesADMComponent,
+  },
+  {
+    path: 'administrador/estabelecimentos/home-estabelecimentos-adm',
+    component: HomeEstabelecimentosADMComponent,
+  },
+  {
+    path: 'administrador/produtos/home-produtos-adm',
+    component: HomeProdutosADMComponent,
   },
   //{ path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   // outras rotas

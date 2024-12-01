@@ -10,5 +10,9 @@ import { RouterModule } from '@angular/router';
   styleUrls: ['./nav-bar-administrador.component.css']
 })
 export class NavBarAdministradorComponent {
-  
+  isMenuOpen = true;
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
 }
