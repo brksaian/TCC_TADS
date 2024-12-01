@@ -1,0 +1,43 @@
+<app-header-administrador></app-header-administrador>
+
+<div class="bg-gray-300 pt-16 px-5 space-y-6 min-h-screen">
+  <!-- Barra de busca e ordenação -->
+  <div class="flex justify-between items-center mb-12">
+    <div class="flex items-center space-x-4">
+      <input
+        type="text"
+        [(ngModel)]="searchQuery"
+        placeholder="Buscar Estabelecimento"
+        class="px-16 py-2 border border-gray-300 rounded-lg focus:outline-none"
+      />
+      <button
+        (click)="onSearch()"
+        class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700"
+      >
+        Buscar
+      </button>
+    </div>
+
+    <div>
+      <p class="font-normal text-gray-600 mr-2 inline">Ordenar por</p>
+      <select
+        [(ngModel)]="sortOption"
+        (change)="onSortChange()"
+        class="px-16 py-2 border border-gray-300 rounded-lg focus:outline-none"
+      >
+        <option value="A-Z">A-Z</option>
+        <option value="Z-A">Z-A</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Lista de estabelecimentos -->
+  <div *ngIf="filteredEstabelecimentos.length > 0; else emptyState" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+    <app-card-estabelecimento-adm *ngFor="let estabelecimento of filteredEstabelecimentos" [estabelecimento]="estabelecimento"></app-card-estabelecimento-adm>
+  </div>
+
+  <!-- Estado vazio -->
+  <ng-template #emptyState>
+    <p class="text-center text-gray-500">Nenhum estabelecimento encontrado.</p>
+  </ng-template>
+</div>

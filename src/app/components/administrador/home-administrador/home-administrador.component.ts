@@ -1,12 +1,12 @@
 import { Component, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CarrosselCategoriasComponent } from '../../categoria/carrossel-categorias';
-import { NavBarAdministradorComponent } from '../nav-bar-administrador/nav-bar-administrador.component';
+import { HeaderAdministradorComponent } from '../header-administrador/header-administrador.component';
 
 @Component({
   selector: 'app-home-administrador',
   standalone: true,
-  imports: [CarrosselCategoriasComponent,CommonModule,NavBarAdministradorComponent],
+  imports: [CarrosselCategoriasComponent,CommonModule,HeaderAdministradorComponent],
   templateUrl: './home-administrador.component.html',
   styleUrl: './home-administrador.component.css'
 })
@@ -109,17 +109,10 @@ export class HomeAdministradorComponent implements OnInit {
   
 ];
 
-menuVisible = false;
-
 constructor() { }
 
 ngOnInit(): void {
   // Pode adicionar qualquer lógica que precise inicializar na montagem do componente.
-}
-
-
-toggleMenu(): void {
-  this.menuVisible = !this.menuVisible;
 }
 
 }

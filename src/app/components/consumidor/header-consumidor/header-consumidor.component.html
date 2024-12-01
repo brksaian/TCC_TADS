@@ -1,1 +1,91 @@
-<p>header-consumidor works!</p>
+<header class="bg-green-600 text-white py-4">
+  <!-- Barra Superior -->
+  <div class="flex justify-between items-center px-4 w-full">
+    <!-- Botão de Menu -->
+    <div class="absolute top-4 left-11">
+      <button (click)="toggleMenu()" class="focus:outline-none">
+        <fa-icon
+          *ngIf="!menuOpen"
+          [icon]="faBars"
+          class="text-white h-8 w-8"
+        ></fa-icon>
+      </button>
+    </div>
+
+    <!-- Título ou Logo -->
+    <div class="text-2xl font-bold">NS</div>
+
+    <!-- Perfil do Usuário -->
+    <div class="flex items-center space-x-2">
+      <fa-icon [icon]="faUserCircle" class="h-6 w-6 text-white"></fa-icon>
+      <span>Usuário</span>
+    </div>
+  </div>
+
+  <!-- Menu Lateral -->
+  <div
+    *ngIf="menuOpen"
+    class="fixed top-0 left-0 w-full bg-green-600 text-white p-8 flex flex-col justify-center items-center transition-all duration-300 z-50"
+  >
+    <!-- Botão de Fechar Menu -->
+    <div class="absolute top-4 left-11">
+      <button (click)="toggleMenu()" class="focus:outline-none">
+        <fa-icon [icon]="faTimes" class="text-white h-8 w-8 text-xl"></fa-icon>
+      </button>
+    </div>
+
+    <!-- Links do Menu -->
+    <div class="grid grid-cols-3 gap-4">
+      <a
+        routerLink="/buscar-produto"
+        class="flex flex-col items-center text-white"
+      >
+        <div class="bg-white text-green-600 p-6 rounded-lg">
+          <fa-icon [icon]="faSearch" class="h-8 w-8"></fa-icon>
+        </div>
+        <span class="mt-2 text-sm font-semibold">Buscar Produto</span>
+      </a>
+
+      <a
+        routerLink="/estabelecimentos"
+        class="flex flex-col items-center text-white"
+      >
+        <div class="bg-white text-green-600 p-6 rounded-lg">
+          <fa-icon [icon]="faBuilding" class="h-8 w-8"></fa-icon>
+        </div>
+        <span class="mt-2 text-sm font-semibold">Estabelecimentos</span>
+      </a>
+
+      <a
+        routerLink="/ranking-usuarios"
+        class="flex flex-col items-center text-white"
+      >
+        <div class="bg-white text-green-600 p-6 rounded-lg">
+          <fa-icon [icon]="faChartBar" class="h-8 w-8"></fa-icon>
+        </div>
+        <span class="mt-2 text-sm font-semibold">Ranking de Usuários</span>
+      </a>
+
+      <a routerLink="/favoritos" class="flex flex-col items-center text-white">
+        <div class="bg-white text-green-600 p-6 rounded-lg">
+          <fa-icon [icon]="faHeart" class="h-8 w-8"></fa-icon>
+        </div>
+        <span class="mt-2 text-sm font-semibold">Favoritos</span>
+      </a>
+
+      <a routerLink="/carrinho" class="flex flex-col items-center text-white">
+        <div class="bg-white text-green-600 p-6 rounded-lg">
+          <fa-icon [icon]="faShoppingCart" class="h-8 w-8"></fa-icon>
+        </div>
+        <span class="mt-2 text-sm font-semibold">Carrinho</span>
+      </a>
+
+      <a routerLink="/logout" class="flex flex-col items-center text-white">
+        <div class="bg-white text-green-600 p-6 rounded-lg">
+          <fa-icon [icon]="faSignOutAlt" class="h-8 w-8"></fa-icon>
+        </div>
+        <span class="mt-2 text-sm font-semibold">Sair</span>
+      </a>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,29 @@
+<div class="flex h-screen w-screen">
+  <!-- Menu Lateral -->
+  <app-perfil-web-menu
+    *ngIf="usuarioLogado"
+    [user]="usuario"
+    class="w-1/4 bg-gray-100 border-r border-gray-300 menu-lateral"
+  ></app-perfil-web-menu>
+
+  <!-- Conteúdo Principal -->
+  <div class="flex-1 flex flex-col">
+    <!-- Header -->
+    <ng-container *ngIf="usuarioLogado; else headerDeslogado">
+      <app-perfil-web-header
+        [fLogado]="usuarioLogado"
+        (tabSelected)="onTabChange($event)"
+      ></app-perfil-web-header>
+    </ng-container>
+
+    <ng-template #headerDeslogado>
+      <app-header-perfil-consumidor
+      ></app-header-perfil-consumidor>
+    </ng-template>
+
+    <!-- Conteúdo das Abas -->
+    <div class="p-6 flex-1 w-full">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,74 @@
+<div class="p-6 w-full bg-gray-100">
+  <!-- Header com busca e ordenação -->
+  <div class="flex justify-between items-center mb-6">
+    <!-- Busca -->
+    <div class="flex items-center gap-2">
+      <input
+        type="text"
+        placeholder="Buscar"
+        (input)="buscarConsumidor($any($event.target).value)"
+        class="border border-gray-300 rounded-lg p-2 w-64"
+      />
+      <button class="p-2 bg-gray-300 rounded-lg">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-5 h-5 text-gray-700"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M21 21l-4.35-4.35m0 0a7.5 7.5 0 1 0-10.606 0 7.5 7.5 0 0 0 10.606 0z"
+          />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Ordenação -->
+    <div class="flex items-center gap-2">
+      <label for="ordenar" class="text-sm font-medium">Ordenar por</label>
+      <select
+        id="ordenar"
+        (change)="ordenarConsumidores($any($event.target).value)"
+        class="border border-gray-300 rounded-lg p-2"
+      >
+        <option value="pontos">Pontos</option>
+        <option value="rank">Rank</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Lista de consumidores -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    <div
+      *ngFor="let consumidor of consumidoresFiltrados"
+      class="group border border-gray-300 rounded-lg p-4 flex flex-col items-center bg-white relative"
+    >
+      <!-- Imagem do consumidor -->
+      <img
+        [src]="consumidor.imagem"
+        alt="{{ consumidor.nome }}"
+        class="w-20 h-20 rounded-full mb-4 object-cover"
+      />
+      <!-- Nome do consumidor -->
+      <h3 class="text-sm font-semibold">{{ consumidor.nome }}</h3>
+      <!-- Informações adicionais -->
+      <p class="text-xs text-gray-500">
+        Pontos: {{ consumidor.pontos }} | Rank: {{ consumidor.rank }}
+      </p>
+      <p class="text-xs text-gray-500">
+        Notas: {{ consumidor.notesCount }} | Produtos: {{ consumidor.productsCount }}
+      </p>
+      <!-- Botão de remover (aparece somente no hover) -->
+      <button
+        class="mt-4 px-4 py-2 bg-red-500 text-white text-sm font-medium rounded-lg hover:bg-red-600 absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"
+        (click)="removerConsumidor(consumidor.id)"
+      >
+        REMOVER
+      </button>
+    </div>
+  </div>
+</div>
