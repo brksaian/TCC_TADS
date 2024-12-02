@@ -1,9 +1,38 @@
-<!-- Lista de Produtos -->
-<div *ngIf="filteredProdutos.length > 0; else emptyState" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-    <app-card-produto *ngFor="let produto of filteredProdutos" [produto]="produto"></app-card-produto>
+<!-- Carrossel de Produtos -->
+<div *ngIf="filteredProdutos.length > 0; else emptyState" class="relative">
+  <!-- Botão para o slide anterior -->
+  <button
+    class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-gray-500 text-white rounded-full w-10 h-10 flex items-center justify-center focus:outline-none z-10"
+    (click)="prevSlide()"
+  >
+    ‹
+  </button>
+
+  <!-- Contêiner do carrossel -->
+  <div class="overflow-hidden pl-12">
+    <div
+      class="flex transition-transform duration-500"
+      [style.transform]="'translateX(-' + currentSlide * 100 + '%)'"
+    >
+      <div
+        *ngFor="let produto of filteredProdutos"
+        class="w-full sm:w-1/2 lg:w-1/5 flex-shrink-0 px-2"
+      >
+        <app-card-produto [produto]="produto"></app-card-produto>
+      </div>
+    </div>
   </div>
 
-  <!-- Estado vazio -->
-  <ng-template #emptyState>
-    <p class="text-center text-gray-500">Nenhum produto sem categoria encontrado.</p>
-  </ng-template>
+  <!-- Botão para o próximo slide -->
+  <button
+    class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-gray-500 text-white rounded-full w-10 h-10 flex items-center justify-center focus:outline-none z-10"
+    (click)="nextSlide()"
+  >
+    ›
+  </button>
+</div>
+
+<!-- Estado vazio -->
+<ng-template #emptyState>
+  <p class="text-center text-gray-500">Nenhum produto sem categoria encontrado.</p>
+</ng-template>

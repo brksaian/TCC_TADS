@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { Produto } from '../../../../shared/interface';
@@ -13,18 +13,33 @@ import { ProdutoTesteComponent } from '../produto-teste/produto-teste.component'
   templateUrl: './listar-produtos-sem-categoria.component.html',
   styleUrls: ['./listar-produtos-sem-categoria.component.css'],
 })
-export class ListarProdutosSemCategoriaComponent {
+export class ListarProdutosSemCategoriaComponent implements OnInit {
   produtos: Produto[] = [];
   filteredProdutos: Produto[] = [];
+  currentSlide = 0; // Slide atual
+  itemsPerSlide = 5; // Quantidade de itens por slide
 
   ngOnInit(): void {
-    // Instancia para ProdutoTesteComponent para acessar os dados
     const produtoTeste = new ProdutoTesteComponent();
     this.produtos = produtoTeste.getProdutos();
 
-    // Filtra apenas os produtos que não têm imagem
+    // Filtra apenas os produtos que não têm categoria
     this.filteredProdutos = this.produtos.filter(
       (produto) => produto.categoria === undefined
     );
+  }
+
+  prevSlide(): void {
+    if (this.currentSlide > 0) {
+      this.currentSlide--;
+    }
+  }
+
+  nextSlide(): void {
+    const maxSlide =
+      Math.ceil(this.filteredProdutos.length / this.itemsPerSlide) - 1;
+    if (this.currentSlide < maxSlide) {
+      this.currentSlide++;
+    }
   }
 }
