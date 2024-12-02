@@ -14,8 +14,12 @@ import {
   providedIn: 'root',
 })
 export class UserService {
-  private apiUrl = 'http://localhost:8086/auth';
+  private apiUrl =
+    'https://1774-2804-d55-4382-eb00-9be-a8c9-b144-45c2.ngrok-free.app/';
   private userProdutoApiUrl = 'http://localhost:3000/user_produto';
+
+  private authPath = 'auth/';
+  private registerPath = 'register/';
 
   constructor(private http: HttpClient) {}
 
@@ -46,7 +50,10 @@ export class UserService {
   // }
   login(email: string, senha: string): Observable<String | null> {
     return this.http
-      .post<LoginResponse>(`${this.apiUrl}/generate-token`, { email, senha })
+      .post<LoginResponse>(`${this.apiUrl}${this.authPath}/generate-token`, {
+        email,
+        senha,
+      })
       .pipe(
         map((response) => {
           if (response && response.token) {
@@ -77,12 +84,20 @@ export class UserService {
     perfil: string,
     cnpj?: string
   ): Observable<AutoCadastroResponse> {
-    const url = `${this.apiUrl}/autocadastro`;
+    const url = `${this.apiUrl}${this.registerPath}account/user`;
 
-    const body =
-      perfil === 'estabelecimento'
-        ? { nome, email, senha, perfil, cnpj }
-        : { nome, email, senha, perfil };
+    // Criação do body da requisição
+    const body: any = {
+      firstName: nome.split(' ')[0], // Primeiro nome
+      lastName: nome.split(' ').slice(1).join(' ') || '', // Sobrenome
+      email: email,
+      password: senha,
+    };
+
+    // Inclui o CNPJ apenas para estabelecimentos
+    if (perfil === 'estabelecimento' && cnpj) {
+      body.cnpj = cnpj;
+    }
 
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 

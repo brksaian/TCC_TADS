@@ -1,7 +1,7 @@
 <div class="flex flex-col lg:flex-row h-full relative">
   <!-- Botão no canto superior direito -->
   <div class="absolute top-0 left-0 m-4">
-    <a routerLink="/">
+    <a routerLink="/guest/home">
       <img
         src="assets/Nota_Social_fundo_transparente.png"
         alt="Home"
@@ -33,67 +33,58 @@
     <h2 class="text-3xl md:text-4xl font-semibold text-white">Bem vindo</h2>
     <p class="mt-2 text-white">Crie uma conta</p>
 
-    <form class="w-full md:w-3/4 max-w-lg mt-6" (ngSubmit)="onAutoCadastro()">
-      <!-- Seleção de Perfil -->
-      <div class="flex space-x-2 sm:space-x-4 mb-4">
-        <button
-          type="button"
-          (click)="selectProfile('usuario')"
-          [class.bg-white]="selectedProfile === 'usuario'"
-          [class.bg-green-300]="selectedProfile !== 'usuario'"
-          class="flex-1 p-2 text-green-600 rounded-lg"
-        >
-          Usuário
-        </button>
-        <button
-          type="button"
-          (click)="selectProfile('estabelecimento')"
-          [class.bg-white]="selectedProfile === 'estabelecimento'"
-          [class.bg-green-300]="selectedProfile !== 'estabelecimento'"
-          class="flex-1 p-2 text-green-600 rounded-lg"
-        >
-          Estabelecimento
-        </button>
-      </div>
-
-      <!-- Campos comuns -->
+    <form
+      class="w-full md:w-3/4 max-w-lg mt-6"
+      (ngSubmit)="onAutoCadastro()"
+      #form="ngForm"
+    >
+      <!-- Nome -->
       <input
         type="text"
         placeholder="NOME"
         [(ngModel)]="nome"
         name="nome"
-        class="w-full p-3 mb-4 rounded-lg bg-green-100 text-green-900"
-      />
-      <input
-        *ngIf="selectedProfile === 'estabelecimento'"
-        type="text"
-        placeholder="CNPJ"
-        [(ngModel)]="cnpj"
-        name="cnpj"
-        appCnpj
-        class="w-full p-3 mb-4 rounded-lg bg-green-100 text-green-900"
+        required
+        [ngClass]="{
+          'border-red-500':
+            formSubmitted && (!nome.trim() || nome.split(' ').length < 2)
+        }"
+        class="w-full p-3 mb-4 rounded-lg bg-green-100 text-green-900 border"
       />
 
+      <!-- Email -->
       <input
         type="email"
         placeholder="EMAIL"
         [(ngModel)]="email"
         name="email"
-        class="w-full p-3 mb-4 rounded-lg bg-green-100 text-green-900"
+        required
+        [ngClass]="{ 'border-red-500': formSubmitted && !validarEmail(email) }"
+        class="w-full p-3 mb-4 rounded-lg bg-green-100 text-green-900 border"
       />
+
+      <!-- Senha -->
       <input
         type="password"
         placeholder="SENHA"
         [(ngModel)]="senha"
         name="senha"
-        class="w-full p-3 mb-4 rounded-lg bg-green-100 text-green-900"
+        required
+        [ngClass]="{ 'border-red-500': formSubmitted && !validarSenha(senha) }"
+        class="w-full p-3 mb-4 rounded-lg bg-green-100 text-green-900 border"
       />
+
+      <!-- Confirmar Senha -->
       <input
         type="password"
         placeholder="CONFIRMAR SENHA"
         [(ngModel)]="confirmarSenha"
         name="confirmarSenha"
-        class="w-full p-3 mb-6 rounded-lg bg-green-100 text-green-900"
+        required
+        [ngClass]="{
+          'border-red-500': formSubmitted && senha !== confirmarSenha
+        }"
+        class="w-full p-3 mb-6 rounded-lg bg-green-100 text-green-900 border"
       />
 
       <!-- Botão de registro -->
