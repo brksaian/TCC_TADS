@@ -20,6 +20,8 @@
         <a
           class="block p-3 hover:bg-green-700 transition-colors duration-200"
           routerLink="/administrador"
+          routerLinkActive="bg-gray-700 text-white"
+          [routerLinkActiveOptions]="{ exact: true }"
         >
           Dashboard
         </a>
@@ -28,6 +30,7 @@
         <a
           class="block p-3 hover:bg-green-700 transition-colors duration-200"
           routerLink="/administrador/user"
+          routerLinkActive="bg-gray-700 text-white"
         >
           Usuários
         </a>
@@ -36,6 +39,7 @@
         <a
           class="block p-3 hover:bg-green-700 transition-colors duration-200"
           routerLink="/administrador/estabelecimento"
+          routerLinkActive="bg-gray-700 text-white"
         >
           Estabelecimentos
         </a>
@@ -44,6 +48,7 @@
         <a
           class="block p-3 hover:bg-green-700 transition-colors duration-200"
           routerLink="/administrador/produto"
+          routerLinkActive="bg-gray-700 text-white"
         >
           Produtos
         </a>
@@ -52,6 +57,7 @@
         <a
           class="block p-3 hover:bg-green-700 transition-colors duration-200"
           routerLink="/administrador/avaliacao"
+          routerLinkActive="bg-gray-700 text-white"
         >
           Avaliações
         </a>

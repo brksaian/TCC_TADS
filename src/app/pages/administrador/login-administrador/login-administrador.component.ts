@@ -12,13 +12,13 @@ import { AuthService } from '../../../services';
 export class LoginAdministradorComponent {
   constructor(private authService: AuthService, private router: Router) {
     if (this.authService.isLoggedIn()) {
-      this.router.navigate(['/administrador/home']);
+      this.router.navigate(['/administrador']);
     }
   }
 
   onEntrar() {
     // Lógica de autenticação aqui, se necessário
     this.authService.login('fakeToken', 'ADMIN');
-    this.router.navigate(['/administrador/home']);
+    this.router.navigate(['/administrador']);
   }
 }
