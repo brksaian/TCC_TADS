@@ -6,7 +6,11 @@ export const administradorAvaliacaoRoutes: Routes = [
     path: '',
     children: [
       {
-        path: 'administrador/avaliacoes/home-avaliacoes-adm',
+        path: 'home',
+        component: HomeAvaliacoesADMComponent,
+      },
+      {
+        path: '',
         component: HomeAvaliacoesADMComponent,
       },
     ],

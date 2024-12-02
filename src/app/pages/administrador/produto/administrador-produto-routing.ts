@@ -14,6 +14,10 @@ export const administradorProdutoRoutes: Routes = [
         component: HomeProdutosADMComponent,
       },
       {
+        path: '',
+        component: HomeProdutosADMComponent,
+      },
+      {
         path: 'sem-categoria',
         component: ProdutosSemCategoriaAdmComponent,
       },

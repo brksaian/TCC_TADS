@@ -1,8 +1,8 @@
-<div class="bg-gray-300 pt-12 grid grid-cols-2 gap-4 px-5 w-screen">
+<div class="bg-gray-300 pt-12 grid grid-cols-2 gap-4 px-5 w-full h-full">
   <!-- Retângulo azul -->
   <div class="h-[16.66vh] bg-blue-600">
     <div class="flex w-full h-full">
-      <!-- Retângulo azul icone -->
+      <!-- Retângulo azul ícone -->
       <div
         class="w-[40%] h-full bg-blue-600 border-r-2 border-white flex items-center justify-center"
       >
@@ -36,7 +36,7 @@
       >
         <img
           src="assets/estabelecimentos-adm.png"
-          alt="Ícone de Usuários"
+          alt="Ícone de Estabelecimentos"
           class="h-3/4 w-auto"
         />
       </div>
@@ -55,7 +55,7 @@
     </div>
   </div>
 
-  <!-- Retângulo marrom-->
+  <!-- Retângulo marrom -->
   <div class="h-[16.66vh] bg-yellow-700">
     <div class="flex w-full h-full">
       <div
@@ -63,7 +63,7 @@
       >
         <img
           src="assets/produtos-adm.png"
-          alt="Ícone de Usuários"
+          alt="Ícone de Produtos"
           class="h-3/4 w-auto"
         />
       </div>
@@ -82,7 +82,7 @@
     </div>
   </div>
 
-  <!-- Retângulo Verde-->
+  <!-- Retângulo Verde -->
   <div class="h-[16.66vh] bg-green-700">
     <div class="flex w-full h-full">
       <div
@@ -90,7 +90,7 @@
       >
         <img
           src="assets/avaliacoes-adm.png"
-          alt="Ícone de Usuários"
+          alt="Ícone de Avaliações"
           class="h-3/4 w-auto"
         />
       </div>
@@ -108,18 +108,20 @@
       </div>
     </div>
   </div>
-</div>
 
-<div class="bg-gray-300 flex flex-col pt-12 px-8 w-screen">
-  <h2 class="text-3xl mb-4">Produtos sem Imagem</h2>
-  <div class="max-h-[calc(5*5rem)] overflow-y-auto">
-    <app-listar-produtos-sem-imagem></app-listar-produtos-sem-imagem>
+  <!-- Produtos sem Imagem -->
+  <div class="col-span-2 bg-gray-300 flex flex-col pt-12 px-8 w-full">
+    <h2 class="text-3xl mb-4">Produtos sem Imagem</h2>
+    <div class="max-h-[calc(5*5rem)] overflow-y-auto">
+      <app-listar-produtos-sem-imagem></app-listar-produtos-sem-imagem>
+    </div>
   </div>
-</div>
 
-<div class="bg-gray-300 flex flex-col pt-12 px-8 py-10 w-screen">
-  <h2 class="text-3xl mb-4">Produtos sem Categoria</h2>
-  <div class="max-h-[calc(5*5rem)] overflow-y-auto">
-    <app-listar-produtos-sem-categoria></app-listar-produtos-sem-categoria>
+  <!-- Produtos sem Categoria -->
+  <div class="col-span-2 bg-gray-300 flex flex-col pt-12 px-8 py-10 w-full">
+    <h2 class="text-3xl mb-4">Produtos sem Categoria</h2>
+    <div class="max-h-[calc(5*5rem)] overflow-y-auto">
+      <app-listar-produtos-sem-categoria></app-listar-produtos-sem-categoria>
+    </div>
   </div>
 </div>

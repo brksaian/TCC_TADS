@@ -1,14 +1,13 @@
-<app-header-administrador></app-header-administrador>
-
-<div class="bg-gray-300 pt-16 px-5 space-y-6 min-h-screen">
+<div class="bg-gray-300 pt-16 px-5 space-y-6 w-full h-full">
   <!-- Linkagem para a pagina de estabelecimentos pendentes de aprovação-->
   <div class="flex items-center justify-end">
-    <button 
+    <button
       class="text-lg font-semibold text-green-500 hover:underline transition-colors"
-      (click)="estabelecimentosPendentes()"> 
+      (click)="estabelecimentosPendentes()"
+    >
       Estabelecimentos pendentes de aprovação
     </button>
-  </div>  
+  </div>
 
   <!-- Barra de busca e ordenação -->
   <div class="flex justify-between items-center mb-12">
@@ -41,8 +40,14 @@
   </div>
 
   <!-- Lista de estabelecimentos -->
-  <div *ngIf="filteredEstabelecimentos.length > 0; else emptyState" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-    <app-card-estabelecimento-adm *ngFor="let estabelecimento of filteredEstabelecimentos" [estabelecimento]="estabelecimento"></app-card-estabelecimento-adm>
+  <div
+    *ngIf="filteredEstabelecimentos.length > 0; else emptyState"
+    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4"
+  >
+    <app-card-estabelecimento-adm
+      *ngFor="let estabelecimento of filteredEstabelecimentos"
+      [estabelecimento]="estabelecimento"
+    ></app-card-estabelecimento-adm>
   </div>
 
   <!-- Estado vazio -->

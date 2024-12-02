@@ -9,6 +9,10 @@ export const administradorUserRoutes: Routes = [
         path: 'home',
         component: HomeUsuariosADMComponent,
       },
+      {
+        path: '',
+        component: HomeUsuariosADMComponent,
+      },
     ],
   },
 ];

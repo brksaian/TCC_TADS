@@ -18,7 +18,7 @@ export class LoginAdministradorComponent {
 
   onEntrar() {
     // Lógica de autenticação aqui, se necessário
-    this.authService.login('fakeToken');
+    this.authService.login('fakeToken', 'ADMIN');
     this.router.navigate(['/administrador/home']);
   }
 }
