@@ -2,26 +2,45 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
+  constructor(private router: Router) {}
 
-  private isAuthenticated = false;
-
-  constructor(private router: Router) { }
-
-  login(token: string): void {
+  login(token: string, role: string = ''): void {
     localStorage.setItem('authToken', token);
-    this.isAuthenticated = true;
+    this.setUserRole(role);
   }
 
   logout(): void {
     localStorage.removeItem('authToken');
-    this.isAuthenticated = false;
-    this.router.navigate(['/']);
+    localStorage.removeItem('userRole');
+    this.router.navigate(['/guest/home']);
   }
 
   isLoggedIn(): boolean {
-    return this.isAuthenticated;
+    return !!localStorage.getItem('authToken');
+  }
+
+  getUserRole(): string {
+    return localStorage.getItem('userRole') || '';
+  }
+
+  setUserRole(role: string): void {
+    localStorage.setItem('userRole', role);
+  }
+
+  getHomeRoute(): string {
+    const role = this.getUserRole();
+    switch (role) {
+      case 'ADMIN':
+        return '/administrador/home';
+      case 'CLIENTE':
+        return '/consumidor/home';
+      case 'ESTABELECIMENTO':
+        return '/estabelecimento/home';
+      default:
+        return '/guest/home';
+    }
   }
 }
