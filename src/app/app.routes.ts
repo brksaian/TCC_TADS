@@ -11,6 +11,15 @@ import {
 } from './components/administrador';
 import { NovoEnderecoComponent } from './components/endereco';
 import { NovaPromocaoComponent } from './components/promocao';
+import {LoginAdministradorComponent} from './components/administrador';
+import {HomeAdministradorComponent} from './components/administrador';
+import {HomeUsuariosADMComponent} from './components/administrador';
+import {HomeAvaliacoesADMComponent} from './components/administrador';
+import {HomeEstabelecimentosADMComponent} from './components/administrador';
+import { EstabelecimentosPendentesAprovacaoComponent } from './components/administrador';
+import {HomeProdutosADMComponent} from './components/administrador';
+import {ProdutosSemCategoriaAdmComponent} from './components/administrador';
+import {ProdutosSemImagemAdmComponent} from './components/administrador';
 
 export const routes: Routes = [
   {
@@ -52,6 +61,15 @@ export const routes: Routes = [
 
   { path: 'endereco/novo-endereco', component: NovoEnderecoComponent },
   { path: 'promocao/nova-promocao', component: NovaPromocaoComponent },
+  { path: 'administrador/login-administrador', component: LoginAdministradorComponent },
+  { path: 'administrador/home-administrador', component: HomeAdministradorComponent },
+  { path: 'administrador/usuarios/home-usuarios-adm', component: HomeUsuariosADMComponent },
+  { path: 'administrador/avaliacoes/home-avaliacoes-adm', component: HomeAvaliacoesADMComponent },
+  { path: 'administrador/estabelecimentos/home-estabelecimentos-adm', component: HomeEstabelecimentosADMComponent },
+  { path: 'administrador/estabelecimentos/estabelecimentos-pendentes-aprovacao', component: EstabelecimentosPendentesAprovacaoComponent },
+  { path: 'administrador/produtos/home-produtos-adm', component: HomeProdutosADMComponent },
+  { path: 'administrador/produtos/produtos-sem-categoria-adm', component: ProdutosSemCategoriaAdmComponent },
+  { path: 'administrador/produtos/produtos-sem-imagem-adm', component: ProdutosSemImagemAdmComponent }
   {
     path: 'administrador/login-administrador',
     component: LoginAdministradorComponent,

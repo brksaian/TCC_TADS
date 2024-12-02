@@ -2,3 +2,8 @@ export * from './editar-produto-adm';
 export * from './cadastrar-categoria-adm';
 export * from './visualizar-produto-adm';
 export * from './home-produtos-adm';
+export * from './produtos-sem-categoria-adm';
+export * from './listar-produtos-sem-categoria';
+export * from './produtos-sem-imagem-adm';
+export * from './listar-produtos-sem-imagem';
+export * from './produto-teste';

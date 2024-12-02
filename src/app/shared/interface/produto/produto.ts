@@ -3,7 +3,7 @@ export interface Produto {
   nome: string;
   descricao: string;
   image: string;
-  categoria: number;
+  categoria?: number;
   created_at: string;
   updated_at: string;
 }
