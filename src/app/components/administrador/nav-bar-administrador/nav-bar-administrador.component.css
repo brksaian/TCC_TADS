@@ -1,0 +1,23 @@
+/* Transição para exibir/esconder o menu */
+.transition-all {
+  transition: all 0.3s ease-in-out;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+/* Estilização adicional */
+h1 {
+  font-size: 1.25rem;
+}
+
+.material-icons {
+  cursor: pointer;
+}
+
+nav ul li a {
+  display: block;
+  width: 100%;
+  text-decoration: none;
+}

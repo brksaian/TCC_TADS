@@ -1,14 +1,30 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { HeaderConsumidorComponent } from '../../../components/consumidor';
+import {
+  HeaderAdministradorComponent,
+  NavBarAdministradorComponent,
+} from '../../../components/administrador';
 import { FooterComponent } from '../../../components/shared';
-import { HeaderAdministradorComponent } from "../../../components/administrador/header-administrador/header-administrador.component";
 
 @Component({
   selector: 'app-administrador-layout',
   standalone: true,
-  imports: [RouterModule, FooterComponent, HeaderAdministradorComponent],
+  imports: [
+    RouterModule,
+    FooterComponent,
+    NavBarAdministradorComponent,
+    HeaderAdministradorComponent,
+    CommonModule,
+  ],
   templateUrl: './administrador-layout.component.html',
-  styleUrl: './administrador-layout.component.css',
+  styleUrls: ['./administrador-layout.component.css'],
 })
-export class AdministradorLayoutComponent {}
+export class AdministradorLayoutComponent {
+  menuVisible = false; // Controla a visibilidade da navbar
+
+  // Alterna a visibilidade do menu
+  toggleMenu(): void {
+    this.menuVisible = !this.menuVisible;
+  }
+}
