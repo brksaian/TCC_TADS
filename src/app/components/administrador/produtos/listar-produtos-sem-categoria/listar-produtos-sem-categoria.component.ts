@@ -1,17 +1,17 @@
-import { Component,OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule, Router } from '@angular/router'; 
+import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { CardProdutoComponent } from '../../../produto/card-produto/card-produto.component';
+import { RouterModule } from '@angular/router';
 import { Produto } from '../../../../shared/interface';
+import { CardProdutoComponent } from '../../../produto/card-produto/card-produto.component';
 import { ProdutoTesteComponent } from '../produto-teste/produto-teste.component';
 
 @Component({
   selector: 'app-listar-produtos-sem-categoria',
   standalone: true,
-  imports: [CommonModule, CardProdutoComponent, RouterModule, FormsModule,ProdutoTesteComponent],
+  imports: [CommonModule, CardProdutoComponent, RouterModule, FormsModule],
   templateUrl: './listar-produtos-sem-categoria.component.html',
-  styleUrls: ['./listar-produtos-sem-categoria.component.css']
+  styleUrls: ['./listar-produtos-sem-categoria.component.css'],
 })
 export class ListarProdutosSemCategoriaComponent {
   produtos: Produto[] = [];
@@ -23,6 +23,8 @@ export class ListarProdutosSemCategoriaComponent {
     this.produtos = produtoTeste.getProdutos();
 
     // Filtra apenas os produtos que não têm imagem
-    this.filteredProdutos = this.produtos.filter(produto => produto.categoria=== undefined);
+    this.filteredProdutos = this.produtos.filter(
+      (produto) => produto.categoria === undefined
+    );
   }
-} 
+}

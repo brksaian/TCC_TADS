@@ -1,5 +1,22 @@
-<app-header-administrador></app-header-administrador>
-<div class="container">
-  <router-outlet></router-outlet>
+<app-header-administrador
+  (toggleMenu)="toggleMenu()"
+></app-header-administrador>
+
+<div class="layout">
+  <!-- Navbar lateral -->
+  <app-nav-bar-administrador
+    [isMenuOpen]="menuVisible"
+    (toggleMenu)="toggleMenu()"
+  ></app-nav-bar-administrador>
+
+  <!-- Conteúdo Principal -->
+  <div
+    class="transition-all duration-300"
+    [ngClass]="menuVisible ? 'ml-64' : 'ml-0'"
+  >
+    <div class="">
+      <router-outlet></router-outlet>
+    </div>
+    <app-footer></app-footer>
+  </div>
 </div>
-<app-footer></app-footer>

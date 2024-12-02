@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginAdministradorComponent } from './components/administrador';
 import { NovoEnderecoComponent } from './components/endereco';
 import { NovaPromocaoComponent } from './components/promocao';
 import { AuthGuard } from './guards';
 import { AutoCadastroComponent, LoginComponent } from './pages/user';
 import { RedirectComponent } from './redirect.component';
+import { LoginAdministradorComponent } from './pages/administrador/login-administrador';
 
 export const routes: Routes = [
   {
