@@ -1,6 +1,10 @@
 <div class="text-center cursor-pointer" (click)="goToProfile()">
   <div class="flex justify-center">
-    <img [src]="consumidor.imagem" alt="{{ consumidor.imagem }}" class="rounded-full w-16 h-16" />
+    <img
+      [src]="consumidor.imagem"
+      alt="{{ consumidor.imagem }}"
+      class="rounded-full w-24 h-24"
+    />
   </div>
-  <p class="mt-2 text-sm font-medium">{{ consumidor.nome }}</p>
+  <p class="mt-2 text-lg font-bold">{{ consumidor.nome }}</p>
 </div>
