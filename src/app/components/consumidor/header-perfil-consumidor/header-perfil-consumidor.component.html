@@ -1,39 +1,56 @@
-<div
-  class="bg-white p-6 rounded-lg shadow-md flex items-center justify-between"
->
+<div class="bg-white p-6 flex items-center justify-between shadow-md">
+  <!-- Informações do usuário -->
   <div class="flex items-center">
     <div
-      class="w-16 h-16 bg-green-500 rounded-full flex justify-center items-center text-white"
+      class="w-20 h-20 bg-gray-200 rounded-full flex justify-center items-center text-green-500 text-4xl"
     >
-      <!-- Placeholder para a imagem do usuário -->
-      <i class="fa fa-user text-3xl"></i>
+      <!-- Ícone do usuário -->
+      <i class="fa fa-user"></i>
     </div>
-    <div class="ml-4">
-      <h2 class="text-2xl font-bold">{{ usuarioLogado?.nome }}</h2>
-      <p class="text-sm text-gray-600">
+    <div class="ml-6">
+      <h1 class="text-xl font-bold text-gray-800">{{ usuarioLogado?.nome }}</h1>
+      <p class="text-sm text-gray-600 mt-1">
         Notas cadastradas: {{ notasCadastradas }} | Produtos cadastrados:
         {{ produtosCadastrados }}
       </p>
     </div>
   </div>
-  <div class="flex items-center space-x-6">
+
+  <!-- Avaliações, Seguindo, Seguidores e Botão -->
+  <div class="flex items-center space-x-10">
     <div class="text-center">
-      <p class="font-bold text-green-500">{{ avaliacoes }}</p>
+      <p class="font-bold text-lg text-gray-800">{{ avaliacoes }}</p>
       <p class="text-sm text-gray-600">Avaliações</p>
     </div>
     <div class="text-center">
-      <p class="font-bold">{{ seguindo }}</p>
+      <p class="font-bold text-lg text-green-500">{{ seguindo }}</p>
       <p class="text-sm text-gray-600">Seguindo</p>
     </div>
     <div class="text-center">
-      <p class="font-bold">{{ seguidores }}</p>
+      <p class="font-bold text-lg text-gray-800">{{ seguidores }}</p>
       <p class="text-sm text-gray-600">Seguidores</p>
     </div>
     <button
       (click)="seguir()"
-      class="border border-green-500 text-green-500 px-4 py-2 rounded-md hover:bg-green-500 hover:text-white transition"
+      class="border border-green-500 text-green-500 px-6 py-2 rounded-lg hover:bg-green-500 hover:text-white transition"
     >
       SEGUIR
     </button>
   </div>
 </div>
+
+<!-- Tabs -->
+<nav class="flex bg-white border-t border-gray-200 px-6 py-3 mt-4 space-x-6">
+  <button
+    *ngFor="let tab of tabs"
+    (click)="selectTab(tab.redirectUrl.toLowerCase())"
+    [class.active]="activeTab === tab.redirectUrl.toLowerCase()"
+    class="text-sm font-medium text-gray-600 hover:text-green-500 focus:text-green-500 transition relative"
+  >
+    {{ tab.name }}
+    <span
+      *ngIf="activeTab === tab.redirectUrl.toLowerCase()"
+      class="absolute bottom-0 left-0 right-0 h-1 bg-green-500 rounded"
+    ></span>
+  </button>
+</nav>

@@ -1,46 +1,52 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { Usuario } from '../../../shared/interface';
-import { UserService } from '../../../services';
+
+export interface PerfilWebHeaderTab {
+  name: string;
+  redirectUrl: string;
+}
 
 @Component({
   selector: 'app-header-perfil-consumidor',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './header-perfil-consumidor.component.html',
-  styleUrls: ['./header-perfil-consumidor.component.css']
+  styleUrls: ['./header-perfil-consumidor.component.css'],
 })
 export class HeaderPerfilConsumidorComponent implements OnInit {
-  usuarioLogado!: Usuario | null;
-  notasCadastradas!: number;
-  produtosCadastrados!: number;
-  avaliacoes!: number;
-  seguindo!: number;
-  seguidores!: number;
+  usuarioLogado = {
+    id: 1,
+    nome: 'Jose Maria',
+    email: 'jose.maria@example.com',
+  };
 
-  constructor(private usuarioService: UserService) {}
+  notasCadastradas: number = 30;
+  produtosCadastrados: number = 55;
+  avaliacoes: number = 50;
+  seguindo: number = 50;
+  seguidores: number = 50;
+
+  tabs: PerfilWebHeaderTab[] = [
+    { name: 'Avaliações', redirectUrl: 'avaliacoes' },
+    { name: 'Seguindo', redirectUrl: 'seguindo' },
+    { name: 'Seguidores', redirectUrl: 'seguidores' },
+  ];
+
+  activeTab: string = '';
 
   ngOnInit(): void {
-    const usuario = this.usuarioService.getUsuarioLogado();
+    // Define a aba ativa inicial
+    this.activeTab = this.tabs[0].redirectUrl.toLowerCase();
+  }
 
-    if (usuario) {
-      this.usuarioLogado = usuario;
-      this.usuarioService.getInformacoesPerfil(usuario.id).subscribe((informacoes: any) => {
-        this.notasCadastradas = informacoes.notasCadastradas;
-        this.produtosCadastrados = informacoes.produtosCadastrados;
-        this.avaliacoes = informacoes.avaliacoes;
-        this.seguindo = informacoes.seguindo;
-        this.seguidores = informacoes.seguidores;
-      });
-    } else {
-      console.error('Usuário não está logado');
-    }
+  selectTab(tab: string): void {
+    this.activeTab = tab;
+    console.log(`Aba selecionada: ${tab}`);
   }
 
   seguir(): void {
-    if (this.usuarioLogado) {
-      this.usuarioService.seguirUsuario(this.usuarioLogado.id).subscribe(() => {
-        console.log('Agora você está seguindo este usuário!');
-      });
-    }
+    console.log(
+      `Agora você está seguindo o usuário: ${this.usuarioLogado.nome}`
+    );
   }
 }

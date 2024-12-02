@@ -1,0 +1,72 @@
+<div class="p-6 w-full bg-gray-100 w-screen">
+  <!-- Header com busca e ordenação -->
+  <div class="flex justify-between items-center mb-6">
+    <!-- Busca -->
+    <div class="flex items-center gap-2">
+      <input
+        type="text"
+        placeholder="Buscar Estabelecimento"
+        (input)="buscarEstabelecimento($any($event.target).value)"
+        class="border border-gray-300 rounded-lg p-2 w-64"
+      />
+      <button class="p-2 bg-gray-300 rounded-lg">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-5 h-5 text-gray-700"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M21 21l-4.35-4.35m0 0a7.5 7.5 0 1 0-10.606 0 7.5 7.5 0 0 0 10.606 0z"
+          />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Ordenação -->
+    <div class="flex items-center gap-2">
+      <label for="ordenar" class="text-sm font-medium">Ordenar por</label>
+      <select
+        id="ordenar"
+        (change)="ordenarEstabelecimentos($any($event.target).value)"
+        class="border border-gray-300 rounded-lg p-2"
+      >
+        <option value="az">A-Z</option>
+        <option value="za">Z-A</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Lista de estabelecimentos -->
+  <div
+    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+  >
+    <div
+      *ngFor="let estabelecimento of estabelecimentosFiltrados"
+      class="border border-gray-300 rounded-lg p-4 flex flex-col items-center bg-white shadow-sm"
+    >
+      <!-- Imagem do Estabelecimento -->
+      <img
+        [src]="estabelecimento.imagem"
+        alt="{{ estabelecimento.nome }}"
+        class="w-20 h-20 object-cover mb-4"
+      />
+      <!-- Nome -->
+      <h3 class="text-sm font-semibold mb-2">{{ estabelecimento.nome }}</h3>
+      <!-- Endereço -->
+      <p class="text-xs text-gray-500 mb-1">{{ estabelecimento.endereco }}</p>
+      <!-- Telefone -->
+      <p class="text-xs text-gray-500 mb-2">{{ estabelecimento.telefone }}</p>
+      <!-- Botão Conferir -->
+      <button
+        class="px-4 py-2 bg-green-500 text-white text-sm font-medium rounded-lg hover:bg-green-600"
+      >
+        CONFERIR
+      </button>
+    </div>
+  </div>
+</div>

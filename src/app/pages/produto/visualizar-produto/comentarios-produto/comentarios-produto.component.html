@@ -1,0 +1,7 @@
+<div>
+  <h2 class="text-lg font-semibold mb-2">Avaliações</h2>
+  <div *ngFor="let comentario of comentarios" class="border-b py-2">
+    <p class="text-gray-700">{{ comentario.comentario }}</p>
+    <span class="text-yellow-500">{{ comentario.estrelas }} ★</span>
+  </div>
+</div>

@@ -1,0 +1,63 @@
+<div class="p-6 w-full bg-gray-100">
+  <h1 class="text-xl font-bold mb-4">Notificações</h1>
+  <div class="space-y-4">
+    <div
+      *ngFor="let notificacao of notificacoes"
+      class="flex justify-between items-start p-4 border border-gray-300 rounded-lg bg-white shadow-sm"
+    >
+      <!-- Ícone e detalhes -->
+      <div class="flex gap-4">
+        <div
+          class="p-2 rounded-lg text-white text-sm font-semibold"
+          [ngClass]="{
+            'bg-green-500': notificacao.tipo === 'alteracao-preco',
+            'bg-gray-700': notificacao.tipo === 'novo-seguidor',
+            'bg-yellow-500': notificacao.tipo === 'novo-comentario'
+          }"
+        >
+          <span>{{
+            notificacao.tipo === "alteracao-preco"
+              ? "Alteração de Preço"
+              : notificacao.tipo === "novo-seguidor"
+              ? "Seguidor"
+              : "Comentário"
+          }}</span>
+        </div>
+        <div>
+          <h3 class="text-sm font-bold">{{ notificacao.titulo }}</h3>
+          <p class="text-xs text-gray-500">{{ notificacao.mensagem }}</p>
+          <a
+            [href]="notificacao.linkUrl"
+            class="text-green-500 text-sm font-medium hover:underline"
+          >
+            {{ notificacao.linkTexto }}
+          </a>
+        </div>
+      </div>
+      <!-- Data e botão de remover -->
+      <div class="flex flex-col items-end gap-2">
+        <span class="text-xs text-gray-400">{{ notificacao.data }}</span>
+        <button
+          (click)="removerNotificacao(notificacao.id)"
+          class="p-1 bg-gray-200 text-gray-600 rounded-full hover:bg-gray-300"
+          aria-label="Remover Notificação"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-4 h-4"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

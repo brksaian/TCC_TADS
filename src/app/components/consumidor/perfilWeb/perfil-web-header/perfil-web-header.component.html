@@ -1,0 +1,10 @@
+<nav class="flex bg-white shadow-md px-6 py-3 space-x-4">
+  <button
+    *ngFor="let tab of getVisibleTabs()"
+    (click)="selectTab(tab.redirectUrl.toLowerCase())"
+    [class.active]="activeTab === tab.redirectUrl.toLowerCase()"
+    class="text-sm font-medium text-gray-600 hover:text-green-500 focus:text-green-500 transition"
+  >
+    {{ tab.name }}
+  </button>
+</nav>
