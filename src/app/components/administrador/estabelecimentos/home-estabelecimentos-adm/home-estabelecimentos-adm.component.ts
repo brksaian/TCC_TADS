@@ -2,16 +2,20 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {
+  faChevronDown,
+  faMagnifyingGlass,
+} from '@fortawesome/free-solid-svg-icons';
 import { Estabelecimento } from '../../../../shared/interface';
-import { CardEstabelecimentoAdmComponent } from '../../../estabelecimento/card-estabelecimento-adm/card-estabelecimento-adm.component'; // Certifique-se de que o caminho está correto
-import { HeaderAdministradorComponent } from '../../header-administrador/header-administrador.component';
+import { CardEstabelecimentoAdmComponent } from '../../../estabelecimento';
 
 @Component({
   selector: 'app-home-estabelecimentos-adm',
   standalone: true,
   imports: [
     CommonModule,
-    HeaderAdministradorComponent,
+    FontAwesomeModule,
     CardEstabelecimentoAdmComponent,
     FormsModule,
   ], // Certifique-se de que CardEstabelecimentoAdmComponent está aqui
@@ -24,6 +28,9 @@ export class HomeEstabelecimentosADMComponent implements OnInit {
   sortOption: string = 'A-Z';
   filteredEstabelecimentos: Estabelecimento[] = [];
   menuVisible = false;
+
+  faMagnifyingGlass = faMagnifyingGlass;
+  faChevronDown = faChevronDown;
 
   ngOnInit(): void {
     // Simulação de estabelecimentos com base na interface
