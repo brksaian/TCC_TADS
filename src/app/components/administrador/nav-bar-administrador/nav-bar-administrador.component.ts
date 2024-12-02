@@ -1,18 +1,20 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router'; 
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-nav-bar-administrador',
   standalone: true,
   imports: [CommonModule, RouterModule],
   templateUrl: './nav-bar-administrador.component.html',
-  styleUrls: ['./nav-bar-administrador.component.css']
+  styleUrls: ['./nav-bar-administrador.component.css'],
 })
 export class NavBarAdministradorComponent {
-  isMenuOpen = true;
+  @Input() isMenuOpen = false; // Recebe a visibilidade do menu do componente pai
+  @Output() toggleMenu = new EventEmitter<void>(); // Notifica o pai para alternar a visibilidade
 
-  toggleMenu() {
-    this.isMenuOpen = !this.isMenuOpen;
+  // Método para emitir o evento de alternar menu
+  onToggleMenu(): void {
+    this.toggleMenu.emit();
   }
 }

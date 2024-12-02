@@ -1,17 +1,67 @@
-<div [class.hidden]="!isMenuOpen" class="w-1/4 h-full bg-black fixed top-0 left-0">
+<div
+  [ngClass]="{ 'w-64': isMenuOpen, 'w-0': !isMenuOpen }"
+  class="h-full bg-black fixed top-0 left-0 transition-all duration-300 overflow-hidden nav"
+>
+  <!-- Cabeçalho do Menu -->
   <div
-    class="h-10 bg-green-500 flex items-center justify-center cursor-pointer"
-    (click)="toggleMenu()">
+    class="h-12 bg-green-500 flex items-center justify-between px-4 cursor-pointer"
+    (click)="onToggleMenu()"
+  >
     <h1 class="text-white font-bold">Nota Social</h1>
+    <span class="text-white text-2xl font-bold material-icons">
+      {{ isMenuOpen ? "X" : "" }}
+    </span>
   </div>
-    <nav>
-      <ul class="text-white">
-        <li><a class="block p-2 hover:bg-green-700" routerLink="/administrador/home-administrador">Dashboard</a></li>
-        <li><a class="block p-2 hover:bg-green-700" routerLink="/administrador/usuarios/home-usuarios-adm">Usuários</a></li>
-        <li><a class="block p-2 hover:bg-green-700" routerLink="/administrador/estabelecimentos/home-estabelecimentos-adm">Estabelecimentos</a></li>
-        <li><a class="block p-2 hover:bg-green-700" routerLink="/administrador/produtos/home-produtos-adm">Produtos</a></li>
-        <li><a class="block p-2 hover:bg-green-700" routerLink="/administrador/avaliacoes/home-avaliacoes-adm">Avaliações</a></li>
-      </ul>
-    </nav>
-  </div>
-  
+
+  <!-- Navegação -->
+  <nav>
+    <ul class="text-white">
+      <li>
+        <a
+          class="block p-3 hover:bg-green-700 transition-colors duration-200"
+          routerLink="/administrador"
+          routerLinkActive="bg-gray-700 text-white"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          Dashboard
+        </a>
+      </li>
+      <li>
+        <a
+          class="block p-3 hover:bg-green-700 transition-colors duration-200"
+          routerLink="/administrador/user"
+          routerLinkActive="bg-gray-700 text-white"
+        >
+          Usuários
+        </a>
+      </li>
+      <li>
+        <a
+          class="block p-3 hover:bg-green-700 transition-colors duration-200"
+          routerLink="/administrador/estabelecimento"
+          routerLinkActive="bg-gray-700 text-white"
+        >
+          Estabelecimentos
+        </a>
+      </li>
+      <li>
+        <a
+          class="block p-3 hover:bg-green-700 transition-colors duration-200"
+          routerLink="/administrador/produto"
+          routerLinkActive="bg-gray-700 text-white"
+        >
+          Produtos
+        </a>
+      </li>
+      <li>
+        <a
+          class="block p-3 hover:bg-green-700 transition-colors duration-200"
+          routerLink="/administrador/avaliacao"
+          routerLinkActive="bg-gray-700 text-white"
+        >
+          Avaliações
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>

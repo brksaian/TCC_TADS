@@ -1,89 +1,111 @@
-<app-header-administrador></app-header-administrador>
-
-  <div class="bg-gray-300 pt-12 grid grid-cols-2 gap-4 px-5">
-
-    <!-- Retângulo azul -->
-    <div class="h-[16.66vh] bg-blue-600">
-      <div class="flex w-full h-full">
-        <!-- Retângulo azul icone -->
-        <div class="w-[40%] h-full bg-blue-600 border-r-2 border-white flex items-center justify-center">
-          <img src="assets/usuarios-adm.png" alt="Ícone de Usuários" class="h-3/4 w-auto">
+<div class="bg-gray-300 pt-12 grid grid-cols-2 gap-4 px-5 w-full h-full">
+  <!-- Retângulo azul -->
+  <div class="h-[16.66vh] bg-blue-600">
+    <div class="flex w-full h-full">
+      <!-- Retângulo azul ícone -->
+      <div
+        class="w-[40%] h-full bg-blue-600 border-r-2 border-white flex items-center justify-center"
+      >
+        <fa-icon [icon]="faUsers" class="text-white text-7xl"></fa-icon>
+      </div>
+      <!-- Retângulo azul dados -->
+      <div class="w-[60%] h-full flex flex-col">
+        <div
+          class="w-full h-[50%] bg-blue-600 flex items-center justify-center"
+        >
+          <span class="text-white text-2xl">525</span>
         </div>
-        <!-- Retângulo azul dados -->
-        <div class="w-[60%] h-full flex flex-col">
-          <div class="w-full h-[50%] bg-blue-600 flex items-center justify-center">
-            <span class="text-white text-2xl">525</span>
-          </div>
-          <div class="w-full h-[50%] bg-blue-600 border-t-2 border-white flex items-center justify-center">
-            <span class="text-white text-1xl opacity-75">USUÁRIOS</span>
-          </div>
-        </div>    
-      </div>  
-    </div> 
-
-    <!-- Retângulo cinza -->
-    <div class="h-[16.66vh] bg-gray-700">
-      <div class="flex w-full h-full">
-        <div class="w-[40%] h-full bg-gray-700 border-r-2 border-white flex items-center justify-center">
-          <img src="assets/estabelecimentos-adm.png" alt="Ícone de Usuários" class="h-3/4 w-auto">
-        </div>
-        <div class="w-[60%] h-full flex flex-col">
-          <div class="w-full h-[50%] bg-gray-700 flex items-center justify-center">
-            <span class="text-white text-2xl">55</span>
-          </div>
-          <div class="w-full h-[50%] bg-gray-700 border-t-2 border-white flex items-center justify-center">
-            <span class="text-white text-1xl opacity-75">ESTABELECIMENTOS</span>
-          </div>
+        <div
+          class="w-full h-[50%] bg-blue-600 border-t-2 border-white flex items-center justify-center"
+        >
+          <span class="text-white text-1xl opacity-75">USUÁRIOS</span>
         </div>
       </div>
-    </div> 
-
-    <!-- Retângulo marrom-->
-    <div class="h-[16.66vh] bg-yellow-700">
-      <div class="flex w-full h-full">
-        <div class="w-[40%] h-full bg-yellow-700 border-r-2 border-white flex items-center justify-center">
-          <img src="assets/produtos-adm.png" alt="Ícone de Usuários" class="h-3/4 w-auto">
-        </div>
-        <div class="w-[60%] h-full flex flex-col">
-          <div class="w-full h-[50%] bg-yellow-700 flex items-center justify-center">
-            <span class="text-white text-2xl">2010</span>
-          </div>
-          <div class="w-full h-[50%] bg-yellow-700 border-t-2 border-white flex items-center justify-center">
-            <span class="text-white text-1xl opacity-75">PRODUTOS</span>
-          </div>          
-        </div>
-      </div>
-    </div> 
-
-    <!-- Retângulo Verde-->
-    <div class="h-[16.66vh] bg-green-700">
-      <div class="flex w-full h-full">
-        <div class="w-[40%] h-full bg-green-700 border-r-2 border-white flex items-center justify-center">
-          <img src="assets/avaliacoes-adm.png" alt="Ícone de Usuários" class="h-3/4 w-auto">
-        </div>
-        <div class="w-[60%] h-full flex flex-col">
-          <div class="w-full h-[50%] bg-green-700 flex items-center justify-center">
-            <span class="text-white text-2xl">789</span>
-          </div>
-          <div class="w-full h-[50%] bg-green-700 border-t-2 border-white flex items-center justify-center">
-            <span class="text-white text-1xl opacity-75">AVALIAÇÕES</span>
-          </div>          
-        </div>
-      </div>
-    </div> 
-
-    <!-- Carrossel de Categorias -->
-    <section class="flex justify-center align-middle col-span-2 mt-5 relative z-10">
-      <app-carrossel-categorias
-        [categorias]="categorias"
-        class="carrosselCategoria"
-      ></app-carrossel-categorias>
-    </section>
-
-
-    <!-- Novo Retângulo de fundo 2 -->
-    <div class="h-[33vh] bg-gray-400 col-span-2 mt-5">
-      <div class="flex w-full h-full"></div>
     </div>
-
   </div>
+
+  <!-- Retângulo cinza -->
+  <div class="h-[16.66vh] bg-gray-700">
+    <div class="flex w-full h-full">
+      <div
+        class="w-[40%] h-full bg-gray-700 border-r-2 border-white flex items-center justify-center"
+      >
+        <fa-icon [icon]="faBuilding" class="text-white text-7xl"></fa-icon>
+      </div>
+      <div class="w-[60%] h-full flex flex-col">
+        <div
+          class="w-full h-[50%] bg-gray-700 flex items-center justify-center"
+        >
+          <span class="text-white text-2xl">55</span>
+        </div>
+        <div
+          class="w-full h-[50%] bg-gray-700 border-t-2 border-white flex items-center justify-center"
+        >
+          <span class="text-white text-1xl opacity-75">ESTABELECIMENTOS</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Retângulo marrom -->
+  <div class="h-[16.66vh] bg-yellow-700">
+    <div class="flex w-full h-full">
+      <div
+        class="w-[40%] h-full bg-yellow-700 border-r-2 border-white flex items-center justify-center"
+      >
+        <fa-icon [icon]="faBottleWater" class="text-white text-7xl"></fa-icon>
+      </div>
+      <div class="w-[60%] h-full flex flex-col">
+        <div
+          class="w-full h-[50%] bg-yellow-700 flex items-center justify-center"
+        >
+          <span class="text-white text-2xl">2010</span>
+        </div>
+        <div
+          class="w-full h-[50%] bg-yellow-700 border-t-2 border-white flex items-center justify-center"
+        >
+          <span class="text-white text-1xl opacity-75">PRODUTOS</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Retângulo Verde -->
+  <div class="h-[16.66vh] bg-green-700">
+    <div class="flex w-full h-full">
+      <div
+        class="w-[40%] h-full bg-green-700 border-r-2 border-white flex items-center justify-center"
+      >
+        <fa-icon [icon]="faMessage" class="text-white text-7xl"></fa-icon>
+      </div>
+      <div class="w-[60%] h-full flex flex-col">
+        <div
+          class="w-full h-[50%] bg-green-700 flex items-center justify-center"
+        >
+          <span class="text-white text-2xl">789</span>
+        </div>
+        <div
+          class="w-full h-[50%] bg-green-700 border-t-2 border-white flex items-center justify-center"
+        >
+          <span class="text-white text-1xl opacity-75">AVALIAÇÕES</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Produtos sem Imagem -->
+  <div class="col-span-2 bg-gray-300 flex flex-col pt-12 px-8 w-full">
+    <h2 class="text-3xl mb-4">Produtos sem Imagem</h2>
+    <div class="max-h-[calc(5*5rem)] overflow-y-auto">
+      <app-listar-produtos-sem-imagem></app-listar-produtos-sem-imagem>
+    </div>
+  </div>
+
+  <!-- Produtos sem Categoria -->
+  <div class="col-span-2 bg-gray-300 flex flex-col pt-12 px-8 py-10 w-full">
+    <h2 class="text-3xl mb-4">Produtos sem Categoria</h2>
+    <div class="max-h-[calc(5*5rem)] overflow-y-auto">
+      <app-listar-produtos-sem-categoria></app-listar-produtos-sem-categoria>
+    </div>
+  </div>
+</div>

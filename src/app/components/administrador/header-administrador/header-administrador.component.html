@@ -1,16 +1,39 @@
-<header class="bg-white h-10 w-full flex items-center justify-end pr-4 absolute top-0 left-0 border-b-2">
-    <!-- Ícone de menu -->
-    <div
-      class="absolute left-4 flex flex-col justify-center items-center h-full cursor-pointer"
-      (click)="toggleMenu()"
+<header
+  class="bg-white h-12 w-full flex items-center justify-end pr-4 absolute top-0 left-0 border-b-2"
+>
+  <!-- Botão de menu -->
+  <div
+    class="absolute left-4 flex items-center justify-center h-full cursor-pointer"
+    (click)="toggleMenu.emit()"
+  >
+    <fa-icon [icon]="faBars" class="text-black text-xl"></fa-icon>
+  </div>
+
+  <!-- Botão Admin com dropdown -->
+  <div
+    class="relative flex items-center gap-2 cursor-pointer"
+    (click)="toggleSairMenu()"
+  >
+    <!-- Ícone do usuário -->
+    <fa-icon [icon]="faUserCircle" class="text-black text-xl"></fa-icon>
+    <button
+      class="text-black px-2 hover:text-blue-500 cursor-pointer focus:outline-none flex items-center gap-1"
     >
-      <div class="w-6 h-1 bg-black mb-1"></div>
-      <div class="w-6 h-1 bg-black mb-1"></div>
-      <div class="w-6 h-1 bg-black"></div>
+      Admin
+      <!-- Ícone de dropdown -->
+      <fa-icon [icon]="faAngleDown" class="text-black text-sm"></fa-icon>
+    </button>
+    <!-- Opção Sair -->
+    <div
+      *ngIf="sairMenuVisible"
+      class="absolute right--8 mt-16 bg-white border border-gray-200 shadow-md rounded-md z-50"
+    >
+      <button
+        class="block w-full px-3 py-2 text-center text-red-500 hover:bg-red-100"
+        (click)="deslogarAdmin($event)"
+      >
+        <fa-icon [icon]="faSignOutAlt" class="mr-2"></fa-icon>Sair
+      </button>
     </div>
-    <span class="text-black">Admin</span>
-  </header>
-  
-  <!-- Menu de Navegação - Condicionalmente visível -->
-  <app-nav-bar-administrador *ngIf="menuVisible" class="absolute z-30"></app-nav-bar-administrador>
-  
+  </div>
+</header>

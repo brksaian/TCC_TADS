@@ -1,16 +1,9 @@
-<div class="bg-gray-100 min-h-screen relative">
-  <header class="bg-white h-10 w-full flex items-center justify-end pr-4 absolute top-0 left-0 border-b-2">
-    
-    <!-- Ícone de menu -->
-    <div class="absolute left-4 flex flex-col justify-center items-center h-full cursor-pointer" (click)="toggleMenu()">
-      <div class="w-6 h-1 bg-black mb-1"></div>
-      <div class="w-6 h-1 bg-black mb-1"></div>
-      <div class="w-6 h-1 bg-black"></div>
+<div class="w-full bg-gray-300 grid grid-cols-1 px-5 h-full">
+  <div class="flex-grow space-y-4">
+    <!-- Retângulo com texto "Avaliações pendentes de aprovação" sem negrito e alinhado à esquerda -->
+    <div class="h-1/6 justify-start border-gray-400 mt-16 flex items-center">
+      <span class="text-3xl">Avaliações pendentes de aprovação</span>
     </div>
-
-    <span class="text-black">Avaliações</span>
-  </header>
-  <!-- Menu de Navegação - Condicionalmente visível -->
- <app-nav-bar-administrador *ngIf="menuVisible" class="absolute z-30"></app-nav-bar-administrador>
-
+    <app-card-avaliacao-adm></app-card-avaliacao-adm>
+  </div>
 </div>

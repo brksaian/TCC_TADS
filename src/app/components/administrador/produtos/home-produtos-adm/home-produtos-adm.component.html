@@ -1,16 +1,77 @@
-<div class="bg-gray-100 min-h-screen relative">
-  <header class="bg-white h-10 w-full flex items-center justify-end pr-4 absolute top-0 left-0 border-b-2">
-    
-    <!-- Ícone de menu -->
-    <div class="absolute left-4 flex flex-col justify-center items-center h-full cursor-pointer" (click)="toggleMenu()">
-      <div class="w-6 h-1 bg-black mb-1"></div>
-      <div class="w-6 h-1 bg-black mb-1"></div>
-      <div class="w-6 h-1 bg-black"></div>
+<div class="bg-gray-300 pt-16 px-5 space-y-6 w-full h-full">
+  <!-- Linkagem para a pagina de produtos sem categoria-->
+  <div class="flex items-center justify-end">
+    <button
+      class="text-lg font-semibold text-green-500 hover:underline transition-colors"
+      (click)="produtosSemCategoria()"
+    >
+      Produtos sem categoria
+    </button>
+
+    <!-- Linkagem para a pagina de produtos sem imagem-->
+    <div class="flex items-center justify-end ml-8">
+      <button
+        class="text-lg font-semibold text-green-500 hover:underline transition-colors"
+        (click)="produtosSemImagem()"
+      >
+        Produtos sem imagem
+      </button>
+    </div>
+  </div>
+
+  <!-- Barra de busca e ordenação -->
+  <div class="flex justify-between items-center mb-12 w-full">
+    <!-- Campo de busca -->
+    <div class="flex items-center w-[50%]">
+      <div class="relative w-full">
+        <input
+          type="text"
+          [(ngModel)]="searchQuery"
+          placeholder="Buscar Produto(s)"
+          class="w-full px-4 py-2 border border-gray-400 bg-gray-300 rounded-md focus:outline-none focus:border-gray-600 focus:bg-gray-200"
+        />
+        <button
+          (click)="onSearch()"
+          class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-700 hover:text-black"
+        >
+          <fa-icon [icon]="faMagnifyingGlass"></fa-icon>
+        </button>
+      </div>
     </div>
 
-    <span class="text-black">Produtos</span>
-  </header>
-  <!-- Menu de Navegação - Condicionalmente visível -->
- <app-nav-bar-administrador *ngIf="menuVisible" class="absolute z-30"></app-nav-bar-administrador>
+    <!-- Campo de ordenação -->
+    <div class="flex items-center space-x-2">
+      <p class="font-medium text-gray-600">Ordenar por</p>
+      <div class="relative">
+        <select
+          [(ngModel)]="sortOption"
+          (change)="onSortChange()"
+          class="appearance-none w-40 px-4 py-2 border border-gray-400 bg-gray-300 rounded-md focus:outline-none focus:border-gray-600 focus:bg-gray-200"
+        >
+          <option value="A-Z">A-Z</option>
+          <option value="Z-A">Z-A</option>
+        </select>
+        <fa-icon
+          [icon]="faChevronDown"
+          class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500"
+        ></fa-icon>
+      </div>
+    </div>
+  </div>
 
+  <!-- Lista de Produtos -->
+  <div
+    *ngIf="filteredProdutos.length > 0; else emptyState"
+    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4"
+  >
+    <app-card-produto
+      *ngFor="let produto of filteredProdutos"
+      [produto]="produto"
+    ></app-card-produto>
+  </div>
+
+  <!-- Estado vazio -->
+  <ng-template #emptyState>
+    <p class="text-center text-gray-500">Nenhum produto encontrado.</p>
+  </ng-template>
 </div>

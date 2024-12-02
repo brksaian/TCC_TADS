@@ -1,5 +1,28 @@
-<app-header-consumidor></app-header-consumidor>
-<div class="container">
-  <router-outlet></router-outlet>
+<app-header-administrador
+  (toggleMenu)="toggleMenu()"
+></app-header-administrador>
+
+<div class="flex h-screen flex-col">
+  <!-- Navbar lateral e conteúdo -->
+  <div class="flex flex-1">
+    <!-- Navbar lateral -->
+    <app-nav-bar-administrador
+      [isMenuOpen]="menuVisible"
+      (toggleMenu)="toggleMenu()"
+      class="transition-all duration-300"
+    ></app-nav-bar-administrador>
+
+    <!-- Conteúdo Principal -->
+    <div
+      class="flex-1 bg-gray-100 transition-all duration-300 flex flex-col"
+      [ngClass]="menuVisible ? 'ml-64' : 'ml-0'"
+    >
+      <div class="flex-1 overflow-y-auto py-6 bg-gray-300">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <app-footer></app-footer>
 </div>
-<app-footer></app-footer>
