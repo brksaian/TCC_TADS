@@ -2,13 +2,21 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { Consumidor } from '../../../../shared/interface';
 import { CardConsumidorComponent } from '../../../consumidor';
 
 @Component({
   selector: 'app-home-usuarios-adm',
   standalone: true,
-  imports: [CommonModule, RouterModule, FormsModule, CardConsumidorComponent],
+  imports: [
+    CommonModule,
+    RouterModule,
+    FormsModule,
+    CardConsumidorComponent,
+    FontAwesomeModule,
+  ],
   templateUrl: './home-usuarios-adm.component.html',
   styleUrl: './home-usuarios-adm.component.css',
 })
@@ -18,6 +26,8 @@ export class HomeUsuariosADMComponent implements OnInit {
   sortOption: string = 'A-Z';
   filteredUsuarios: Consumidor[] = [];
   menuVisible = false;
+
+  faMagnifyingGlass = faMagnifyingGlass;
 
   ngOnInit(): void {
     // Simulação de usuários
