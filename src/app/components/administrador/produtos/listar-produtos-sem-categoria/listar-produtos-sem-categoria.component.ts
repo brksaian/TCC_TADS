@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { Produto } from '../../../../shared/interface';
@@ -14,6 +14,7 @@ import { ProdutoTesteComponent } from '../produto-teste/produto-teste.component'
   styleUrls: ['./listar-produtos-sem-categoria.component.css'],
 })
 export class ListarProdutosSemCategoriaComponent implements OnInit {
+  @Input() isCarrossel = true; // Define se a exibição será um carrossel
   produtos: Produto[] = [];
   filteredProdutos: Produto[] = [];
   currentSlide = 0; // Slide atual
