@@ -1,17 +1,31 @@
-.layout {
+/* Layout principal */
+.flex {
   display: flex;
-  height: 100vh;
-  overflow: hidden;
 }
 
-.container {
-  padding: 16px;
+.flex-col {
+  flex-direction: column;
 }
 
-nav {
-  overflow: hidden;
+.h-screen {
+  height: 100vh; /* Faz o layout ocupar a altura total da tela */
+}
+
+.flex-1 {
+  flex: 1; /* Faz o conteúdo ocupar o espaço restante */
+}
+
+.overflow-y-auto {
+  overflow-y: auto; /* Permite rolar o conteúdo se necessário */
 }
 
 .transition-all {
-  transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out; /* Suaviza as mudanças no layout */
+}
+
+.bg-green-500 {
+  background-color: #28a745;
+  color: white;
+  text-align: center;
+  padding: 1rem;
 }

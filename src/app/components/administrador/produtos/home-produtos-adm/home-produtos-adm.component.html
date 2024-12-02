@@ -1,23 +1,23 @@
-<app-header-administrador></app-header-administrador>
+<div class="bg-gray-300 pt-16 px-5 space-y-6 w-full h-full">
+  <!-- Linkagem para a pagina de produtos sem categoria-->
+  <div class="flex items-center justify-end">
+    <button
+      class="text-lg font-semibold text-green-500 hover:underline transition-colors"
+      (click)="produtosSemCategoria()"
+    >
+      Produtos sem categoria
+    </button>
 
-<div class="bg-gray-300 pt-16 px-5 space-y-6 min-h-screen">
-    <!-- Linkagem para a pagina de produtos sem categoria-->
-    <div class="flex items-center justify-end">
-      <button 
+    <!-- Linkagem para a pagina de produtos sem imagem-->
+    <div class="flex items-center justify-end ml-8">
+      <button
         class="text-lg font-semibold text-green-500 hover:underline transition-colors"
-        (click)="produtosSemCategoria()"> 
-        Produtos sem categoria
+        (click)="produtosSemImagem()"
+      >
+        Produtos sem imagem
       </button>
-
-        <!-- Linkagem para a pagina de produtos sem imagem-->
-        <div class="flex items-center justify-end ml-8">
-          <button 
-            class="text-lg font-semibold text-green-500 hover:underline transition-colors"
-            (click)="produtosSemImagem()"> 
-            Produtos sem imagem
-          </button>
-        </div>
-      </div>
+    </div>
+  </div>
 
   <!-- Barra de busca e ordenação -->
   <div class="flex justify-between items-center mb-12">
@@ -49,13 +49,19 @@
     </div>
   </div>
 
-    <!-- Lista de Produtos -->
-    <div *ngIf="filteredProdutos.length > 0; else emptyState" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-      <app-card-produto *ngFor="let produto of filteredProdutos" [produto]="produto"></app-card-produto>
-    </div>
-  
-    <!-- Estado vazio -->
-    <ng-template #emptyState>
-      <p class="text-center text-gray-500">Nenhum produto encontrado.</p>
-    </ng-template>
+  <!-- Lista de Produtos -->
+  <div
+    *ngIf="filteredProdutos.length > 0; else emptyState"
+    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4"
+  >
+    <app-card-produto
+      *ngFor="let produto of filteredProdutos"
+      [produto]="produto"
+    ></app-card-produto>
   </div>
+
+  <!-- Estado vazio -->
+  <ng-template #emptyState>
+    <p class="text-center text-gray-500">Nenhum produto encontrado.</p>
+  </ng-template>
+</div>

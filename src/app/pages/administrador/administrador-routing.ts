@@ -24,7 +24,7 @@ export const administradorRoutes: Routes = [
         children: administradorAvaliacaoRoutes,
       },
       {
-        path: 'avaliacao',
+        path: 'estabelecimento',
         children: administradorEstabelecimentoRoutes,
       },
       {

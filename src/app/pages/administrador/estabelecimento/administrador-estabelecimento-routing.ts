@@ -13,6 +13,10 @@ export const administradorEstabelecimentoRoutes: Routes = [
         component: HomeEstabelecimentosADMComponent,
       },
       {
+        path: '',
+        component: HomeEstabelecimentosADMComponent,
+      },
+      {
         path: 'pendentes-aprovacao',
         component: EstabelecimentosPendentesAprovacaoComponent,
       },
