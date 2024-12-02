@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HeaderAdministradorComponent } from '../../header-administrador/header-administrador.component';
 import { CardEstabelecimentoAdmComponent } from '../../../estabelecimento/card-estabelecimento-adm/card-estabelecimento-adm.component'; // Certifique-se de que o caminho está correto
@@ -9,7 +9,7 @@ import { Estabelecimento } from '../../../../shared/interface';
 @Component({
   selector: 'app-home-estabelecimentos-adm',
   standalone: true,
-  imports: [CommonModule, HeaderAdministradorComponent, RouterModule, CardEstabelecimentoAdmComponent, FormsModule], // Certifique-se de que CardEstabelecimentoAdmComponent está aqui
+  imports: [CommonModule, HeaderAdministradorComponent, CardEstabelecimentoAdmComponent, FormsModule], // Certifique-se de que CardEstabelecimentoAdmComponent está aqui
   templateUrl: './home-estabelecimentos-adm.component.html',
   styleUrls: ['./home-estabelecimentos-adm.component.css']
 }) 
@@ -26,35 +26,35 @@ export class HomeEstabelecimentosADMComponent implements OnInit {
     this.estabelecimentos = [
       {
         id: 1,
-        nome: 'Padaria do Bairro',
+        nome: 'Carrefour',
         endereco: 'Rua das Flores, 123',
         telefone: '(11) 1234-5678',
         imagem: 'assets/estabelecimentos-adm.png',
       },
       {
         id: 2,
-        nome: 'Supermercado Ponto Certo',
+        nome: 'Condor',
         endereco: 'Av. Central, 456',
         telefone: '(11) 8765-4321',
         imagem: 'assets/estabelecimentos-adm.png',
       },
       {
         id: 3,
-        nome: 'Academia FitLife',
+        nome: 'Carrefour',
         endereco: 'Rua da Saúde, 789',
         telefone: '(11) 5555-7777',
         imagem: 'assets/estabelecimentos-adm.png',
       },
       {
         id: 4,
-        nome: 'Restaurante Saboroso',
+        nome: 'Assaí',
         endereco: 'Praça das Nações, 101',
         telefone: '(11) 9999-8888',
         imagem: 'assets/estabelecimentos-adm.png',
       },
       {
         id: 5,
-        nome: 'Loja de Roupas Elegance',
+        nome: 'Boni',
         endereco: 'Rua da Moda, 202',
         telefone: '(11) 3333-2222',
         imagem: 'assets/estabelecimentos-adm.png',
@@ -86,4 +86,11 @@ export class HomeEstabelecimentosADMComponent implements OnInit {
         : b.nome.localeCompare(a.nome)
     );
   }
+
+  constructor(private router: Router) {}
+
+  estabelecimentosPendentes() {
+    this.router.navigate(['administrador/estabelecimentos/estabelecimentos-pendentes-aprovacao']);
+  }
+
 }

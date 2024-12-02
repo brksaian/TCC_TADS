@@ -1,16 +1,61 @@
-<div class="bg-gray-100 min-h-screen relative">
-  <header class="bg-white h-10 w-full flex items-center justify-end pr-4 absolute top-0 left-0 border-b-2">
-    
-    <!-- Ícone de menu -->
-    <div class="absolute left-4 flex flex-col justify-center items-center h-full cursor-pointer" (click)="toggleMenu()">
-      <div class="w-6 h-1 bg-black mb-1"></div>
-      <div class="w-6 h-1 bg-black mb-1"></div>
-      <div class="w-6 h-1 bg-black"></div>
+<app-header-administrador></app-header-administrador>
+
+<div class="bg-gray-300 pt-16 px-5 space-y-6 min-h-screen">
+    <!-- Linkagem para a pagina de produtos sem categoria-->
+    <div class="flex items-center justify-end">
+      <button 
+        class="text-lg font-semibold text-green-500 hover:underline transition-colors"
+        (click)="produtosSemCategoria()"> 
+        Produtos sem categoria
+      </button>
+
+        <!-- Linkagem para a pagina de produtos sem imagem-->
+        <div class="flex items-center justify-end ml-8">
+          <button 
+            class="text-lg font-semibold text-green-500 hover:underline transition-colors"
+            (click)="produtosSemImagem()"> 
+            Produtos sem imagem
+          </button>
+        </div>
+      </div>
+
+  <!-- Barra de busca e ordenação -->
+  <div class="flex justify-between items-center mb-12">
+    <div class="flex items-center space-x-4">
+      <input
+        type="text"
+        [(ngModel)]="searchQuery"
+        placeholder="Buscar Produto(s)"
+        class="px-16 py-2 border border-gray-300 rounded-lg focus:outline-none"
+      />
+      <button
+        (click)="onSearch()"
+        class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700"
+      >
+        Buscar
+      </button>
     </div>
 
-    <span class="text-black">Produtos</span>
-  </header>
-  <!-- Menu de Navegação - Condicionalmente visível -->
- <app-nav-bar-administrador *ngIf="menuVisible" class="absolute z-30"></app-nav-bar-administrador>
+    <div>
+      <p class="font-normal text-gray-600 mr-2 inline">Ordenar por</p>
+      <select
+        [(ngModel)]="sortOption"
+        (change)="onSortChange()"
+        class="px-16 py-2 border border-gray-300 rounded-lg focus:outline-none"
+      >
+        <option value="A-Z">A-Z</option>
+        <option value="Z-A">Z-A</option>
+      </select>
+    </div>
+  </div>
 
-</div>
+    <!-- Lista de Produtos -->
+    <div *ngIf="filteredProdutos.length > 0; else emptyState" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+      <app-card-produto *ngFor="let produto of filteredProdutos" [produto]="produto"></app-card-produto>
+    </div>
+  
+    <!-- Estado vazio -->
+    <ng-template #emptyState>
+      <p class="text-center text-gray-500">Nenhum produto encontrado.</p>
+    </ng-template>
+  </div>

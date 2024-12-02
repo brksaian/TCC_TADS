@@ -71,19 +71,19 @@
         </div>
       </div>
     </div> 
-
-    <!-- Carrossel de Categorias -->
-    <section class="flex justify-center align-middle col-span-2 mt-5 relative z-10">
-      <app-carrossel-categorias
-        [categorias]="categorias"
-        class="carrosselCategoria"
-      ></app-carrossel-categorias>
-    </section>
-
-
-    <!-- Novo Retângulo de fundo 2 -->
-    <div class="h-[33vh] bg-gray-400 col-span-2 mt-5">
-      <div class="flex w-full h-full"></div>
-    </div>
-
   </div>
+  
+  <div class="bg-gray-300 flex flex-col pt-12 px-8">
+    <h2 class="text-3xl mb-4">Produtos sem Imagem</h2>
+    <div class="max-h-[calc(5*5rem)] overflow-y-auto">
+      <app-listar-produtos-sem-imagem></app-listar-produtos-sem-imagem>
+    </div>
+  </div>
+  
+  <div class="bg-gray-300 flex flex-col pt-12 px-8 py-10">
+    <h2 class="text-3xl mb-4">Produtos sem Categoria</h2>
+    <div class="max-h-[calc(5*5rem)] overflow-y-auto">
+      <app-listar-produtos-sem-categoria></app-listar-produtos-sem-categoria>
+    </div>
+  </div>
+  

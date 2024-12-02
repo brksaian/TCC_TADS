@@ -8,7 +8,19 @@
       <div class="w-6 h-1 bg-black mb-1"></div>
       <div class="w-6 h-1 bg-black"></div>
     </div>
-    <span class="text-black">Admin</span>
+     
+    <!-- Botão Admin -->
+    <div class="relative">
+      <button
+        class="text-black px-2 hover:text-blue-500 cursor-pointer focus:outline-none"
+        (click)="toggleSairMenu()">Admin</button>
+      <!-- Opção Sair -->
+      <div *ngIf="sairMenuVisible" class="absolute right-0 mt-2 bg-white border border-gray-200 shadow-md rounded-md">
+        <button
+          class="block w-full px-3 py-2 text-center text-red-500 hover:bg-red-100"
+          (click)="deslogarAdmin()">Sair  </button>
+      </div>
+    </div>
   </header>
   
   <!-- Menu de Navegação - Condicionalmente visível -->

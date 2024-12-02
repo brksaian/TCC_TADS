@@ -1,6 +1,15 @@
 <app-header-administrador></app-header-administrador>
 
 <div class="bg-gray-300 pt-16 px-5 space-y-6 min-h-screen">
+  <!-- Linkagem para a pagina de estabelecimentos pendentes de aprovação-->
+  <div class="flex items-center justify-end">
+    <button 
+      class="text-lg font-semibold text-green-500 hover:underline transition-colors"
+      (click)="estabelecimentosPendentes()"> 
+      Estabelecimentos pendentes de aprovação
+    </button>
+  </div>  
+
   <!-- Barra de busca e ordenação -->
   <div class="flex justify-between items-center mb-12">
     <div class="flex items-center space-x-4">

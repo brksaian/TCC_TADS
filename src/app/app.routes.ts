@@ -11,7 +11,11 @@ import {HomeAdministradorComponent} from './components/administrador';
 import {HomeUsuariosADMComponent} from './components/administrador';
 import {HomeAvaliacoesADMComponent} from './components/administrador';
 import {HomeEstabelecimentosADMComponent} from './components/administrador';
+import { EstabelecimentosPendentesAprovacaoComponent } from './components/administrador';
 import {HomeProdutosADMComponent} from './components/administrador';
+import {ProdutosSemCategoriaAdmComponent} from './components/administrador';
+import {ProdutosSemImagemAdmComponent} from './components/administrador';
+
 
 export const routes: Routes = [
   {
@@ -39,7 +43,10 @@ export const routes: Routes = [
   { path: 'administrador/usuarios/home-usuarios-adm', component: HomeUsuariosADMComponent },
   { path: 'administrador/avaliacoes/home-avaliacoes-adm', component: HomeAvaliacoesADMComponent },
   { path: 'administrador/estabelecimentos/home-estabelecimentos-adm', component: HomeEstabelecimentosADMComponent },
-  { path: 'administrador/produtos/home-produtos-adm', component: HomeProdutosADMComponent }
+  { path: 'administrador/estabelecimentos/estabelecimentos-pendentes-aprovacao', component: EstabelecimentosPendentesAprovacaoComponent },
+  { path: 'administrador/produtos/home-produtos-adm', component: HomeProdutosADMComponent },
+  { path: 'administrador/produtos/produtos-sem-categoria-adm', component: ProdutosSemCategoriaAdmComponent },
+  { path: 'administrador/produtos/produtos-sem-imagem-adm', component: ProdutosSemImagemAdmComponent }
   //{ path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   // outras rotas
 ];
