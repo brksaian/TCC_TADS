@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { faChevronDown, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { Consumidor } from '../../../../shared/interface';
 import { CardConsumidorComponent } from '../../../consumidor';
 
@@ -28,6 +28,7 @@ export class HomeUsuariosADMComponent implements OnInit {
   menuVisible = false;
 
   faMagnifyingGlass = faMagnifyingGlass;
+  faChevronDown = faChevronDown;
 
   ngOnInit(): void {
     // Simulação de usuários
