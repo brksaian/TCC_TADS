@@ -36,7 +36,7 @@ export class AuthService {
     const role = this.getUserRole();
     switch (role) {
       case 'ADMIN':
-        return '/administrador/home';
+        return '/administrador';
       case 'CLIENTE':
         return '/consumidor/home';
       case 'ESTABELECIMENTO':
