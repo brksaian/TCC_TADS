@@ -14,7 +14,7 @@ export class VisualizarCarrinhoComponent {
   produtos: Produto[] = [
     {
       id: 1,
-      nome: 'Pão Forma Seven Boys',
+      name: 'Pão Forma Seven Boys',
       descricao: 'Pão de forma clássico e macio',
       image: 'https://via.placeholder.com/100',
       categoria: 1,
@@ -23,7 +23,7 @@ export class VisualizarCarrinhoComponent {
     },
     {
       id: 2,
-      nome: 'Leite Integral',
+      name: 'Leite Integral',
       descricao: 'Leite integral pasteurizado',
       image: 'https://via.placeholder.com/100',
       categoria: 2,

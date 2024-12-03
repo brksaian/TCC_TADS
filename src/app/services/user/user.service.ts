@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
+import API_URLS from '../../shared/constants/api-urls';
 import {
   AutoCadastroResponse,
   ForgotPasswordResponse,
@@ -14,8 +15,12 @@ import {
   providedIn: 'root',
 })
 export class UserService {
-  private apiUrl = 'http://localhost:8086/auth';
+  private apiUrl =
+    'https://1774-2804-d55-4382-eb00-9be-a8c9-b144-45c2.ngrok-free.app/';
   private userProdutoApiUrl = 'http://localhost:3000/user_produto';
+
+  private authPath = 'auth/';
+  private registerPath = 'register/';
 
   constructor(private http: HttpClient) {}
 
@@ -44,25 +49,14 @@ export class UserService {
   //     catchError(this.handleError)
   //   );
   // }
-  login(email: string, senha: string): Observable<String | null> {
+  login(email: string, senha: string): Observable<string | null> {
     return this.http
-      .post<LoginResponse>(`${this.apiUrl}/generate-token`, { email, senha })
+      .post<LoginResponse>(`${API_URLS.auth.generateToken}`, {
+        username: email, // Ajusta o campo para "username"
+        password: senha, // Ajusta o campo para "password"
+      })
       .pipe(
-        map((response) => {
-          if (response && response.token) {
-            const { token } = response;
-
-            // Salva o token no localStorage
-            localStorage.setItem('authToken', token);
-
-            // Decodifica o token JWT para obter os dados do usuário
-            //const decodedToken: any = jwtDecode(token);
-
-            return token;
-          } else {
-            return null;
-          }
-        }),
+        map((response) => response?.token || null),
         catchError((error) => {
           console.error('Erro ao fazer login:', error);
           return of(null);
@@ -77,12 +71,20 @@ export class UserService {
     perfil: string,
     cnpj?: string
   ): Observable<AutoCadastroResponse> {
-    const url = `${this.apiUrl}/autocadastro`;
+    const url = `${this.apiUrl}${this.registerPath}account/user`;
 
-    const body =
-      perfil === 'estabelecimento'
-        ? { nome, email, senha, perfil, cnpj }
-        : { nome, email, senha, perfil };
+    // Criação do body da requisição
+    const body: any = {
+      firstName: nome.split(' ')[0], // Primeiro nome
+      lastName: nome.split(' ').slice(1).join(' ') || '', // Sobrenome
+      email: email,
+      password: senha,
+    };
+
+    // Inclui o CNPJ apenas para estabelecimentos
+    if (perfil === 'estabelecimento' && cnpj) {
+      body.cnpj = cnpj;
+    }
 
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 

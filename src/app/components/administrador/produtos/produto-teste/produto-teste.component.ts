@@ -6,13 +6,13 @@ import { Produto } from '../../../../shared/interface';
   standalone: true,
   imports: [],
   templateUrl: './produto-teste.component.html',
-  styleUrl: './produto-teste.component.css'
+  styleUrl: './produto-teste.component.css',
 })
 export class ProdutoTesteComponent {
   produtos: Produto[] = [
     {
       id: 1,
-      nome: 'Trigo 1kg',
+      name: 'Trigo 1kg',
       descricao: 'Supermercado localizado na Rua das Flores, 123',
       image: 'assets/produtos-adm.png',
       categoria: 1,
@@ -21,7 +21,7 @@ export class ProdutoTesteComponent {
     },
     {
       id: 2,
-      nome: 'Leite Integral 1L',
+      name: 'Leite Integral 1L',
       descricao: 'Supermercado localizado na Av. Central, 456',
       image: 'assets/produtos-adm.png',
       categoria: 2,
@@ -30,7 +30,7 @@ export class ProdutoTesteComponent {
     },
     {
       id: 3,
-      nome: 'Macarrão Instantâneo',
+      name: 'Macarrão Instantâneo',
       descricao: 'Supermercado localizado na Rua da Saúde, 789',
       image: 'assets/produtos-adm.png',
       categoria: 1,
@@ -39,7 +39,7 @@ export class ProdutoTesteComponent {
     },
     {
       id: 4,
-      nome: 'Suco Del Vale',
+      name: 'Suco Del Vale',
       descricao: 'Supermercado localizado na Praça das Nações, 101',
       image: 'assets/produtos-adm.png',
       categoria: 3,
@@ -48,7 +48,7 @@ export class ProdutoTesteComponent {
     },
     {
       id: 5,
-      nome: 'Iogurte Nestle 170g',
+      name: 'Iogurte Nestle 170g',
       descricao: 'Supermercado localizado na Rua da Moda, 202',
       image: 'assets/produtos-adm.png',
       categoria: 2,
@@ -57,7 +57,7 @@ export class ProdutoTesteComponent {
     },
     {
       id: 6,
-      nome: 'Leite 0% Lactose',
+      name: 'Leite 0% Lactose',
       descricao: 'Supermercado localizado na Rua da Moda, 202',
       image: 'assets/produtos-adm.png',
       categoria: undefined,
@@ -66,7 +66,7 @@ export class ProdutoTesteComponent {
     },
     {
       id: 7,
-      nome: 'Trigo Anaconda 5Kg',
+      name: 'Trigo Anaconda 5Kg',
       descricao: 'Supermercado localizado na Rua da Moda, 202',
       image: '',
       categoria: undefined,
@@ -75,7 +75,7 @@ export class ProdutoTesteComponent {
     },
     {
       id: 8,
-      nome: 'Leite Semidesnatado 1L',
+      name: 'Leite Semidesnatado 1L',
       descricao: 'Supermercado localizado na Rua da Moda, 202',
       image: 'assets/produtos-adm.png',
       categoria: 2,
@@ -84,7 +84,7 @@ export class ProdutoTesteComponent {
     },
     {
       id: 9,
-      nome: 'Carne Friboi Kg',
+      name: 'Carne Friboi Kg',
       descricao: 'Supermercado localizado na Rua da Moda, 202',
       image: 'assets/produtos-adm.png',
       categoria: undefined,
@@ -93,7 +93,7 @@ export class ProdutoTesteComponent {
     },
     {
       id: 10,
-      nome: 'Nestle Ninho 540g',
+      name: 'Nestle Ninho 540g',
       descricao: 'Supermercado localizado na Rua da Moda, 202',
       image: '',
       categoria: 2,
@@ -102,7 +102,7 @@ export class ProdutoTesteComponent {
     },
     {
       id: 101,
-      nome: 'Nestle Ninho 540g',
+      name: 'Nestle Ninho 540g',
       descricao: 'Supermercado localizado na Rua da Moda, 202',
       image: '',
       categoria: 2,
@@ -111,7 +111,7 @@ export class ProdutoTesteComponent {
     },
     {
       id: 102,
-      nome: 'Nestle Ninho 540g',
+      name: 'Nestle Ninho 540g',
       descricao: 'Supermercado localizado na Rua da Moda, 202',
       image: '',
       categoria: 2,
@@ -120,7 +120,7 @@ export class ProdutoTesteComponent {
     },
     {
       id: 103,
-      nome: 'Nestle Ninho 540g',
+      name: 'Nestle Ninho 540g',
       descricao: 'Supermercado localizado na Rua da Moda, 202',
       image: '',
       categoria: 2,
@@ -129,7 +129,7 @@ export class ProdutoTesteComponent {
     },
     {
       id: 104,
-      nome: 'Nestle Ninho 540g',
+      name: 'Nestle Ninho 540g',
       descricao: 'Supermercado localizado na Rua da Moda, 202',
       image: '',
       categoria: 2,
@@ -138,7 +138,7 @@ export class ProdutoTesteComponent {
     },
     {
       id: 105,
-      nome: 'Nestle Ninho 540g',
+      name: 'Nestle Ninho 540g',
       descricao: 'Supermercado localizado na Rua da Moda, 202',
       image: '',
       categoria: 2,
@@ -147,7 +147,7 @@ export class ProdutoTesteComponent {
     },
     {
       id: 106,
-      nome: 'Nestle Ninho 540g',
+      name: 'Nestle Ninho 540g',
       descricao: 'Supermercado localizado na Rua da Moda, 202',
       image: '',
       categoria: 2,
@@ -156,7 +156,7 @@ export class ProdutoTesteComponent {
     },
     {
       id: 107,
-      nome: 'Nestle Ninho 540g',
+      name: 'Nestle Ninho 540g',
       descricao: 'Supermercado localizado na Rua da Moda, 202',
       image: '',
       categoria: 2,

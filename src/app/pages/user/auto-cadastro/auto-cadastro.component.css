@@ -1,0 +1,8 @@
+.border-red-500 {
+  border: 2px solid #f44336; /* Vermelho */
+}
+
+.border-red-500:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(244, 67, 54, 0.5); /* Efeito no foco */
+}

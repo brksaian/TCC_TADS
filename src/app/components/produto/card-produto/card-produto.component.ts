@@ -1,9 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
-import { AuthService, ProdutoService } from '../../../services';
-import { Produto } from '../../../shared/interface';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
+import { AuthService, ProdutoService } from '../../../services';
+import { Produto } from '../../../shared/interface';
 
 @Component({
   selector: 'app-card-produto',

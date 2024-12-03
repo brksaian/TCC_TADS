@@ -1,5 +1,15 @@
 <div class="flex-grow flex h-full relative">
   <!-- Botão no canto superior direito -->
+  <div class="absolute top-0 right-0 m-4">
+    <a
+      routerLink="/administrador/login"
+      class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700"
+    >
+      Admin
+    </a>
+  </div>
+
+  <!-- Botão no canto superior esquerdo -->
   <div class="absolute top-0 left-0 m-4">
     <a routerLink="/">
       <img
@@ -95,8 +105,8 @@
           Acessar Perfil Estabelecimento
         </button>
       </p>
-        
-        <!-- Link para acessar o Login de Administrador" -->
+
+      <!-- Link para acessar o Login de Administrador" -->
       <p class="text-center text-white">
         <button
           type="button"
@@ -106,8 +116,6 @@
           Logar como Administrador
         </button>
       </p>
-
-
     </form>
   </div>
 </div>
