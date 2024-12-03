@@ -52,7 +52,7 @@ export class HomeProdutosADMComponent implements OnInit {
       (produto) =>
         produto.categoria !== undefined &&
         produto.image.trim() !== '' &&
-        produto.nome.toLowerCase().includes(this.searchQuery.toLowerCase())
+        produto.name.toLowerCase().includes(this.searchQuery.toLowerCase())
     );
     this.applySorting();
   }
@@ -64,8 +64,8 @@ export class HomeProdutosADMComponent implements OnInit {
   private applySorting(): void {
     this.filteredProdutos.sort((a, b) =>
       this.sortOption === 'A-Z'
-        ? a.nome.localeCompare(b.nome)
-        : b.nome.localeCompare(a.nome)
+        ? a.name.localeCompare(b.name)
+        : b.name.localeCompare(a.name)
     );
   }
 

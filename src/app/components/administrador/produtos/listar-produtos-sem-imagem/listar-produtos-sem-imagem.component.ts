@@ -2,9 +2,9 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { AdministradorService } from '../../../../services';
 import { Produto } from '../../../../shared/interface';
 import { CardProdutoComponent } from '../../../produto';
-import { ProdutoTesteComponent } from '../produto-teste';
 
 @Component({
   selector: 'app-listar-produtos-sem-imagem',
@@ -14,20 +14,33 @@ import { ProdutoTesteComponent } from '../produto-teste';
   styleUrls: ['./listar-produtos-sem-imagem.component.css'],
 })
 export class ListarProdutosSemImagemComponent implements OnInit {
-  @Input() isCarrossel = true;
+  @Input() isCarrossel = true; // Define se a exibição será em carrossel
   produtos: Produto[] = [];
   filteredProdutos: Produto[] = [];
-  currentSlide = 0;
-  itemsPerSlide = 5;
+  currentSlide = 0; // Slide atual
+  itemsPerSlide = 5; // Quantidade de itens por slide
+  page = 0; // Página atual para paginação
+  size = 10; // Tamanho da página
+
+  constructor(private administradorService: AdministradorService) {}
 
   ngOnInit(): void {
-    const produtoTeste = new ProdutoTesteComponent();
-    this.produtos = produtoTeste.getProdutos();
+    this.loadProductsWithoutImage();
+  }
 
-    // Filtra apenas os produtos que não têm imagem
-    this.filteredProdutos = this.produtos.filter(
-      (produto) => produto.image.trim() === ''
-    );
+  // Método para carregar produtos sem imagem
+  loadProductsWithoutImage(): void {
+    this.administradorService
+      .getProductsWithoutImage(this.page, this.size)
+      .subscribe({
+        next: (response) => {
+          this.filteredProdutos = response.content;
+          console.log('Produtos sem imagem:', this.filteredProdutos);
+        },
+        error: (error) => {
+          console.error('Erro ao carregar produtos sem imagem:', error);
+        },
+      });
   }
 
   prevSlide(): void {

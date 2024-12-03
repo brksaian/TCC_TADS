@@ -36,16 +36,28 @@ export class LoginComponent {
   onLogin() {
     this.userService.login(this.email, this.senha).subscribe(
       (response) => {
-        this.exibirModal('sucesso', 'Login bem-sucedido', 'Você foi autenticado com sucesso.');
+        this.exibirModal(
+          'sucesso',
+          'Login bem-sucedido',
+          'Você foi autenticado com sucesso.'
+        );
         setTimeout(() => {
           this.router.navigate(['/home']);
         }, 5000);
       },
       (error) => {
         if (error.status === 401) {
-          this.exibirModal('erro', 'Acesso Negado', 'Credenciais inválidas. Verifique seu email e senha.');
+          this.exibirModal(
+            'erro',
+            'Acesso Negado',
+            'Credenciais inválidas. Verifique seu email e senha.'
+          );
         } else {
-          this.exibirModal('erro', 'Erro ao Logar', 'Ocorreu um erro inesperado. Tente novamente mais tarde.');
+          this.exibirModal(
+            'erro',
+            'Erro ao Logar',
+            'Ocorreu um erro inesperado. Tente novamente mais tarde.'
+          );
         }
       }
     );
@@ -64,12 +76,11 @@ export class LoginComponent {
 
   //Acesso provisório a tela Estabelecimento
   acessarPerfilEstabelecimento() {
-    this.router.navigate(['/estabelecimento/promocoes-estabelecimento']);
+    this.router.navigate(['/estabelecimento/promocao']);
   }
 
   //Acesso Login ADMIN
-  logarAdmin(){
-    this.router.navigate(['/administrador/login-administrador']);
+  logarAdmin() {
+    this.router.navigate(['/administrador/login']);
   }
-
 }

@@ -13,7 +13,7 @@ export class PerfilWebFavoritosComponent {
   produtos: Produto[] = [
     {
       id: 1,
-      nome: 'Pão Forma Seven Boys',
+      name: 'Pão Forma Seven Boys',
       descricao: 'Pão forma macio e saboroso.',
       image: 'assets/pao-forma.png',
       categoria: 1,
@@ -22,7 +22,7 @@ export class PerfilWebFavoritosComponent {
     },
     {
       id: 2,
-      nome: 'Leite Integral',
+      name: 'Leite Integral',
       descricao: 'Leite integral de alta qualidade.',
       image: 'assets/leite-integral.png',
       categoria: 2,
@@ -31,7 +31,7 @@ export class PerfilWebFavoritosComponent {
     },
     {
       id: 3,
-      nome: 'Café Torrado',
+      name: 'Café Torrado',
       descricao: 'Café torrado e moído para o dia a dia.',
       image: 'assets/cafe-torrado.png',
       categoria: 3,
@@ -40,7 +40,7 @@ export class PerfilWebFavoritosComponent {
     },
     {
       id: 4,
-      nome: 'Biscoito Cream Cracker',
+      name: 'Biscoito Cream Cracker',
       descricao: 'Biscoito leve e crocante.',
       image: 'assets/biscoito-cream-cracker.png',
       categoria: 4,
@@ -49,7 +49,7 @@ export class PerfilWebFavoritosComponent {
     },
     {
       id: 5,
-      nome: 'Refrigerante Cola',
+      name: 'Refrigerante Cola',
       descricao: 'Refrigerante cola sabor clássico.',
       image: 'assets/refrigerante-cola.png',
       categoria: 5,
@@ -58,7 +58,7 @@ export class PerfilWebFavoritosComponent {
     },
     {
       id: 6,
-      nome: 'Arroz Tipo 1',
+      name: 'Arroz Tipo 1',
       descricao: 'Arroz tipo 1, grãos selecionados.',
       image: 'assets/arroz-tipo1.png',
       categoria: 6,

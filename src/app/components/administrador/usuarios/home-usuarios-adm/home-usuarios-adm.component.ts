@@ -3,8 +3,12 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faChevronDown, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-import { Consumidor } from '../../../../shared/interface';
+import {
+  faChevronDown,
+  faMagnifyingGlass,
+} from '@fortawesome/free-solid-svg-icons';
+import { AdministradorService } from '../../../../services';
+import { Consumidor, getNome } from '../../../../shared/interface';
 import { CardConsumidorComponent } from '../../../consumidor';
 
 @Component({
@@ -22,70 +26,32 @@ import { CardConsumidorComponent } from '../../../consumidor';
 })
 export class HomeUsuariosADMComponent implements OnInit {
   usuarios: Consumidor[] = []; // Lista de usuários no formato Consumidor
+  filteredUsuarios: Consumidor[] = [];
   searchQuery: string = '';
   sortOption: string = 'A-Z';
-  filteredUsuarios: Consumidor[] = [];
   menuVisible = false;
+  currentPage = 0;
+  pageSize = 10;
 
   faMagnifyingGlass = faMagnifyingGlass;
   faChevronDown = faChevronDown;
 
-  ngOnInit(): void {
-    // Simulação de usuários
-    this.usuarios = [
-      {
-        id: '1',
-        nome: 'Ana',
-        notesCount: 12,
-        productsCount: 3,
-        rank: 1,
-        profileUrl: '/perfil/1',
-        imagem: 'assets/usuarios-adm.png',
-        pontos: 150,
-      },
-      {
-        id: '2',
-        nome: 'Bruno',
-        notesCount: 8,
-        productsCount: 5,
-        rank: 2,
-        profileUrl: '/perfil/2',
-        imagem: 'assets/usuarios-adm.png',
-        pontos: 120,
-      },
-      {
-        id: '3',
-        nome: 'Carlos',
-        notesCount: 20,
-        productsCount: 4,
-        rank: 3,
-        profileUrl: '/perfil/3',
-        imagem: 'assets/usuarios-adm.png',
-        pontos: 180,
-      },
-      {
-        id: '4',
-        nome: 'Débora',
-        notesCount: 10,
-        productsCount: 2,
-        rank: 4,
-        profileUrl: '/perfil/4',
-        imagem: 'assets/usuarios-adm.png',
-        pontos: 160,
-      },
-      {
-        id: '5',
-        nome: 'Eduardo',
-        notesCount: 5,
-        productsCount: 8,
-        rank: 5,
-        profileUrl: '/perfil/5',
-        imagem: 'assets/usuarios-adm.png',
-        pontos: 110,
-      },
-    ];
+  constructor(private administradorService: AdministradorService) {}
 
-    this.filteredUsuarios = [...this.usuarios];
+  ngOnInit(): void {
+    this.fetchUsers(this.currentPage, this.pageSize);
+  }
+
+  fetchUsers(page: number, size: number): void {
+    this.administradorService.listUsers(page, size).subscribe({
+      next: (response) => {
+        this.usuarios = response.content; // Adapte conforme o formato da resposta
+        this.filteredUsuarios = [...this.usuarios];
+      },
+      error: (error) => {
+        console.error('Erro ao listar usuários:', error);
+      },
+    });
   }
 
   toggleMenu(): void {
@@ -94,7 +60,7 @@ export class HomeUsuariosADMComponent implements OnInit {
 
   onSearch(): void {
     this.filteredUsuarios = this.usuarios.filter((usuario) =>
-      usuario.nome.toLowerCase().includes(this.searchQuery.toLowerCase())
+      getNome(usuario).toLowerCase().includes(this.searchQuery.toLowerCase())
     );
     this.applySorting();
   }
@@ -106,8 +72,13 @@ export class HomeUsuariosADMComponent implements OnInit {
   private applySorting(): void {
     this.filteredUsuarios.sort((a, b) =>
       this.sortOption === 'A-Z'
-        ? a.nome.localeCompare(b.nome)
-        : b.nome.localeCompare(a.nome)
+        ? getNome(a).localeCompare(getNome(b))
+        : getNome(b).localeCompare(getNome(a))
     );
+  }
+
+  onPageChange(newPage: number): void {
+    this.currentPage = newPage;
+    this.fetchUsers(this.currentPage, this.pageSize);
   }
 }

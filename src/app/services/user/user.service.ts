@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
+import API_URLS from '../../shared/constants/api-urls';
 import {
   AutoCadastroResponse,
   ForgotPasswordResponse,
@@ -48,28 +49,14 @@ export class UserService {
   //     catchError(this.handleError)
   //   );
   // }
-  login(email: string, senha: string): Observable<String | null> {
+  login(email: string, senha: string): Observable<string | null> {
     return this.http
-      .post<LoginResponse>(`${this.apiUrl}${this.authPath}/generate-token`, {
-        email,
-        senha,
+      .post<LoginResponse>(`${API_URLS.auth.generateToken}`, {
+        username: email, // Ajusta o campo para "username"
+        password: senha, // Ajusta o campo para "password"
       })
       .pipe(
-        map((response) => {
-          if (response && response.token) {
-            const { token } = response;
-
-            // Salva o token no localStorage
-            localStorage.setItem('authToken', token);
-
-            // Decodifica o token JWT para obter os dados do usuário
-            //const decodedToken: any = jwtDecode(token);
-
-            return token;
-          } else {
-            return null;
-          }
-        }),
+        map((response) => response?.token || null),
         catchError((error) => {
           console.error('Erro ao fazer login:', error);
           return of(null);
