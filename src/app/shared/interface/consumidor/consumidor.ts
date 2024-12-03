@@ -1,6 +1,7 @@
 export interface Consumidor {
   id: string;
   nome: string;
+  email: string;
   notesCount: number;
   productsCount: number;
   rank: number;
