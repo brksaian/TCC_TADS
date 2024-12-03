@@ -17,7 +17,7 @@ import { HistoricoPrecoComponent } from './historico-preco/historico-preco.compo
 export class VisualizarProdutoComponent {
   produto = {
     id: 1,
-    nome: 'Pão de Forma',
+    name: 'Pão de Forma',
     descricao: 'Pão de forma macio e saboroso.',
     categoria: 1, // ID da categoria como número
     preco: 6.69,
