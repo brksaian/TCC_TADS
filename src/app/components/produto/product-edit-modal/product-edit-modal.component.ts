@@ -91,14 +91,11 @@ export class ProductEditModalComponent implements OnInit {
         .subscribe({
           next: (response) => {
             console.log(response);
-            if (response.imageUrl) {
+            if (response?.image) {
               // Atualiza a imagem do produto com a URL retornada pelo backend
-              this.editedProduto.image = response.imageUrl;
-              alert('Imagem atualizada com sucesso!');
+              this.editedProduto.image = response?.image;
             } else {
-              alert(
-                'Imagem enviada, mas não foi possível atualizar a visualização.'
-              );
+              alert('Imagem atualizada.');
             }
           },
           error: (err) => {

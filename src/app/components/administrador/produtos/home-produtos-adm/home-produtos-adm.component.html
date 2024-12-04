@@ -67,6 +67,7 @@
     <app-card-produto
       *ngFor="let produto of filteredProdutos"
       [produto]="produto"
+      [onCloseModal]="carregarProdutos.bind(this)"
     ></app-card-produto>
   </div>
 

@@ -19,6 +19,8 @@ export class CardProdutoComponent implements OnInit {
   isCliente: boolean = false;
   isAdmin: boolean = false;
 
+  @Input() onCloseModal!: () => void;
+
   isModalOpen: boolean = false;
 
   constructor(
@@ -47,6 +49,9 @@ export class CardProdutoComponent implements OnInit {
 
   handleSave(updatedProduto: Produto): void {
     this.isModalOpen = false;
+    if (this.onCloseModal) {
+      this.onCloseModal();
+    }
   }
 
   handleClose(): void {
