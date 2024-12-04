@@ -4,14 +4,14 @@
     <img
       class="w-32 h-auto object-cover"
       [src]="produto.image || 'https://via.placeholder.com/150'"
-      [alt]="produto.nome || 'Imagem do Produto'"
+      [alt]="produto.name || 'Imagem do Produto'"
     />
   </div>
 
   <!-- Informações do Produto -->
   <div class="md:w-3/4 md:ml-4 flex flex-col justify-between">
     <div>
-      <h2 class="text-2xl font-bold">{{ produto.nome }}</h2>
+      <h2 class="text-2xl font-bold">{{ produto.name }}</h2>
       <!-- Média de Estrelas -->
       <div class="text-sm text-gray-600">
         <span class="font-semibold text-yellow-500">

@@ -2,40 +2,46 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faChevronDown, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-import { Consumidor } from '../../../../shared/interface';
+import { AdministradorService } from '../../../../services';
+import { Consumidor, getNome } from '../../../../shared/interface';
 import { CardConsumidorComponent } from '../../../consumidor';
+import { HeaderAdministradorComponent } from '../../header-administrador';
+import { EditarConsumidorADMComponent } from '../editar-consumidor-adm';
 
 @Component({
   selector: 'app-home-usuarios-adm',
   standalone: true,
   imports: [
     CommonModule,
+    HeaderAdministradorComponent,
     RouterModule,
     FormsModule,
     CardConsumidorComponent,
-    FontAwesomeModule,
+    EditarConsumidorADMComponent,
   ],
   templateUrl: './home-usuarios-adm.component.html',
   styleUrl: './home-usuarios-adm.component.css',
 })
 export class HomeUsuariosADMComponent implements OnInit {
   usuarios: Consumidor[] = []; // Lista de usuários no formato Consumidor
+  filteredUsuarios: Consumidor[] = [];
   searchQuery: string = '';
   sortOption: string = 'A-Z';
-  filteredUsuarios: Consumidor[] = [];
   menuVisible = false;
+  currentPage = 0;
+  pageSize = 10;
 
-  faMagnifyingGlass = faMagnifyingGlass;
-  faChevronDown = faChevronDown;
+  isModalOpen = false; // Controle da visibilidade da modal
+  selectedUsuario: Consumidor | null = null; // Armazenar o usuário selecionado
 
+  constructor(private administradorService: AdministradorService) {}
   ngOnInit(): void {
     // Simulação de usuários
     this.usuarios = [
       {
         id: '1',
-        nome: 'Ana',
+        firstName: 'Ana',
+        lastName: 'Lúcia',
         notesCount: 12,
         productsCount: 3,
         rank: 1,
@@ -45,7 +51,8 @@ export class HomeUsuariosADMComponent implements OnInit {
       },
       {
         id: '2',
-        nome: 'Bruno',
+        firstName: 'Bruno',
+        lastName: 'Carlos',
         notesCount: 8,
         productsCount: 5,
         rank: 2,
@@ -55,7 +62,8 @@ export class HomeUsuariosADMComponent implements OnInit {
       },
       {
         id: '3',
-        nome: 'Carlos',
+        firstName: 'Carlos',
+        lastName: 'Alberto Sampaio',
         notesCount: 20,
         productsCount: 4,
         rank: 3,
@@ -65,7 +73,8 @@ export class HomeUsuariosADMComponent implements OnInit {
       },
       {
         id: '4',
-        nome: 'Débora',
+        firstName: 'Débora',
+        lastName: 'Correia',
         notesCount: 10,
         productsCount: 2,
         rank: 4,
@@ -75,7 +84,8 @@ export class HomeUsuariosADMComponent implements OnInit {
       },
       {
         id: '5',
-        nome: 'Eduardo',
+        firstName: 'Eduardo',
+        lastName: 'Lima',
         notesCount: 5,
         productsCount: 8,
         rank: 5,
@@ -85,7 +95,19 @@ export class HomeUsuariosADMComponent implements OnInit {
       },
     ];
 
-    this.filteredUsuarios = [...this.usuarios];
+    this.fetchUsers(this.currentPage, this.pageSize);
+  }
+
+  fetchUsers(page: number, size: number): void {
+    this.administradorService.listUsers(page, size).subscribe({
+      next: (response) => {
+        this.usuarios = response.content; // Adapte conforme o formato da resposta
+        this.filteredUsuarios = [...this.usuarios];
+      },
+      error: (error) => {
+        console.error('Erro ao listar usuários:', error);
+      },
+    });
   }
 
   toggleMenu(): void {
@@ -94,7 +116,7 @@ export class HomeUsuariosADMComponent implements OnInit {
 
   onSearch(): void {
     this.filteredUsuarios = this.usuarios.filter((usuario) =>
-      usuario.nome.toLowerCase().includes(this.searchQuery.toLowerCase())
+      getNome(usuario).toLowerCase().includes(this.searchQuery.toLowerCase())
     );
     this.applySorting();
   }
@@ -106,8 +128,22 @@ export class HomeUsuariosADMComponent implements OnInit {
   private applySorting(): void {
     this.filteredUsuarios.sort((a, b) =>
       this.sortOption === 'A-Z'
-        ? a.nome.localeCompare(b.nome)
-        : b.nome.localeCompare(a.nome)
+        ? getNome(a).localeCompare(getNome(b))
+        : getNome(b).localeCompare(getNome(a))
     );
+  }
+
+  onPageChange(newPage: number): void {
+    this.currentPage = newPage;
+    this.fetchUsers(this.currentPage, this.pageSize);
+  }
+  openModal(usuario: Consumidor): void {
+    this.selectedUsuario = usuario;
+    this.isModalOpen = true; // Abre a modal
+  }
+
+  closeModal(): void {
+    this.isModalOpen = false; // Fecha a modal
+    this.selectedUsuario = null;
   }
 }

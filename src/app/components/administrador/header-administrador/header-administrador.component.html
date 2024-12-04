@@ -10,12 +10,14 @@
   </div>
 
   <!-- Botão Admin com dropdown -->
-  <div class="relative flex items-center gap-2 cursor-pointer">
+  <div
+    class="relative flex items-center gap-2 cursor-pointer"
+    (click)="toggleSairMenu()"
+  >
     <!-- Ícone do usuário -->
     <fa-icon [icon]="faUserCircle" class="text-black text-xl"></fa-icon>
     <button
       class="text-black px-2 hover:text-blue-500 cursor-pointer focus:outline-none flex items-center gap-1"
-      (click)="toggleSairMenu()"
     >
       Admin
       <!-- Ícone de dropdown -->
@@ -24,11 +26,11 @@
     <!-- Opção Sair -->
     <div
       *ngIf="sairMenuVisible"
-      class="absolute right-0 mt-2 bg-white border border-gray-200 shadow-md rounded-md z-50"
+      class="absolute right--8 mt-16 bg-white border border-gray-200 shadow-md rounded-md z-50"
     >
       <button
         class="block w-full px-3 py-2 text-center text-red-500 hover:bg-red-100"
-        (click)="deslogarAdmin()"
+        (click)="deslogarAdmin($event)"
       >
         <fa-icon [icon]="faSignOutAlt" class="mr-2"></fa-icon>Sair
       </button>

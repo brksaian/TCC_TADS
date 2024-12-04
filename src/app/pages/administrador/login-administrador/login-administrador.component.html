@@ -1,33 +1,47 @@
 <div class="h-screen bg-black flex flex-col">
+  <!-- Header -->
   <header class="flex items-center justify-center bg-[#0095B6] h-1/6">
     <h1 class="text-white text-xl font-semibold">Nota Social Administrador</h1>
   </header>
 
+  <!-- Formulário de Login -->
   <div class="flex flex-col items-center justify-center flex-grow space-y-6">
-    <div class="w-3/4 max-w-md">
-      <label for="login" class="text-white block mb-2">Login/Email:</label>
-      <input
-        type="text"
-        id="login"
-        class="w-full px-4 py-2 bg-gray-800 text-white border border-gray-600 rounded-md"
-        placeholder="Digite seu login ou email"
-      />
-    </div>
-    
-    <div class="w-3/4 max-w-md">
-      <label for="senha" class="text-white block mb-2">Senha:</label>
-      <input
-        type="password"
-        id="senha"
-        class="w-full px-4 py-2 bg-gray-800 text-white border border-gray-600 rounded-md"
-        placeholder="Digite sua senha"
-      />
-    </div>
+    <form (ngSubmit)="onEntrar()" class="w-3/4 max-w-md space-y-6">
+      <!-- Campo de Login/Email -->
+      <div>
+        <label for="login" class="text-white block mb-2">Login/Email:</label>
+        <input
+          type="text"
+          id="login"
+          [(ngModel)]="email"
+          name="email"
+          class="w-full px-4 py-2 bg-gray-800 text-white border border-gray-600 rounded-md focus:outline-none focus:border-[#00a4c6]"
+          placeholder="Digite seu login ou email"
+          required
+        />
+      </div>
 
-    <button 
-      (click)="onEntrar()"
-      class="w-3/4 max-w-md bg-[#0095B6] text-white py-2 rounded-md font-semibold">
-      Entrar
-    </button>
+      <!-- Campo de Senha -->
+      <div>
+        <label for="senha" class="text-white block mb-2">Senha:</label>
+        <input
+          type="password"
+          id="senha"
+          [(ngModel)]="senha"
+          name="senha"
+          class="w-full px-4 py-2 bg-gray-800 text-white border border-gray-600 rounded-md focus:outline-none focus:border-[#00a4c6]"
+          placeholder="Digite sua senha"
+          required
+        />
+      </div>
+
+      <!-- Botão de Entrar -->
+      <button
+        type="submit"
+        class="w-full bg-[#0095B6] text-white py-2 rounded-md font-semibold hover:bg-[#007e92] transition-all"
+      >
+        Entrar
+      </button>
+    </form>
   </div>
 </div>

@@ -11,15 +11,12 @@
     >
       <img
         [src]="produto.image"
-        [alt]="produto.nome"
+        [alt]="produto.name"
         class="w-20 h-20 object-cover"
       />
       <h3 class="text-center text-sm font-semibold">
-        {{ produto.nome }}
+        {{ produto.name }}
       </h3>
-      <p class="text-center text-xs text-gray-500">
-        {{ produto.descricao }}
-      </p>
       <button
         (click)="removerFavorito(produto.id)"
         class="absolute top-2 right-2 p-1 bg-red-500 text-white rounded-full hover:bg-red-600 transition-all"

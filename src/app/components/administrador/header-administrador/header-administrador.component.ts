@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, HostListener, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {
@@ -36,9 +36,18 @@ export class HeaderAdministradorComponent {
     this.sairMenuVisible = !this.sairMenuVisible;
   }
 
-  // Chama a lógica de logout
-  deslogarAdmin() {
+  // Lógica para deslogar
+  deslogarAdmin(event: MouseEvent): void {
+    event.stopPropagation(); // Previne que o clique feche o menu
     this.authService.logout();
     this.router.navigate(['administrador/login-administrador']);
+  }
+
+  // Esconde o menu ao clicar fora
+  @HostListener('document:click', ['$event.target'])
+  onClickOutside(target: HTMLElement): void {
+    if (!target.closest('.relative')) {
+      this.sairMenuVisible = false;
+    }
   }
 }

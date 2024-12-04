@@ -1,9 +1,25 @@
 <div class="w-full bg-gray-300 grid grid-cols-1 px-5 h-full">
   <div class="flex-grow space-y-4">
-    <!-- Retângulo com texto "Avaliações pendentes de aprovação" sem negrito e alinhado à esquerda -->
+    <!-- Título -->
     <div class="h-1/6 justify-start border-gray-400 mt-16 flex items-center">
       <span class="text-3xl">Avaliações pendentes de aprovação</span>
     </div>
-    <app-card-avaliacao-adm></app-card-avaliacao-adm>
+
+    <!-- Lista de Avaliações -->
+    <ng-container *ngIf="avaliacoes.length > 0; else semAvaliacoes">
+      <app-card-avaliacao-adm
+        *ngFor="let avaliacao of avaliacoes"
+        [avaliacao]="avaliacao"
+        [atualizar]="carregarAvaliacoes.bind(this)"
+      >
+      </app-card-avaliacao-adm>
+    </ng-container>
+
+    <!-- Mensagem quando não houver avaliações -->
+    <ng-template #semAvaliacoes>
+      <div class="text-center text-gray-600 mt-4">
+        <p>Não há avaliações pendentes de aprovação.</p>
+      </div>
+    </ng-template>
   </div>
 </div>

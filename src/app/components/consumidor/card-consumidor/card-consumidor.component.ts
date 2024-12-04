@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { Consumidor } from '../../../shared/interface';
+import { Consumidor, getNome } from '../../../shared/interface';
 
 @Component({
   selector: 'app-card-consumidor',
@@ -11,6 +11,8 @@ import { Consumidor } from '../../../shared/interface';
 })
 export class CardConsumidorComponent {
   @Input() consumidor!: Consumidor;
+
+  getNome = getNome;
 
   constructor(private router: Router) {}
 

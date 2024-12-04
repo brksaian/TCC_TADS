@@ -42,7 +42,9 @@
   </div>
 
   <!-- Lista de consumidores -->
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+  <div
+    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+  >
     <div
       *ngFor="let consumidor of consumidoresFiltrados"
       class="group border border-gray-300 rounded-lg p-4 flex flex-col items-center bg-white relative"
@@ -50,17 +52,18 @@
       <!-- Imagem do consumidor -->
       <img
         [src]="consumidor.imagem"
-        alt="{{ consumidor.nome }}"
+        alt="{{ getNome(consumidor) }}"
         class="w-20 h-20 rounded-full mb-4 object-cover"
       />
       <!-- Nome do consumidor -->
-      <h3 class="text-sm font-semibold">{{ consumidor.nome }}</h3>
+      <h3 class="text-sm font-semibold">{{ getNome(consumidor) }}</h3>
       <!-- Informações adicionais -->
       <p class="text-xs text-gray-500">
         Pontos: {{ consumidor.pontos }} | Rank: {{ consumidor.rank }}
       </p>
       <p class="text-xs text-gray-500">
-        Notas: {{ consumidor.notesCount }} | Produtos: {{ consumidor.productsCount }}
+        Notas: {{ consumidor.notesCount }} | Produtos:
+        {{ consumidor.productsCount }}
       </p>
       <!-- Botão de remover (aparece somente no hover) -->
       <button

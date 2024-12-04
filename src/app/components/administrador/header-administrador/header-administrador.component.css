@@ -10,3 +10,16 @@ button {
 .fa-icon {
   vertical-align: middle;
 }
+
+.relative .absolute {
+  min-width: 150px;
+}
+
+button {
+  display: flex;
+  align-items: center;
+}
+
+.right--8 {
+  right: -8px;
+}

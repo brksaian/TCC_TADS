@@ -1,13 +1,14 @@
-<div class="max-w-xs bg-white rounded-lg shadow-md overflow-hidden">
-  <!-- Verifica se o produto tem imagem -->
+<div
+  class="max-w-xs bg-white rounded-lg shadow-md overflow-hidden"
+  (click)="handleCardClick()"
+>
   <ng-container *ngIf="produto.image; else semImagem">
     <img
       [src]="produto.image"
-      alt="{{ produto.nome }}"
+      alt="{{ produto.name }}"
       class="w-full h-48 object-contain"
     />
   </ng-container>
-  <!-- Texto exibido caso não tenha imagem -->
   <ng-template #semImagem>
     <div
       class="w-full h-48 bg-gray-200 flex items-center justify-center text-gray-500"
@@ -17,25 +18,21 @@
   </ng-template>
 
   <div class="p-4">
-    <h2 class="text-lg font-semibold text-gray-800">{{ produto.nome }}</h2>
+    <h2 class="text-lg font-semibold text-gray-800">{{ produto.name }}</h2>
     <p class="text-xl text-gray-700 font-bold">
-      <!-- Mostra o preço médio ou uma mensagem de carregamento -->
-      <ng-container *ngIf="precoMedio !== null; else carregando">
-        R${{ precoMedio | number : "1.2-2" }}
+      <ng-container *ngIf="produto.price !== null; else carregando">
+        R${{ produto.price | number : "1.2-2" }}
       </ng-container>
-      <ng-template #carregando>Carregando preço...</ng-template>
+      <ng-template #carregando>Preço não cadastrado</ng-template>
     </p>
     <div class="flex justify-between items-center mt-4">
-      <!-- Botão de adicionar ao carrinho -->
       <button
         *ngIf="isCliente"
         (click)="adicionarAoCarrinho(produto)"
         class="flex items-center bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-75"
       >
-        <fa-icon [icon]="faCartPlus" class="w-5 h-5 mr-2"></fa-icon>
         Adicionar
       </button>
-      <!-- Botão de adicionar aos favoritos -->
       <button
         *ngIf="isCliente"
         (click)="adicionarAosFavoritos(produto)"
@@ -59,3 +56,11 @@
     </div>
   </div>
 </div>
+
+<!-- Modal de Edição -->
+<app-product-edit-modal
+  *ngIf="isModalOpen"
+  [produto]="produto"
+  (onSave)="handleSave($event)"
+  (onClose)="handleClose()"
+></app-product-edit-modal>

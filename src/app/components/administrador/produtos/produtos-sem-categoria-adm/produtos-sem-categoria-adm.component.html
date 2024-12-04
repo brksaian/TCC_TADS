@@ -1,26 +1,39 @@
 <app-header-administrador></app-header-administrador>
 
-<div class="w-full bg-gray-300 grid grid-cols-1 px-5 min-h-screen">
+<div class="w-full bg-gray-300 grid grid-cols-1 px-5 h-full">
   <div class="flex-grow space-y-4">
-    <div class="h-1/6 justify-start border-gray-400 mt-16 flex items-center space-x-4 justify-between">
+    <div
+      class="h-1/6 border-gray-400 mt-16 flex items-center space-x-4 justify-between w-full"
+    >
       <span class="text-3xl">Produtos sem categoria</span>
-      <div class="flex items-center space-x-4">
-        <button 
+      <div class="flex items-center space-x-4 ">
+        <button
           class="bg-green-500 text-white p-2 w-8 h-8 rounded-lg hover:bg-green-600 transition-colors"
-          disabled>
-          <svg 
-            class="w-4 h-4 mx-auto" 
-            xmlns="http://www.w3.org/2000/svg" 
-            viewBox="0 0 24 24" 
-            fill="none" 
-            stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+          disabled
+        >
+          <svg
+            class="w-4 h-4 mx-auto"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 4v16m8-8H4"
+            />
           </svg>
         </button>
-        <span class="text-lg font-semibold text-green-500">Nova Categoria</span>
+        <span class="text-lg font-semibold text-green-500 self-end"
+          >Nova Categoria</span
+        >
       </div>
     </div>
   </div>
   <!-- Importando o ListarProdutosSemCategoria -->
-  <app-listar-produtos-sem-categoria></app-listar-produtos-sem-categoria>
+  <app-listar-produtos-sem-categoria
+    [isCarrossel]="false"
+  ></app-listar-produtos-sem-categoria>
 </div>

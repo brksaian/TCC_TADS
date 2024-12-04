@@ -1,16 +1,6 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-export interface Consumidor {
-  id: string;
-  nome: string;
-  notesCount: number;
-  productsCount: number;
-  rank: number;
-  profileUrl: string;
-  imagem: string;
-  pontos: number;
-}
+import { Component } from '@angular/core';
+import { Consumidor, getNome } from '../../../../shared/interface';
 
 @Component({
   selector: 'app-perfil-web-seguindo',
@@ -23,7 +13,8 @@ export class PerfilWebSeguindoComponent {
   consumidores: Consumidor[] = [
     {
       id: '1',
-      nome: 'Maria Jose',
+      firstName: 'Maria',
+      lastName: 'Jose',
       notesCount: 12,
       productsCount: 3,
       rank: 5,
@@ -33,7 +24,8 @@ export class PerfilWebSeguindoComponent {
     },
     {
       id: '2',
-      nome: 'João da Silva',
+      firstName: 'João',
+      lastName: 'da Silva',
       notesCount: 8,
       productsCount: 2,
       rank: 10,
@@ -44,12 +36,14 @@ export class PerfilWebSeguindoComponent {
     // Adicione mais consumidores conforme necessário
   ];
 
+  getNome = getNome;
+
   consumidoresFiltrados: Consumidor[] = [...this.consumidores];
 
   buscarConsumidor(nome: string): void {
     nome = nome.toLowerCase();
     this.consumidoresFiltrados = this.consumidores.filter((consumidor) =>
-      consumidor.nome.toLowerCase().includes(nome)
+      getNome(consumidor).toLowerCase().includes(nome)
     );
   }
 

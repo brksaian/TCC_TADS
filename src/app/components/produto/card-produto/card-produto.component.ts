@@ -1,23 +1,25 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { AuthService, ProdutoService } from '../../../services';
 import { Produto } from '../../../shared/interface';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
+import { ProductEditModalComponent } from '../product-edit-modal/product-edit-modal.component';
 
 @Component({
   selector: 'app-card-produto',
   standalone: true,
-  imports: [CommonModule, FontAwesomeModule],
   templateUrl: './card-produto.component.html',
   styleUrls: ['./card-produto.component.css'],
+  imports: [CommonModule, FormsModule, RouterModule, ProductEditModalComponent],
 })
 export class CardProdutoComponent implements OnInit {
   @Input() produto!: Produto;
   precoMedio: number | null = null;
-  isCliente: boolean = false; // Flag para verificar se o usuário é cliente
+  isCliente: boolean = false;
+  isAdmin: boolean = false;
 
-  faCartPlus = faCartPlus;
+  isModalOpen: boolean = false;
 
   constructor(
     private produtoService: ProdutoService,
@@ -25,19 +27,30 @@ export class CardProdutoComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // Verifica se o usuário é cliente
     this.isCliente = this.authService.getUserRole() === 'CLIENTE';
+    this.isAdmin = this.authService.getUserRole() === 'ADMIN';
+  }
 
-    // Busca o preço médio do produto
-    this.produtoService.getPrecoMedioProduto(this.produto.id).subscribe(
-      (precoMedio) => {
-        this.precoMedio = precoMedio;
-      },
-      (error) => {
-        console.error('Erro ao buscar preço médio:', error);
-        this.precoMedio = null;
-      }
-    );
+  handleCardClick(): void {
+    if (this.isAdmin) {
+      this.isModalOpen = true; // Abre a modal
+    } else {
+      console.log('Usuário não autorizado a editar produtos.');
+    }
+  }
+
+  openEditModal(): void {
+    if (this.isAdmin) {
+      this.isModalOpen = true;
+    }
+  }
+
+  handleSave(updatedProduto: Produto): void {
+    this.isModalOpen = false;
+  }
+
+  handleClose(): void {
+    this.isModalOpen = false; // Fecha a modal sem salvar
   }
 
   adicionarAoCarrinho(produto: Produto) {
