@@ -52,11 +52,11 @@
       <!-- Imagem do consumidor -->
       <img
         [src]="consumidor.imagem"
-        alt="{{ consumidor.nome }}"
+        alt="{{ getNome(consumidor) }}"
         class="w-20 h-20 rounded-full mb-4 object-cover"
       />
       <!-- Nome do consumidor -->
-      <h3 class="text-sm font-semibold">{{ consumidor.nome }}</h3>
+      <h3 class="text-sm font-semibold">{{ getNome(consumidor) }}</h3>
       <!-- Informações adicionais -->
       <p class="text-xs text-gray-500">
         Pontos: {{ consumidor.pontos }} | Rank: {{ consumidor.rank }}

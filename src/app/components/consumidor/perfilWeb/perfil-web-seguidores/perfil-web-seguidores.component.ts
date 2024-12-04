@@ -1,8 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { Consumidor } from '../perfil-web-seguindo';
-
-
+import { Consumidor, getNome } from '../../../../shared/interface';
 
 @Component({
   selector: 'app-perfil-web-seguidores',
@@ -15,7 +13,8 @@ export class PerfilWebSeguidoresComponent {
   consumidores: Consumidor[] = [
     {
       id: '1',
-      nome: 'Maria Jose',
+      firstName: 'Maria',
+      lastName: 'Jose',
       notesCount: 12,
       productsCount: 3,
       rank: 5,
@@ -25,7 +24,8 @@ export class PerfilWebSeguidoresComponent {
     },
     {
       id: '2',
-      nome: 'João da Silva',
+      firstName: 'João',
+      lastName: 'da Silva',
       notesCount: 8,
       productsCount: 2,
       rank: 10,
@@ -35,7 +35,8 @@ export class PerfilWebSeguidoresComponent {
     },
     {
       id: '3',
-      nome: 'Ana Clara',
+      firstName: 'Ana',
+      lastName: 'Clara',
       notesCount: 15,
       productsCount: 5,
       rank: 3,
@@ -45,7 +46,8 @@ export class PerfilWebSeguidoresComponent {
     },
     {
       id: '4',
-      nome: 'Carlos Alberto',
+      firstName: 'Carlos',
+      lastName: 'Alberto',
       notesCount: 6,
       productsCount: 1,
       rank: 15,
@@ -55,7 +57,8 @@ export class PerfilWebSeguidoresComponent {
     },
     {
       id: '5',
-      nome: 'Fernanda Souza',
+      firstName: 'Fernanda',
+      lastName: 'Souza',
       notesCount: 20,
       productsCount: 7,
       rank: 1,
@@ -65,7 +68,8 @@ export class PerfilWebSeguidoresComponent {
     },
     {
       id: '6',
-      nome: 'Lucas Pereira',
+      firstName: 'Lucas',
+      lastName: 'Pereira',
       notesCount: 10,
       productsCount: 4,
       rank: 8,
@@ -75,7 +79,8 @@ export class PerfilWebSeguidoresComponent {
     },
     {
       id: '7',
-      nome: 'Mariana Santos',
+      firstName: 'Mariana',
+      lastName: 'Santos',
       notesCount: 13,
       productsCount: 5,
       rank: 4,
@@ -85,12 +90,14 @@ export class PerfilWebSeguidoresComponent {
     },
   ];
 
+  getNome = getNome;
+
   consumidoresFiltrados: Consumidor[] = [...this.consumidores];
 
   buscarConsumidor(nome: string): void {
     nome = nome.toLowerCase();
     this.consumidoresFiltrados = this.consumidores.filter((consumidor) =>
-      consumidor.nome.toLowerCase().includes(nome)
+      getNome(consumidor).toLowerCase().includes(nome)
     );
   }
 
