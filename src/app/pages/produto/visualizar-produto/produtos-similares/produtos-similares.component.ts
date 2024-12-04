@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
 })
 export class ProdutosSimilaresComponent implements OnInit {
-  @Input() produtoId!: number;
+  @Input() produtoId!: string;
 
   produtosSimilares: Produto[] = [];
   loading = false;

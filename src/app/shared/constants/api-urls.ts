@@ -1,11 +1,17 @@
-import { environment } from './environment';
+import { environment } from './environment.prod';
 
 // URLs específicas do serviço Social
 export const API_URLS = {
   social: {
     admin: {
       getTotalReviews: `${environment.SERVICES.social}/admin/total-reviews`,
-      listReviews: `${environment.SERVICES.social}/admin/review/pending-approval`,
+      listReviews: (
+        page: number,
+        size: number,
+        sortDirection: string = 'ASC',
+        sortBy: string = 'firstName'
+      ) =>
+        `${environment.SERVICES.social}/admin/review/pending-approval?page=${page}&size=${size}&sortDirection=${sortDirection}&sortBy=${sortBy}`,
       approveReview: (reviewId: string) =>
         `${environment.SERVICES.social}/admin/review/${reviewId}/approve`,
       rejectReview: (reviewId: string) =>
@@ -153,7 +159,8 @@ export const API_URLS = {
         sortBy: string
       ) =>
         `${environment.SERVICES.catalog}/product?page=${page}&size=${size}&sortDirection=${sortDirection}&sortBy=${sortBy}`,
-      getProductById: (id: string) => `${environment.SERVICES.catalog}/product/${id}`,
+      getProductById: (id: string) =>
+        `${environment.SERVICES.catalog}/product/${id}`,
       searchProductsByName: (
         name: string,
         page: number,

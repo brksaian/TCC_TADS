@@ -1,4 +1,4 @@
-<div class="p-6 w-full bg-gray-100 w-screen">
+<div class="p-6 w-full bg-gray-100">
   <!-- Estado: Carrinho vazio -->
   <div *ngIf="produtos.length === 0" class="flex flex-col items-center">
     <svg
@@ -43,7 +43,6 @@
           <tr class="border-b">
             <th class="py-2">IMAGEM</th>
             <th class="py-2">ITEM</th>
-            <th class="py-2">DESCRIÇÃO</th>
             <th class="py-2">AÇÃO</th>
           </tr>
         </thead>
@@ -60,7 +59,6 @@
               />
             </td>
             <td class="py-2">{{ produto.name }}</td>
-            <td class="py-2 text-gray-500 text-sm">{{ produto.descricao }}</td>
             <td class="py-2">
               <button
                 (click)="removerProduto(produto.id)"

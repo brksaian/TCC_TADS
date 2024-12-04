@@ -1,10 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import API_URLS from '../../shared/constants/api-urls';
 import { Categoria } from '../../shared/interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CategoriaService {
   private apiUrl = 'http://localhost:3000/categorias';
@@ -12,8 +13,24 @@ export class CategoriaService {
   constructor(private http: HttpClient) {}
 
   // Buscar todas as categorias
-  getCategorias(): Observable<Categoria[]> {
-    return this.http.get<Categoria[]>(this.apiUrl);
+  getCategorias(
+    page: number = 0,
+    size: number = 100,
+    sortDirection: string = 'ASC',
+    sortBy: string = 'name'
+  ): Observable<any> {
+    const url = API_URLS.catalog.product.getCategories(
+      page,
+      size,
+      sortDirection,
+      sortBy
+    );
+
+    return this.http.get<any>(url, {
+      headers: {
+        'ngrok-skip-browser-warning': '69420',
+      },
+    });
   }
 
   // Buscar uma categoria por ID

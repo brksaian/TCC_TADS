@@ -1,14 +1,13 @@
+const API_URL = `https://70c5-2804-d55-760f-4800-e4d7-2aee-8eb6-1e6b.ngrok-free.app`;
+
 export const environment = {
   production: true,
   SERVICES: {
-    auth: 'https://d358-2804-d55-760f-4800-d9a8-4daf-1b92-c5f1.ngrok-free.app/auth',
+    auth: `${API_URL}/auth`,
     gateway: 'http://localhost:8000/',
-    register:
-      'https://d358-2804-d55-760f-4800-d9a8-4daf-1b92-c5f1.ngrok-free.app/register',
+    register: `${API_URL}/register`,
     receiptScan: 'http://localhost:8083',
-    catalog:
-      'https://d358-2804-d55-760f-4800-d9a8-4daf-1b92-c5f1.ngrok-free.app/catalog',
-    social:
-      'https://d358-2804-d55-760f-4800-d9a8-4daf-1b92-c5f1.ngrok-free.app/social',
+    catalog: `${API_URL}/catalog`,
+    social: `${API_URL}/social`,
   },
 };

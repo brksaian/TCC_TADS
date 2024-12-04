@@ -117,4 +117,123 @@ export class AdministradorService {
       },
     });
   }
+
+  listAllReviews(
+    page: number,
+    size: number,
+    sortDirection: string = 'ASC',
+    sortBy: string = 'createdAt'
+  ): Observable<any> {
+    const token: string = localStorage.getItem('authToken') || '';
+    const url = `${API_URLS.social.admin.listReviews(
+      page,
+      size,
+      sortDirection,
+      sortBy
+    )}`;
+
+    return this.http.get<any>(url, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'ngrok-skip-browser-warning': '69420',
+      },
+    });
+  }
+
+  approveReview(reviewId: string): Observable<any> {
+    const token: string = localStorage.getItem('authToken') || '';
+    const url = `${API_URLS.social.admin.approveReview(reviewId)}`;
+
+    return this.http.patch<any>(
+      url,
+      {},
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'ngrok-skip-browser-warning': '69420',
+        },
+      }
+    );
+  }
+
+  rejectReview(reviewId: string): Observable<any> {
+    const token: string = localStorage.getItem('authToken') || '';
+    const url = `${API_URLS.social.admin.rejectReview(reviewId)}`;
+
+    return this.http.patch<any>(
+      url,
+      {},
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'ngrok-skip-browser-warning': '69420',
+        },
+      }
+    );
+  }
+
+  updateProductImage(productId: string, imageFile: File): Observable<any> {
+    const token: string = localStorage.getItem('authToken') || '';
+    const url = `${API_URLS.catalog.product.uploadImage(productId)}`;
+
+    const formData = new FormData();
+    formData.append('image', imageFile);
+
+    return this.http.post<any>(url, formData, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'ngrok-skip-browser-warning': '69420',
+      },
+    });
+  }
+
+  updateCategory(
+    categoryId: string,
+    name: string,
+    description: string,
+    imageFile?: File
+  ): Observable<any> {
+    const token: string = localStorage.getItem('authToken') || '';
+    const url = `${API_URLS.catalog.product.updateCategory(categoryId)}`;
+
+    const formData = new FormData();
+    formData.append(
+      'createCategoryRequestDTO',
+      JSON.stringify({
+        name,
+        description,
+      })
+    );
+
+    if (imageFile) {
+      formData.append('image', imageFile);
+    }
+
+    return this.http.put<any>(url, formData, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'ngrok-skip-browser-warning': '69420',
+      },
+    });
+  }
+
+  addCategoryToProduct(productId: string, categoryId: string): Observable<any> {
+    const token: string = localStorage.getItem('authToken') || '';
+    const url = `${API_URLS.catalog.product.addCategoryToProduct(productId)}`;
+
+    console.log(url);
+
+    const payload = {
+      productId: productId,
+      categoryId: categoryId,
+    };
+
+    return this.http.patch<any>(url, payload, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'ngrok-skip-browser-warning': '69420',
+        'Content-Type': 'application/json',
+      },
+    });
+  }
 }

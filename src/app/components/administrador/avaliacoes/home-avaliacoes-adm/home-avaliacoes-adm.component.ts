@@ -1,22 +1,36 @@
-import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { NavBarAdministradorComponent } from '../../nav-bar-administrador/nav-bar-administrador.component';
-import { HeaderAdministradorComponent } from '../../header-administrador/header-administrador.component';
-import { CardAvaliacaoADMComponent } from '../card-avaliacao-adm/card-avaliacao-adm.component';
+import { AdministradorService } from '../../../../services';
+import { Avaliacao } from '../../../../shared/interface';
+import { CardAvaliacaoADMComponent } from '../card-avaliacao-adm';
 
 @Component({
   selector: 'app-home-avaliacoes-adm',
   standalone: true,
-  imports: [CommonModule, RouterModule, HeaderAdministradorComponent,CardAvaliacaoADMComponent],
+  imports: [CommonModule, RouterModule, CardAvaliacaoADMComponent],
   templateUrl: './home-avaliacoes-adm.component.html',
-  styleUrls: ['./home-avaliacoes-adm.component.css']
+  styleUrls: ['./home-avaliacoes-adm.component.css'],
 })
+export class HomeAvaliacoesADMComponent implements OnInit {
+  avaliacoes: Avaliacao[] = []; // Lista de avaliações
 
-  export class HomeAvaliacoesADMComponent implements OnInit {
-    constructor() { }
+  constructor(private administradorService: AdministradorService) {}
 
-    ngOnInit(): void {
-      // Lógica inicial, se necessário
-    }
+  ngOnInit(): void {
+    this.carregarAvaliacoes();
   }
+
+  carregarAvaliacoes(): void {
+    this.administradorService
+      .listAllReviews(0, 10, 'ASC', 'createdAt')
+      .subscribe({
+        next: (response) => {
+          this.avaliacoes = response.content; // Supondo que o backend retorna `content` como a lista
+        },
+        error: (error) => {
+          console.error('Erro ao buscar avaliações:', error);
+        },
+      });
+  }
+}

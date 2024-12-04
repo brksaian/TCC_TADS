@@ -4,38 +4,36 @@
   <div *ngFor="let avaliacao of avaliacoes" class="mb-6 flex gap-4 items-start">
     <!-- Imagem do produto -->
     <img
-      [src]="getProduto(avaliacao.produto_id).imagem"
-      [alt]="getProduto(avaliacao.produto_id).nome"
+      [src]="getProduto(avaliacao.product.id).image"
+      [alt]="getProduto(avaliacao.product.id).name"
       class="w-24 h-24 object-cover border rounded-md"
     />
 
     <!-- Detalhes da avaliação -->
     <div>
       <h2 class="text-lg font-semibold">
-        {{ getProduto(avaliacao.produto_id).nome }}
+        {{ getProduto(avaliacao.product.id).name }}
       </h2>
 
       <!-- Estrelas -->
       <div class="flex items-center mb-2">
         <i
-          *ngFor="let star of [].constructor(avaliacao.estrelas)"
+          *ngFor="let star of [].constructor(avaliacao.rating)"
           class="fa fa-star text-yellow-400"
         ></i>
         <i
-          *ngFor="
-            let emptyStar of [].constructor(5 - avaliacao.estrelas)
-          "
+          *ngFor="let emptyStar of [].constructor(5 - avaliacao.rating)"
           class="fa fa-star text-gray-300"
         ></i>
       </div>
 
       <!-- Comentário -->
       <p class="text-sm text-gray-700 mb-1">
-        <span class="font-semibold">Avaliação:</span> {{ avaliacao.comentario }}
+        <span class="font-semibold">Avaliação:</span> {{ avaliacao.review }}
       </p>
       <!-- Data -->
       <p class="text-xs text-gray-500">
-        Publicado em {{ avaliacao.created_at | date: 'short' }}
+        Publicado em {{ avaliacao.createdAt | date : "short" }}
       </p>
     </div>
   </div>

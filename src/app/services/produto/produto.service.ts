@@ -1,10 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
+import API_URLS from '../../shared/constants/api-urls';
 import { Avaliacao, PrecoProduto, Produto } from '../../shared/interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProdutoService {
   private apiUrl = 'http://localhost:3000/produtos';
@@ -12,12 +13,27 @@ export class ProdutoService {
 
   constructor(private http: HttpClient) {}
 
-  getProdutos(): Observable<Produto[]> {
-    // return this.http.get<PaginatedResponse<Produto>>(`${this.apiUrl}?page=0&size=10&sortDirection=ASC&sortBy=name`);
-     return this.http.get<Produto[]>(`${this.apiUrl}`);
+  getProdutos(
+    page: number = 0,
+    size: number = 200,
+    sortDirection: string = 'ASC',
+    sortBy: string = 'name'
+  ): Observable<any> {
+    const url = API_URLS.catalog.product.getProducts(
+      page,
+      size,
+      sortDirection,
+      sortBy
+    );
+
+    return this.http.get<any>(url, {
+      headers: {
+        'ngrok-skip-browser-warning': '69420',
+      },
+    });
   }
 
-  getProdutoById(id: number): Observable<Produto> {
+  getProdutoById(id: string): Observable<Produto> {
     return this.http.get<Produto>(`${this.apiUrl}?id=${id}`);
   }
 
@@ -25,11 +41,11 @@ export class ProdutoService {
     return this.http.post<Produto>(this.apiUrl, produto);
   }
 
-  updateProduto(id: number, produto: Produto): Observable<Produto> {
+  updateProduto(id: string, produto: Produto): Observable<Produto> {
     return this.http.put<Produto>(`${this.apiUrl}/${id}`, produto);
   }
 
-  deleteProduto(id: number): Observable<void> {
+  deleteProduto(id: string): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 
@@ -56,7 +72,7 @@ export class ProdutoService {
     return this.http.get<PrecoProduto[]>(this.precoApiUrl);
   }
 
-  getPrecoProdutoById(id: number): Observable<PrecoProduto> {
+  getPrecoProdutoById(id: string): Observable<PrecoProduto> {
     return this.http.get<PrecoProduto>(`${this.precoApiUrl}/${id}`);
   }
 
@@ -64,15 +80,21 @@ export class ProdutoService {
     return this.http.post<PrecoProduto>(this.precoApiUrl, precoProduto);
   }
 
-  updatePrecoProduto(id: number, precoProduto: PrecoProduto): Observable<PrecoProduto> {
-    return this.http.put<PrecoProduto>(`${this.precoApiUrl}/${id}`, precoProduto);
+  updatePrecoProduto(
+    id: string,
+    precoProduto: PrecoProduto
+  ): Observable<PrecoProduto> {
+    return this.http.put<PrecoProduto>(
+      `${this.precoApiUrl}/${id}`,
+      precoProduto
+    );
   }
 
-  deletePrecoProduto(id: number): Observable<void> {
+  deletePrecoProduto(id: string): Observable<void> {
     return this.http.delete<void>(`${this.precoApiUrl}/${id}`);
   }
 
-  getPrecoMedioProduto(produtoId: number): Observable<number> {
+  getPrecoMedioProduto(produtoId: string): Observable<number> {
     const url = `${this.precoApiUrl}?produto_id=${produtoId}`;
 
     return this.http.get<PrecoProduto[]>(url).pipe(
@@ -86,8 +108,10 @@ export class ProdutoService {
     );
   }
 
-  getPrecosProdutoById(id: number): Observable<Array<PrecoProduto>> {
-    return this.http.get<Array<PrecoProduto>>(`${this.precoApiUrl}/produto/${id}`);
+  getPrecosProdutoById(id: string): Observable<Array<PrecoProduto>> {
+    return this.http.get<Array<PrecoProduto>>(
+      `${this.precoApiUrl}/produto/${id}`
+    );
   }
 
   getProdutosFiltrados(queryParams: any): Observable<Produto[]> {
@@ -116,7 +140,7 @@ export class ProdutoService {
   // Métodos de Produto Similares
   // ============================
 
-  getProdutosSimilares(produtoId: number): Observable<Produto[]> {
+  getProdutosSimilares(produtoId: string): Observable<Produto[]> {
     return this.http.get<Produto[]>(`${this.apiUrl}/${produtoId}/similares`);
   }
 
@@ -124,7 +148,7 @@ export class ProdutoService {
   // Métodos de Avaliações do Produto
   // ================================
 
-  getAvaliacoesProduto(produtoId: number): Observable<Avaliacao[]> {
+  getAvaliacoesProduto(produtoId: string): Observable<Avaliacao[]> {
     return this.http.get<Avaliacao[]>(`${this.apiUrl}/${produtoId}/avaliacoes`);
   }
 }

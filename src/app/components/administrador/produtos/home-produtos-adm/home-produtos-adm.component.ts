@@ -8,8 +8,8 @@ import {
   faMagnifyingGlass,
 } from '@fortawesome/free-solid-svg-icons';
 import { Produto } from '../../../../shared/interface';
-import { CardProdutoComponent } from '../../../produto/card-produto/card-produto.component';
-import { ProdutoTesteComponent } from '../produto-teste/produto-teste.component';
+import { CardProdutoComponent } from '../../../produto';
+import { ProdutoService } from '../../../../services';
 
 @Component({
   selector: 'app-home-produtos-adm',
@@ -33,35 +33,41 @@ export class HomeProdutosADMComponent implements OnInit {
   faMagnifyingGlass = faMagnifyingGlass;
   faChevronDown = faChevronDown;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private produtoService: ProdutoService) {}
 
   ngOnInit(): void {
-    // Instancia para ProdutoTesteComponent para acessar os dados
-    const produtoTeste = new ProdutoTesteComponent();
-    this.produtos = produtoTeste.getProdutos();
+    this.carregarProdutos(); // Chama o método para carregar os produtos
+  }
 
-    // Filtra produtos válidos
-    this.filteredProdutos = this.produtos.filter(
-      (produto) =>
-        produto.categoria !== undefined && produto.image.trim() !== ''
-    );
+  carregarProdutos(): void {
+    this.produtoService.getProdutos().subscribe({
+      next: (response) => {
+        this.produtos = response.content || []; // Supondo que os produtos estão na propriedade 'content'
+        this.filteredProdutos = [...this.produtos];
+        this.applyFilteringAndSorting();
+      },
+      error: (err) => {
+        console.error('Erro ao carregar produtos:', err);
+      },
+    });
   }
 
   onSearch(): void {
-    this.filteredProdutos = this.produtos.filter(
-      (produto) =>
-        produto.categoria !== undefined &&
-        produto.image.trim() !== '' &&
-        produto.name.toLowerCase().includes(this.searchQuery.toLowerCase())
-    );
-    this.applySorting();
+    this.applyFilteringAndSorting();
   }
 
   onSortChange(): void {
-    this.applySorting();
+    this.applyFilteringAndSorting();
   }
 
-  private applySorting(): void {
+  private applyFilteringAndSorting(): void {
+    this.filteredProdutos = this.produtos.filter(
+      (produto) =>
+        produto.category !== undefined &&
+        produto?.image?.trim() !== '' &&
+        produto.name.toLowerCase().includes(this.searchQuery.toLowerCase())
+    );
+
     this.filteredProdutos.sort((a, b) =>
       this.sortOption === 'A-Z'
         ? a.name.localeCompare(b.name)

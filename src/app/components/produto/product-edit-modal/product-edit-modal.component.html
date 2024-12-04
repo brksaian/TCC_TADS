@@ -1,0 +1,70 @@
+<div
+  class="fixed inset-0 flex items-center justify-center bg-gray-500 bg-opacity-75"
+>
+  <div class="bg-white rounded-lg shadow-lg p-6 w-96">
+    <div class="flex justify-between items-center mb-4">
+      <h2 class="text-xl font-bold">Editar Produto</h2>
+      <button (click)="cancelEdit()" class="text-red-500 text-xl font-bold">
+        ×
+      </button>
+    </div>
+
+    <!-- Nome do Produto (Somente Leitura) -->
+    <div class="mb-4">
+      <label class="block text-gray-700 font-bold">Produto:</label>
+      <p class="text-gray-600">{{ editedProduto.name }}</p>
+    </div>
+
+    <!-- Imagem do Produto -->
+    <div class="flex items-center mb-4">
+      <div class="relative">
+        <img
+          [src]="editedProduto.image || 'https://via.placeholder.com/150'"
+          alt="Produto"
+          class="w-24 h-24 rounded-full object-cover"
+        />
+        <label
+          for="file-upload"
+          class="absolute bottom-0 right-0 bg-green-500 text-white p-2 rounded-full cursor-pointer"
+        >
+          <i class="fa fa-camera"></i>
+        </label>
+        <input
+          id="file-upload"
+          type="file"
+          class="hidden"
+          (change)="updateImage($event)"
+        />
+      </div>
+    </div>
+
+    <!-- Categoria -->
+    <div class="mb-4">
+      <label class="block text-gray-700">Categoria</label>
+      <select
+        [(ngModel)]="editedProduto.category"
+        class="border rounded-lg w-full p-2"
+      >
+        <option *ngFor="let categoria of categorias" [value]="categoria.id">
+          {{ categoria.name }}
+        </option>
+      </select>
+    </div>
+
+    <!-- Botões -->
+    <div class="flex justify-between">
+      <button
+        (click)="saveChanges()"
+        class="bg-green-500 text-white rounded-lg px-4 py-2"
+      >
+        Salvar
+      </button>
+      <button
+        (click)="cancelEdit()"
+        class="bg-red-500 text-white rounded-lg px-4 py-2"
+      >
+        Cancelar
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,17 +1,17 @@
 import { CommonModule } from '@angular/common';
-import { Component, computed, Input, signal,HostListener } from '@angular/core';
+import { Component, HostListener, Input } from '@angular/core';
 import { CarouselModule } from 'ngx-owl-carousel-o';
-import { CardCategoriaComponent } from '../card-categoria';
+import { Categoria } from '../../../shared/interface';
 
 @Component({
   selector: 'app-carrossel-categorias',
   standalone: true,
-  imports: [CommonModule, CarouselModule, CardCategoriaComponent],
+  imports: [CommonModule, CarouselModule],
   templateUrl: './carrossel-categorias.component.html',
-  styleUrls: ['./carrossel-categorias.component.css']
+  styleUrls: ['./carrossel-categorias.component.css'],
 })
 export class CarrosselCategoriasComponent {
-  @Input() categorias: any[] = [];
+  @Input() categorias: Categoria[] = [];
   currentIndex: number = 0;
 
   itemsPerPage: number = this.getItemsPerPage(window.innerWidth);
@@ -72,4 +72,3 @@ export class CarrosselCategoriasComponent {
     return this.categorias.slice(start, end);
   }
 }
-

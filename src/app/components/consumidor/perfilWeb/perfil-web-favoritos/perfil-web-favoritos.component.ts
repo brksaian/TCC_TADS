@@ -1,6 +1,6 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Produto } from '../../../../shared/interface';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-perfil-web-favoritos',
@@ -12,62 +12,68 @@ import { CommonModule } from '@angular/common';
 export class PerfilWebFavoritosComponent {
   produtos: Produto[] = [
     {
-      id: 1,
+      id: '1',
       name: 'Pão Forma Seven Boys',
-      descricao: 'Pão forma macio e saboroso.',
+      code: '001',
+      category: '1',
       image: 'assets/pao-forma.png',
-      categoria: 1,
-      created_at: '2024-01-01T10:00:00Z',
-      updated_at: '2024-01-02T15:00:00Z',
+      price: 5.99,
+      unit: 'UND',
+      storeId: 'store001',
     },
     {
-      id: 2,
+      id: '2',
       name: 'Leite Integral',
-      descricao: 'Leite integral de alta qualidade.',
+      code: '002',
+      category: '2',
       image: 'assets/leite-integral.png',
-      categoria: 2,
-      created_at: '2024-01-03T08:00:00Z',
-      updated_at: '2024-01-03T10:00:00Z',
+      price: 4.5,
+      unit: 'LITRO',
+      storeId: 'store002',
     },
     {
-      id: 3,
+      id: '3',
       name: 'Café Torrado',
-      descricao: 'Café torrado e moído para o dia a dia.',
+      code: '003',
+      category: '3',
       image: 'assets/cafe-torrado.png',
-      categoria: 3,
-      created_at: '2024-01-05T09:00:00Z',
-      updated_at: '2024-01-06T13:00:00Z',
+      price: 10.9,
+      unit: 'KG',
+      storeId: 'store003',
     },
     {
-      id: 4,
+      id: '4',
       name: 'Biscoito Cream Cracker',
-      descricao: 'Biscoito leve e crocante.',
+      code: '004',
+      category: '4',
       image: 'assets/biscoito-cream-cracker.png',
-      categoria: 4,
-      created_at: '2024-01-08T11:00:00Z',
-      updated_at: '2024-01-09T12:00:00Z',
+      price: 3.99,
+      unit: 'PACOTE',
+      storeId: 'store004',
     },
     {
-      id: 5,
+      id: '5',
       name: 'Refrigerante Cola',
-      descricao: 'Refrigerante cola sabor clássico.',
+      code: '005',
+      category: '5',
       image: 'assets/refrigerante-cola.png',
-      categoria: 5,
-      created_at: '2024-01-10T14:00:00Z',
-      updated_at: '2024-01-11T16:00:00Z',
+      price: 6.5,
+      unit: 'LITRO',
+      storeId: 'store005',
     },
     {
-      id: 6,
+      id: '6',
       name: 'Arroz Tipo 1',
-      descricao: 'Arroz tipo 1, grãos selecionados.',
+      code: '006',
+      category: '6',
       image: 'assets/arroz-tipo1.png',
-      categoria: 6,
-      created_at: '2024-01-12T07:00:00Z',
-      updated_at: '2024-01-12T10:00:00Z',
+      price: 20.0,
+      unit: 'KG',
+      storeId: 'store006',
     },
   ];
 
-  removerFavorito(id: number): void {
+  removerFavorito(id: string): void {
     this.produtos = this.produtos.filter((produto) => produto.id !== id);
   }
 }

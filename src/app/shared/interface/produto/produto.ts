@@ -1,9 +1,10 @@
 export interface Produto {
-  id: number;
+  id: string;
   name: string;
-  descricao: string;
-  image: string;
-  categoria?: number;
-  created_at: string;
-  updated_at: string;
+  code: string;
+  category: string | null;
+  image: string | null;
+  price: number | null;
+  unit: string | null;
+  storeId: string | null;
 }

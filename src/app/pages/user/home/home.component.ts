@@ -9,22 +9,30 @@ import { Categoria, Produto } from '../../../shared/interface';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CarrosselProdutosComponent, CarrosselCategoriasComponent, CommonModule, HeaderHomeComponent],
+  imports: [
+    CarrosselProdutosComponent,
+    CarrosselCategoriasComponent,
+    CommonModule,
+    HeaderHomeComponent,
+  ],
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
   produtos: Produto[] = [];
 
   categorias: Categoria[] = [];
 
-  constructor(private produtoService: ProdutoService, private categoriaService: CategoriaService) {}
+  constructor(
+    private produtoService: ProdutoService,
+    private categoriaService: CategoriaService
+  ) {}
 
   ngOnInit(): void {
     this.produtoService.getProdutos().subscribe(
       (response) => {
         // this.produtos = respoonse.content;
-        this.produtos = response;
+        this.produtos = response.content;
       },
       (error) => {
         console.error('Erro ao carregar os produtos:', error);
@@ -33,11 +41,11 @@ export class HomeComponent implements OnInit {
 
     this.categoriaService.getCategorias().subscribe(
       (response) => {
-        // this.produtos = respoonse.content;
-        this.categorias = response;
+        console.log(response.content);
+        this.categorias = response.content;
       },
       (error) => {
-        console.error('Erro ao carregar os produtos:', error);
+        console.error('Erro ao carregar os categorias:', error);
       }
     );
   }
